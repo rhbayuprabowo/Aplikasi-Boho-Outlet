@@ -1,0 +1,536 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Aplikasi Boho Outlet
+</name>
+</assembly>
+<members>
+<member name="T:Aplikasi_Boho_Outlet.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Add_File_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Add_File_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Box_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Box_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Buy_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Buy_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Cancel_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Cancel_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Close_Window_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Close_Window_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Contacts_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Contacts_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Dashboard_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Dashboard_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Debt_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Delete_File_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Delete_File_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Edit_File_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Edit_File_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Exit_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Exit_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Filter_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Filter_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Fortune_Teller_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Fortune_Teller_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Home_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Home_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.icons8_Purchase_Order_16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.icons8_Purchase_Order_161">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.icons8_Shop_32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.icons8_Shop_321">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.ID_Card_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.ID_Card_24px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.ID_Card_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.ID_Card_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Menu_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Menu_24px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Minimize_Window_24px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Minimize_Window_24px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.New_Product_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.New_Product_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.People_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.People_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Person_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Person_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Price_Tag_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Price_Tag_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Product_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Product_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Purchase_Order_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Purchase_Order_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Refresh_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Refresh_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Restore_Window_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Restore_Window_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Return_Purchase_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Return_Purchase_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Sell_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Sell_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Used_Product_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Used_Product_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_MasukDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_BarangDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_PemasokDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_PenyesuaianDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_PembelianDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_Retur_PembelianDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_Pembayaran_HutangDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_PenjualanDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_MasukRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_BarangRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_PemasokRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_PenyesuaianRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_PembelianRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_Retur_PembelianRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_Pembayaran_HutangRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_PenjualanRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_MasukRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_BarangRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_PemasokRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_PenyesuaianRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_PembelianRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_Retur_PembelianRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_Pembayaran_HutangRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet.Tabel_PenjualanRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_MasukTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_BarangTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_PemasokTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_PenyesuaianTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_PembelianTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_Retur_PembelianTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_Pembayaran_HutangTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_PenjualanTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.TableAdapterManager.UpdateAll(Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+</members>
+</doc>
