@@ -1,6 +1,10 @@
-﻿Public Class FPemasok
+﻿Imports System.IO
+Imports Bunifu.Framework.UI
+
+Public Class FPemasok
 
     Private Tambah As Boolean = True
+    Private fileName As String = ""
 
     Public Sub EditData(TambahBaru As Boolean, KodePemasok As String)
 
@@ -40,7 +44,7 @@
                                                            TextboxAlamat.Text,
                                                            TextboxKota.Text,
                                                            TextboxKodePos.Text,
-                                                           Nothing)
+                                                           ConvertImageToByte(PictureboxPemasok.Image))
 
 
 
@@ -53,7 +57,7 @@
                                                            TextboxAlamat.Text,
                                                            TextboxKota.Text,
                                                            TextboxKodePos.Text,
-                                                           Nothing,
+                                                           ConvertImageToByte(PictureboxPemasok.Image),
                                                            TextboxKodePemasok.Text)
 
         End If
@@ -80,6 +84,68 @@
 
         Keluar()
 
+    End Sub
+
+    Private Sub ButtonPilihGambar_Click(sender As Object, e As EventArgs) Handles ButtonPilihGambar.Click
+        Dim myStream As Stream = Nothing
+        Dim openFileDialog1 As New OpenFileDialog With {
+            .InitialDirectory = "c:\",
+            .Filter = "File Gambar(*.bmp;*.jpg;*.jpeg;*.png;)|*.bmp;*.jpg;*.jpeg;*.png",
+            .FilterIndex = 2,
+            .RestoreDirectory = True,
+            .Multiselect = False
+        }
+
+        If openFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+            fileName = openFileDialog1.FileName
+            PictureboxPemasok.Image = Image.FromFile(fileName)
+        End If
+    End Sub
+
+    Private Sub ButtonHapusGambar_Click(sender As Object, e As EventArgs) Handles ButtonHapusGambar.Click
+        fileName = ""
+        PictureboxPemasok.Image = Nothing
+    End Sub
+
+    Private Function ConvertImageToByte(img As Image) As Byte()
+        Using memoryStream As New MemoryStream
+            img.Save(memoryStream, Imaging.ImageFormat.Jpeg)
+            Return memoryStream.ToArray
+        End Using
+    End Function
+
+    Private Sub ValidatingTextBoxes(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles TextboxKodePemasok.Validating,
+                                                                                                            TextboxNamaPemasok.Validating,
+                                                                                                            TextboxAlamat.Validating,
+                                                                                                            TextboxHP.Validating,
+                                                                                                            TextboxTelepon.Validating,
+                                                                                                            TextboxKota.Validating,
+                                                                                                            TextboxKodePos.Validating
+
+        Dim TextBoxes = DirectCast(sender, BunifuMaterialTextbox).Text
+        Dim IsError As String = ErrorMessageKodeBarang(TextBoxes)
+        If Not IsError = "" Then
+            TooltipError(DirectCast(sender, BunifuMaterialTextbox), IsError)
+            DirectCast(sender, BunifuMaterialTextbox).LineFocusedColor = Color.FromArgb(255, 20, 20)
+            e.Cancel = True
+        Else
+            DirectCast(sender, BunifuMaterialTextbox).LineFocusedColor = Color.FromArgb(48, 48, 48)
+        End If
+    End Sub
+
+    Private Function ErrorMessageKodeBarang(TextBoxes As String) As String
+        If TextBoxes.Length = 0 Then
+            Return "Tidak boleh kosong.!!!"
+        Else
+            Return ""
+        End If
+    End Function
+
+
+    Private Sub TooltipError(TextBoxes As BunifuMaterialTextbox, Pesan As String)
+        Dim toolTip1 As New ToolTip()
+        toolTip1.ShowAlways = True
+        toolTip1.Show(Pesan, TextBoxes, 0, -25, 1000)
     End Sub
 
 End Class
