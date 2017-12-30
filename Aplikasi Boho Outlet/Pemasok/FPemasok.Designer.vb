@@ -215,7 +215,7 @@ Partial Class FPemasok
         Me.PictureboxPemasok.Location = New System.Drawing.Point(426, 105)
         Me.PictureboxPemasok.Name = "PictureboxPemasok"
         Me.PictureboxPemasok.Size = New System.Drawing.Size(140, 140)
-        Me.PictureboxPemasok.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PictureboxPemasok.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureboxPemasok.TabIndex = 43
         Me.PictureboxPemasok.TabStop = False
         '

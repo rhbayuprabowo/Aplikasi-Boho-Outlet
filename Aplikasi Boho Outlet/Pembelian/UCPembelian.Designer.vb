@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class UCPembelian
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,20 +20,18 @@ Partial Class UCPembelian
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UCPembelian))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuDropdown1 = New Bunifu.Framework.UI.BunifuDropdown()
-        Me.BunifuMaterialTextbox1 = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.TextboxPencarian = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.ImageButtonTambah = New Bunifu.Framework.UI.BunifuImageButton()
         Me.ImageButtonEdit = New Bunifu.Framework.UI.BunifuImageButton()
         Me.ImageButtonHapus = New Bunifu.Framework.UI.BunifuImageButton()
         Me.ImageButtonMenyegarkan = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.BunifuImageButton5 = New Bunifu.Framework.UI.BunifuImageButton()
         Me.DataGridPembelian = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.NomorPembelianDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TanggalPembelianDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -54,7 +52,6 @@ Partial Class UCPembelian
         CType(Me.ImageButtonEdit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImageButtonHapus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImageButtonMenyegarkan, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BunifuImageButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridPembelian, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourcePembelian, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Database_Boho_OutletDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,40 +71,25 @@ Partial Class UCPembelian
         Me.BunifuCustomLabel1.Text = "Pembelian"
         Me.BunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'BunifuDropdown1
+        'TextboxPencarian
         '
-        Me.BunifuDropdown1.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuDropdown1.BorderRadius = 3
-        Me.BunifuDropdown1.DisabledColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuDropdown1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.BunifuDropdown1.Items = New String(-1) {}
-        Me.BunifuDropdown1.Location = New System.Drawing.Point(897, 67)
-        Me.BunifuDropdown1.Name = "BunifuDropdown1"
-        Me.BunifuDropdown1.NomalColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuDropdown1.onHoverColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuDropdown1.selectedIndex = -1
-        Me.BunifuDropdown1.Size = New System.Drawing.Size(185, 35)
-        Me.BunifuDropdown1.TabIndex = 1
-        '
-        'BunifuMaterialTextbox1
-        '
-        Me.BunifuMaterialTextbox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.BunifuMaterialTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.BunifuMaterialTextbox1.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.BunifuMaterialTextbox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuMaterialTextbox1.HintText = "Pencarian"
-        Me.BunifuMaterialTextbox1.isPassword = False
-        Me.BunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.BunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuMaterialTextbox1.LineThickness = 3
-        Me.BunifuMaterialTextbox1.Location = New System.Drawing.Point(705, 68)
-        Me.BunifuMaterialTextbox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.BunifuMaterialTextbox1.Name = "BunifuMaterialTextbox1"
-        Me.BunifuMaterialTextbox1.Size = New System.Drawing.Size(185, 35)
-        Me.BunifuMaterialTextbox1.TabIndex = 2
-        Me.BunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TextboxPencarian.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.TextboxPencarian.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxPencarian.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.TextboxPencarian.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.TextboxPencarian.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.TextboxPencarian.HintText = "Pencarian"
+        Me.TextboxPencarian.isPassword = False
+        Me.TextboxPencarian.LineFocusedColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.TextboxPencarian.LineIdleColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.TextboxPencarian.LineMouseHoverColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.TextboxPencarian.LineThickness = 3
+        Me.TextboxPencarian.Location = New System.Drawing.Point(897, 68)
+        Me.TextboxPencarian.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextboxPencarian.Name = "TextboxPencarian"
+        Me.TextboxPencarian.Size = New System.Drawing.Size(185, 35)
+        Me.TextboxPencarian.TabIndex = 2
+        Me.TextboxPencarian.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'ImageButtonTambah
         '
@@ -161,35 +143,22 @@ Partial Class UCPembelian
         Me.ImageButtonMenyegarkan.TabStop = False
         Me.ImageButtonMenyegarkan.Zoom = 10
         '
-        'BunifuImageButton5
-        '
-        Me.BunifuImageButton5.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuImageButton5.Image = CType(resources.GetObject("BunifuImageButton5.Image"), System.Drawing.Image)
-        Me.BunifuImageButton5.ImageActive = Nothing
-        Me.BunifuImageButton5.Location = New System.Drawing.Point(663, 68)
-        Me.BunifuImageButton5.Name = "BunifuImageButton5"
-        Me.BunifuImageButton5.Size = New System.Drawing.Size(35, 35)
-        Me.BunifuImageButton5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.BunifuImageButton5.TabIndex = 8
-        Me.BunifuImageButton5.TabStop = False
-        Me.BunifuImageButton5.Zoom = 10
-        '
         'DataGridPembelian
         '
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.DataGridPembelian.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.DataGridPembelian.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridPembelian.AutoGenerateColumns = False
         Me.DataGridPembelian.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.DataGridPembelian.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridPembelian.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridPembelian.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridPembelian.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridPembelian.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridPembelian.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NomorPembelianDataGridViewTextBoxColumn, Me.TanggalPembelianDataGridViewTextBoxColumn, Me.KodePemasokDataGridViewTextBoxColumn, Me.NamaPemasokDataGridViewTextBoxColumn, Me.KeteranganDataGridViewTextBoxColumn, Me.KodeBarangDataGridViewTextBoxColumn, Me.NamaBarangDataGridViewTextBoxColumn, Me.JumlahDataGridViewTextBoxColumn, Me.SatuanDataGridViewTextBoxColumn, Me.HargaDataGridViewTextBoxColumn, Me.TotalDataGridViewTextBoxColumn})
         Me.DataGridPembelian.DataSource = Me.BindingSourcePembelian
@@ -285,13 +254,11 @@ Partial Class UCPembelian
         Me.BunifuGradientPanel2.BackgroundImage = CType(resources.GetObject("BunifuGradientPanel2.BackgroundImage"), System.Drawing.Image)
         Me.BunifuGradientPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BunifuGradientPanel2.Controls.Add(Me.DataGridPembelian)
-        Me.BunifuGradientPanel2.Controls.Add(Me.BunifuImageButton5)
         Me.BunifuGradientPanel2.Controls.Add(Me.ImageButtonMenyegarkan)
         Me.BunifuGradientPanel2.Controls.Add(Me.ImageButtonHapus)
         Me.BunifuGradientPanel2.Controls.Add(Me.ImageButtonEdit)
         Me.BunifuGradientPanel2.Controls.Add(Me.ImageButtonTambah)
-        Me.BunifuGradientPanel2.Controls.Add(Me.BunifuMaterialTextbox1)
-        Me.BunifuGradientPanel2.Controls.Add(Me.BunifuDropdown1)
+        Me.BunifuGradientPanel2.Controls.Add(Me.TextboxPencarian)
         Me.BunifuGradientPanel2.Controls.Add(Me.BunifuCustomLabel1)
         Me.BunifuGradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BunifuGradientPanel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -320,7 +287,6 @@ Partial Class UCPembelian
         CType(Me.ImageButtonEdit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImageButtonHapus, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImageButtonMenyegarkan, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BunifuImageButton5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridPembelian, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourcePembelian, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Database_Boho_OutletDataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -331,13 +297,11 @@ Partial Class UCPembelian
     End Sub
 
     Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
-    Friend WithEvents BunifuDropdown1 As Bunifu.Framework.UI.BunifuDropdown
-    Friend WithEvents BunifuMaterialTextbox1 As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Friend WithEvents TextboxPencarian As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents ImageButtonTambah As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents ImageButtonEdit As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents ImageButtonHapus As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents ImageButtonMenyegarkan As Bunifu.Framework.UI.BunifuImageButton
-    Friend WithEvents BunifuImageButton5 As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents DataGridPembelian As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents NomorPembelianDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TanggalPembelianDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

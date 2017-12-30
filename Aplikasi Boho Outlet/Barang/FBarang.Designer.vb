@@ -316,6 +316,7 @@ Partial Class FBarang
         Me.PictureboxBarang.Location = New System.Drawing.Point(426, 109)
         Me.PictureboxBarang.Name = "PictureboxBarang"
         Me.PictureboxBarang.Size = New System.Drawing.Size(140, 140)
+        Me.PictureboxBarang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureboxBarang.TabIndex = 43
         Me.PictureboxBarang.TabStop = False
         '

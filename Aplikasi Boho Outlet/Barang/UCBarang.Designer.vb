@@ -27,18 +27,17 @@ Partial Class UCBarang
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.BunifuGradientPanel1 = New Bunifu.Framework.UI.BunifuGradientPanel()
-        Me.BunifuCustomLabel8 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel7 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel6 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel5 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel4 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuCustomLabel3 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.LabelHargaJual = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.LabelHargaBeli = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.LabelJumlah = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.LabelMerekBarang = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.LabelKategoriBarang = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.LabelKodeBarang = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.BunifuSeparator1 = New Bunifu.Framework.UI.BunifuSeparator()
         Me.PictureboxBarang = New System.Windows.Forms.PictureBox()
-        Me.BunifuCustomLabel2 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.LabelNamaBarang = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BunifuDropdown1 = New Bunifu.Framework.UI.BunifuDropdown()
-        Me.BunifuMaterialTextbox1 = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.TextboxPencarian = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.DatagridBarang = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.KodeBarangDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NamaBarangDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -55,7 +54,6 @@ Partial Class UCBarang
         Me.ImageButtonEdit = New Bunifu.Framework.UI.BunifuImageButton()
         Me.ImageButtonHapus = New Bunifu.Framework.UI.BunifuImageButton()
         Me.ImageButtonMenyegarkan = New Bunifu.Framework.UI.BunifuImageButton()
-        Me.BunifuImageButton5 = New Bunifu.Framework.UI.BunifuImageButton()
         Me.BunifuGradientPanel2 = New Bunifu.Framework.UI.BunifuGradientPanel()
         Me.Tabel_BarangTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_BarangTableAdapter()
         Me.BunifuGradientPanel1.SuspendLayout()
@@ -67,7 +65,6 @@ Partial Class UCBarang
         CType(Me.ImageButtonEdit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImageButtonHapus, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImageButtonMenyegarkan, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BunifuImageButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BunifuGradientPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -75,15 +72,15 @@ Partial Class UCBarang
         '
         Me.BunifuGradientPanel1.BackgroundImage = CType(resources.GetObject("BunifuGradientPanel1.BackgroundImage"), System.Drawing.Image)
         Me.BunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BunifuGradientPanel1.Controls.Add(Me.BunifuCustomLabel8)
-        Me.BunifuGradientPanel1.Controls.Add(Me.BunifuCustomLabel7)
-        Me.BunifuGradientPanel1.Controls.Add(Me.BunifuCustomLabel6)
-        Me.BunifuGradientPanel1.Controls.Add(Me.BunifuCustomLabel5)
-        Me.BunifuGradientPanel1.Controls.Add(Me.BunifuCustomLabel4)
-        Me.BunifuGradientPanel1.Controls.Add(Me.BunifuCustomLabel3)
+        Me.BunifuGradientPanel1.Controls.Add(Me.LabelHargaJual)
+        Me.BunifuGradientPanel1.Controls.Add(Me.LabelHargaBeli)
+        Me.BunifuGradientPanel1.Controls.Add(Me.LabelJumlah)
+        Me.BunifuGradientPanel1.Controls.Add(Me.LabelMerekBarang)
+        Me.BunifuGradientPanel1.Controls.Add(Me.LabelKategoriBarang)
+        Me.BunifuGradientPanel1.Controls.Add(Me.LabelKodeBarang)
         Me.BunifuGradientPanel1.Controls.Add(Me.BunifuSeparator1)
         Me.BunifuGradientPanel1.Controls.Add(Me.PictureboxBarang)
-        Me.BunifuGradientPanel1.Controls.Add(Me.BunifuCustomLabel2)
+        Me.BunifuGradientPanel1.Controls.Add(Me.LabelNamaBarang)
         Me.BunifuGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.BunifuGradientPanel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.BunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
@@ -96,83 +93,83 @@ Partial Class UCBarang
         Me.BunifuGradientPanel1.Size = New System.Drawing.Size(1111, 187)
         Me.BunifuGradientPanel1.TabIndex = 2
         '
-        'BunifuCustomLabel8
+        'LabelHargaJual
         '
-        Me.BunifuCustomLabel8.AutoSize = True
-        Me.BunifuCustomLabel8.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuCustomLabel8.Font = New System.Drawing.Font("Century Gothic", 12.0!)
-        Me.BunifuCustomLabel8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuCustomLabel8.Location = New System.Drawing.Point(701, 135)
-        Me.BunifuCustomLabel8.Name = "BunifuCustomLabel8"
-        Me.BunifuCustomLabel8.Size = New System.Drawing.Size(156, 21)
-        Me.BunifuCustomLabel8.TabIndex = 9
-        Me.BunifuCustomLabel8.Text = "Harga Jual Satuan"
-        Me.BunifuCustomLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelHargaJual.AutoSize = True
+        Me.LabelHargaJual.BackColor = System.Drawing.Color.Transparent
+        Me.LabelHargaJual.Font = New System.Drawing.Font("Century Gothic", 12.0!)
+        Me.LabelHargaJual.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.LabelHargaJual.Location = New System.Drawing.Point(701, 135)
+        Me.LabelHargaJual.Name = "LabelHargaJual"
+        Me.LabelHargaJual.Size = New System.Drawing.Size(95, 21)
+        Me.LabelHargaJual.TabIndex = 9
+        Me.LabelHargaJual.Text = "Harga Jual"
+        Me.LabelHargaJual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'BunifuCustomLabel7
+        'LabelHargaBeli
         '
-        Me.BunifuCustomLabel7.AutoSize = True
-        Me.BunifuCustomLabel7.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuCustomLabel7.Font = New System.Drawing.Font("Century Gothic", 12.0!)
-        Me.BunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuCustomLabel7.Location = New System.Drawing.Point(701, 94)
-        Me.BunifuCustomLabel7.Name = "BunifuCustomLabel7"
-        Me.BunifuCustomLabel7.Size = New System.Drawing.Size(149, 21)
-        Me.BunifuCustomLabel7.TabIndex = 8
-        Me.BunifuCustomLabel7.Text = "Harga Beli Satuan"
-        Me.BunifuCustomLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelHargaBeli.AutoSize = True
+        Me.LabelHargaBeli.BackColor = System.Drawing.Color.Transparent
+        Me.LabelHargaBeli.Font = New System.Drawing.Font("Century Gothic", 12.0!)
+        Me.LabelHargaBeli.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.LabelHargaBeli.Location = New System.Drawing.Point(701, 94)
+        Me.LabelHargaBeli.Name = "LabelHargaBeli"
+        Me.LabelHargaBeli.Size = New System.Drawing.Size(88, 21)
+        Me.LabelHargaBeli.TabIndex = 8
+        Me.LabelHargaBeli.Text = "Harga Beli"
+        Me.LabelHargaBeli.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'BunifuCustomLabel6
+        'LabelJumlah
         '
-        Me.BunifuCustomLabel6.AutoSize = True
-        Me.BunifuCustomLabel6.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuCustomLabel6.Font = New System.Drawing.Font("Century Gothic", 12.0!)
-        Me.BunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuCustomLabel6.Location = New System.Drawing.Point(701, 56)
-        Me.BunifuCustomLabel6.Name = "BunifuCustomLabel6"
-        Me.BunifuCustomLabel6.Size = New System.Drawing.Size(67, 21)
-        Me.BunifuCustomLabel6.TabIndex = 7
-        Me.BunifuCustomLabel6.Text = "Jumlah"
-        Me.BunifuCustomLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelJumlah.AutoSize = True
+        Me.LabelJumlah.BackColor = System.Drawing.Color.Transparent
+        Me.LabelJumlah.Font = New System.Drawing.Font("Century Gothic", 12.0!)
+        Me.LabelJumlah.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.LabelJumlah.Location = New System.Drawing.Point(701, 56)
+        Me.LabelJumlah.Name = "LabelJumlah"
+        Me.LabelJumlah.Size = New System.Drawing.Size(67, 21)
+        Me.LabelJumlah.TabIndex = 7
+        Me.LabelJumlah.Text = "Jumlah"
+        Me.LabelJumlah.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'BunifuCustomLabel5
+        'LabelMerekBarang
         '
-        Me.BunifuCustomLabel5.AutoSize = True
-        Me.BunifuCustomLabel5.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuCustomLabel5.Font = New System.Drawing.Font("Century Gothic", 12.0!)
-        Me.BunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuCustomLabel5.Location = New System.Drawing.Point(163, 135)
-        Me.BunifuCustomLabel5.Name = "BunifuCustomLabel5"
-        Me.BunifuCustomLabel5.Size = New System.Drawing.Size(116, 21)
-        Me.BunifuCustomLabel5.TabIndex = 6
-        Me.BunifuCustomLabel5.Text = "Satuan Dasar"
-        Me.BunifuCustomLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelMerekBarang.AutoSize = True
+        Me.LabelMerekBarang.BackColor = System.Drawing.Color.Transparent
+        Me.LabelMerekBarang.Font = New System.Drawing.Font("Century Gothic", 12.0!)
+        Me.LabelMerekBarang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.LabelMerekBarang.Location = New System.Drawing.Point(163, 135)
+        Me.LabelMerekBarang.Name = "LabelMerekBarang"
+        Me.LabelMerekBarang.Size = New System.Drawing.Size(119, 21)
+        Me.LabelMerekBarang.TabIndex = 6
+        Me.LabelMerekBarang.Text = "Merek Barang"
+        Me.LabelMerekBarang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'BunifuCustomLabel4
+        'LabelKategoriBarang
         '
-        Me.BunifuCustomLabel4.AutoSize = True
-        Me.BunifuCustomLabel4.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuCustomLabel4.Font = New System.Drawing.Font("Century Gothic", 12.0!)
-        Me.BunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuCustomLabel4.Location = New System.Drawing.Point(163, 94)
-        Me.BunifuCustomLabel4.Name = "BunifuCustomLabel4"
-        Me.BunifuCustomLabel4.Size = New System.Drawing.Size(137, 21)
-        Me.BunifuCustomLabel4.TabIndex = 5
-        Me.BunifuCustomLabel4.Text = "Kategori Barang"
-        Me.BunifuCustomLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelKategoriBarang.AutoSize = True
+        Me.LabelKategoriBarang.BackColor = System.Drawing.Color.Transparent
+        Me.LabelKategoriBarang.Font = New System.Drawing.Font("Century Gothic", 12.0!)
+        Me.LabelKategoriBarang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.LabelKategoriBarang.Location = New System.Drawing.Point(163, 94)
+        Me.LabelKategoriBarang.Name = "LabelKategoriBarang"
+        Me.LabelKategoriBarang.Size = New System.Drawing.Size(137, 21)
+        Me.LabelKategoriBarang.TabIndex = 5
+        Me.LabelKategoriBarang.Text = "Kategori Barang"
+        Me.LabelKategoriBarang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'BunifuCustomLabel3
+        'LabelKodeBarang
         '
-        Me.BunifuCustomLabel3.AutoSize = True
-        Me.BunifuCustomLabel3.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuCustomLabel3.Font = New System.Drawing.Font("Century Gothic", 12.0!)
-        Me.BunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuCustomLabel3.Location = New System.Drawing.Point(163, 56)
-        Me.BunifuCustomLabel3.Name = "BunifuCustomLabel3"
-        Me.BunifuCustomLabel3.Size = New System.Drawing.Size(111, 21)
-        Me.BunifuCustomLabel3.TabIndex = 4
-        Me.BunifuCustomLabel3.Text = "Kode Barang"
-        Me.BunifuCustomLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelKodeBarang.AutoSize = True
+        Me.LabelKodeBarang.BackColor = System.Drawing.Color.Transparent
+        Me.LabelKodeBarang.Font = New System.Drawing.Font("Century Gothic", 12.0!)
+        Me.LabelKodeBarang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.LabelKodeBarang.Location = New System.Drawing.Point(163, 56)
+        Me.LabelKodeBarang.Name = "LabelKodeBarang"
+        Me.LabelKodeBarang.Size = New System.Drawing.Size(111, 21)
+        Me.LabelKodeBarang.TabIndex = 4
+        Me.LabelKodeBarang.Text = "Kode Barang"
+        Me.LabelKodeBarang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'BunifuSeparator1
         '
@@ -193,21 +190,22 @@ Partial Class UCBarang
         Me.PictureboxBarang.Location = New System.Drawing.Point(29, 56)
         Me.PictureboxBarang.Name = "PictureboxBarang"
         Me.PictureboxBarang.Size = New System.Drawing.Size(100, 100)
+        Me.PictureboxBarang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureboxBarang.TabIndex = 2
         Me.PictureboxBarang.TabStop = False
         '
-        'BunifuCustomLabel2
+        'LabelNamaBarang
         '
-        Me.BunifuCustomLabel2.AutoSize = True
-        Me.BunifuCustomLabel2.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuCustomLabel2.Font = New System.Drawing.Font("Century Gothic", 16.0!)
-        Me.BunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuCustomLabel2.Location = New System.Drawing.Point(24, 17)
-        Me.BunifuCustomLabel2.Name = "BunifuCustomLabel2"
-        Me.BunifuCustomLabel2.Size = New System.Drawing.Size(164, 25)
-        Me.BunifuCustomLabel2.TabIndex = 1
-        Me.BunifuCustomLabel2.Text = "Nama Barang"
-        Me.BunifuCustomLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabelNamaBarang.AutoSize = True
+        Me.LabelNamaBarang.BackColor = System.Drawing.Color.Transparent
+        Me.LabelNamaBarang.Font = New System.Drawing.Font("Century Gothic", 16.0!)
+        Me.LabelNamaBarang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.LabelNamaBarang.Location = New System.Drawing.Point(24, 17)
+        Me.LabelNamaBarang.Name = "LabelNamaBarang"
+        Me.LabelNamaBarang.Size = New System.Drawing.Size(164, 25)
+        Me.LabelNamaBarang.TabIndex = 1
+        Me.LabelNamaBarang.Text = "Nama Barang"
+        Me.LabelNamaBarang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'BunifuCustomLabel1
         '
@@ -222,40 +220,25 @@ Partial Class UCBarang
         Me.BunifuCustomLabel1.Text = "Barang"
         Me.BunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'BunifuDropdown1
+        'TextboxPencarian
         '
-        Me.BunifuDropdown1.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuDropdown1.BorderRadius = 3
-        Me.BunifuDropdown1.DisabledColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuDropdown1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.BunifuDropdown1.Items = New String(-1) {}
-        Me.BunifuDropdown1.Location = New System.Drawing.Point(897, 67)
-        Me.BunifuDropdown1.Name = "BunifuDropdown1"
-        Me.BunifuDropdown1.NomalColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuDropdown1.onHoverColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuDropdown1.selectedIndex = -1
-        Me.BunifuDropdown1.Size = New System.Drawing.Size(185, 35)
-        Me.BunifuDropdown1.TabIndex = 1
-        '
-        'BunifuMaterialTextbox1
-        '
-        Me.BunifuMaterialTextbox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.BunifuMaterialTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.BunifuMaterialTextbox1.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.BunifuMaterialTextbox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuMaterialTextbox1.HintText = "Pencarian"
-        Me.BunifuMaterialTextbox1.isPassword = False
-        Me.BunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.BunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuMaterialTextbox1.LineThickness = 3
-        Me.BunifuMaterialTextbox1.Location = New System.Drawing.Point(705, 68)
-        Me.BunifuMaterialTextbox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.BunifuMaterialTextbox1.Name = "BunifuMaterialTextbox1"
-        Me.BunifuMaterialTextbox1.Size = New System.Drawing.Size(185, 35)
-        Me.BunifuMaterialTextbox1.TabIndex = 2
-        Me.BunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TextboxPencarian.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.TextboxPencarian.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxPencarian.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.TextboxPencarian.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.TextboxPencarian.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.TextboxPencarian.HintText = "Pencarian"
+        Me.TextboxPencarian.isPassword = False
+        Me.TextboxPencarian.LineFocusedColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.TextboxPencarian.LineIdleColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.TextboxPencarian.LineMouseHoverColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.TextboxPencarian.LineThickness = 3
+        Me.TextboxPencarian.Location = New System.Drawing.Point(897, 68)
+        Me.TextboxPencarian.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextboxPencarian.Name = "TextboxPencarian"
+        Me.TextboxPencarian.Size = New System.Drawing.Size(185, 35)
+        Me.TextboxPencarian.TabIndex = 2
+        Me.TextboxPencarian.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'DatagridBarang
         '
@@ -405,31 +388,16 @@ Partial Class UCBarang
         Me.ImageButtonMenyegarkan.TabStop = False
         Me.ImageButtonMenyegarkan.Zoom = 10
         '
-        'BunifuImageButton5
-        '
-        Me.BunifuImageButton5.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuImageButton5.Image = CType(resources.GetObject("BunifuImageButton5.Image"), System.Drawing.Image)
-        Me.BunifuImageButton5.ImageActive = Nothing
-        Me.BunifuImageButton5.Location = New System.Drawing.Point(663, 68)
-        Me.BunifuImageButton5.Name = "BunifuImageButton5"
-        Me.BunifuImageButton5.Size = New System.Drawing.Size(35, 35)
-        Me.BunifuImageButton5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.BunifuImageButton5.TabIndex = 8
-        Me.BunifuImageButton5.TabStop = False
-        Me.BunifuImageButton5.Zoom = 10
-        '
         'BunifuGradientPanel2
         '
         Me.BunifuGradientPanel2.BackgroundImage = CType(resources.GetObject("BunifuGradientPanel2.BackgroundImage"), System.Drawing.Image)
         Me.BunifuGradientPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BunifuGradientPanel2.Controls.Add(Me.BunifuImageButton5)
         Me.BunifuGradientPanel2.Controls.Add(Me.ImageButtonMenyegarkan)
         Me.BunifuGradientPanel2.Controls.Add(Me.ImageButtonHapus)
         Me.BunifuGradientPanel2.Controls.Add(Me.ImageButtonEdit)
         Me.BunifuGradientPanel2.Controls.Add(Me.ImageButtonTambah)
         Me.BunifuGradientPanel2.Controls.Add(Me.DatagridBarang)
-        Me.BunifuGradientPanel2.Controls.Add(Me.BunifuMaterialTextbox1)
-        Me.BunifuGradientPanel2.Controls.Add(Me.BunifuDropdown1)
+        Me.BunifuGradientPanel2.Controls.Add(Me.TextboxPencarian)
         Me.BunifuGradientPanel2.Controls.Add(Me.BunifuCustomLabel1)
         Me.BunifuGradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BunifuGradientPanel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -466,32 +434,32 @@ Partial Class UCBarang
         CType(Me.ImageButtonEdit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImageButtonHapus, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImageButtonMenyegarkan, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BunifuImageButton5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BunifuGradientPanel2.ResumeLayout(False)
         Me.BunifuGradientPanel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents BunifuCustomLabel8 As Bunifu.Framework.UI.BunifuCustomLabel
-    Friend WithEvents BunifuCustomLabel7 As Bunifu.Framework.UI.BunifuCustomLabel
-    Friend WithEvents BunifuCustomLabel6 As Bunifu.Framework.UI.BunifuCustomLabel
-    Friend WithEvents BunifuCustomLabel5 As Bunifu.Framework.UI.BunifuCustomLabel
-    Friend WithEvents BunifuCustomLabel4 As Bunifu.Framework.UI.BunifuCustomLabel
-    Friend WithEvents BunifuCustomLabel3 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents LabelHargaJual As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents LabelHargaBeli As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents LabelJumlah As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents LabelMerekBarang As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents LabelKategoriBarang As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents LabelKodeBarang As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents BunifuSeparator1 As Bunifu.Framework.UI.BunifuSeparator
     Friend WithEvents PictureboxBarang As PictureBox
-    Friend WithEvents BunifuCustomLabel2 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents LabelNamaBarang As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents BunifuGradientPanel1 As Bunifu.Framework.UI.BunifuGradientPanel
     Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
-    Friend WithEvents BunifuDropdown1 As Bunifu.Framework.UI.BunifuDropdown
-    Friend WithEvents BunifuMaterialTextbox1 As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Friend WithEvents TextboxPencarian As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents DatagridBarang As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents ImageButtonTambah As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents ImageButtonEdit As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents ImageButtonHapus As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents ImageButtonMenyegarkan As Bunifu.Framework.UI.BunifuImageButton
-    Friend WithEvents BunifuImageButton5 As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents BunifuGradientPanel2 As Bunifu.Framework.UI.BunifuGradientPanel
+    Friend WithEvents BindingSourceBarang As BindingSource
+    Friend WithEvents Database_Boho_OutletDataSet As Database_Boho_OutletDataSet
+    Friend WithEvents Tabel_BarangTableAdapter As Database_Boho_OutletDataSetTableAdapters.Tabel_BarangTableAdapter
     Friend WithEvents KodeBarangDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NamaBarangDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents KategoriBarangDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -501,7 +469,4 @@ Partial Class UCBarang
     Friend WithEvents HargaBeliDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents HargaJualDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents GambarDataGridViewImageColumn As DataGridViewImageColumn
-    Friend WithEvents BindingSourceBarang As BindingSource
-    Friend WithEvents Database_Boho_OutletDataSet As Database_Boho_OutletDataSet
-    Friend WithEvents Tabel_BarangTableAdapter As Database_Boho_OutletDataSetTableAdapters.Tabel_BarangTableAdapter
 End Class

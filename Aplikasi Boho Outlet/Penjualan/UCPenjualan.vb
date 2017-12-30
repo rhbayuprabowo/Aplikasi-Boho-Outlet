@@ -20,9 +20,11 @@
 
     Private Sub ImageButtonEdit_Click(sender As Object, e As EventArgs) Handles ImageButtonEdit.Click
 
+        Dim NomorPenjualan = DataGridPenjualan.Item(0, DataGridPenjualan.SelectedCells.Item(0).RowIndex).Value
+
         Dim FormTambah As New FPenjualan
 
-        FormTambah.EditData(False, "")
+        FormTambah.EditData(False, NomorPenjualan)
         FormTambah.ShowDialog()
         FormTambah.Dispose()
 
@@ -43,6 +45,17 @@
     Private Sub ImageButtonMenyegarkan_Click(sender As Object, e As EventArgs) Handles ImageButtonMenyegarkan.Click
 
         Me.Tabel_PenjualanTableAdapter.Fill(Me.Database_Boho_OutletDataSet.Tabel_Penjualan)
+
+    End Sub
+
+    Private Sub TextboxPencarian_KeyDown(sender As Object, e As KeyEventArgs) Handles TextboxPencarian.KeyDown
+
+        If e.KeyCode = Keys.Enter Then
+
+            Me.Tabel_PenjualanTableAdapter.FillByFilterPencarian(Me.Database_Boho_OutletDataSet.Tabel_Penjualan, "%" + TextboxPencarian.Text + "%")
+            TextboxPencarian.Text = ""
+
+        End If
 
     End Sub
 

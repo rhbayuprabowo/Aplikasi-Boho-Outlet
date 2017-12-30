@@ -1,6 +1,9 @@
-﻿Public Class FPenjualan
+﻿Imports System.IO
+Imports Bunifu.Framework.UI
+Public Class FPenjualan
 
     Private Tambah As Boolean = True
+    Private fileName As String = ""
 
     Public Sub EditData(TambahBaru As Boolean, NomorPenjualan As String)
 
@@ -114,6 +117,42 @@
 
         Keluar()
 
+    End Sub
+
+    Private Sub FPenjualan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        DatepickerTanggalPenjualan.Value = Date.Now
+
+    End Sub
+
+    Private Sub ValidatingTextBoxes(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles TextboxNomorPenjualan.Validating,
+                                                                                                          TextboxNamaPelanggan.Validating
+
+
+        Dim TextBoxes = DirectCast(sender, BunifuMaterialTextbox).Text
+        Dim IsError As String = ErrorMessageNomorPenjualan(TextBoxes)
+        If Not IsError = "" Then
+            TooltipError(DirectCast(sender, BunifuMaterialTextbox), IsError)
+            DirectCast(sender, BunifuMaterialTextbox).LineFocusedColor = Color.FromArgb(255, 20, 20)
+            e.Cancel = True
+        Else
+            DirectCast(sender, BunifuMaterialTextbox).LineFocusedColor = Color.FromArgb(48, 48, 48)
+        End If
+    End Sub
+
+    Private Function ErrorMessageNomorPenjualan(TextBoxes As String) As String
+        If TextBoxes.Length = 0 Then
+            Return "Tidak boleh kosong.!!!"
+        Else
+            Return ""
+        End If
+    End Function
+
+    Private Sub TooltipError(TextBoxes As BunifuMaterialTextbox, Pesan As String)
+        Dim toolTip1 As New ToolTip With {
+            .ShowAlways = True
+        }
+        toolTip1.Show(Pesan, TextBoxes, 0, -25, 1000)
     End Sub
 
 End Class

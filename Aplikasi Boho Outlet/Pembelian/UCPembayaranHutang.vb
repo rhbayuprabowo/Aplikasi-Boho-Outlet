@@ -19,4 +19,16 @@
         Me.Tabel_Pembayaran_HutangTableAdapter.Fill(Me.Database_Boho_OutletDataSet.Tabel_Pembayaran_Hutang)
 
     End Sub
+
+    Private Sub TextboxPencarian_KeyDown(sender As Object, e As KeyEventArgs) Handles TextboxPencarian.KeyDown
+
+        If e.KeyCode = Keys.Enter Then
+
+            Me.Tabel_Pembayaran_HutangTableAdapter.FillByFilterPencarian(Me.Database_Boho_OutletDataSet.Tabel_Pembayaran_Hutang, "%" + TextboxPencarian.Text + "%")
+            TextboxPencarian.Text = ""
+
+        End If
+
+    End Sub
+
 End Class

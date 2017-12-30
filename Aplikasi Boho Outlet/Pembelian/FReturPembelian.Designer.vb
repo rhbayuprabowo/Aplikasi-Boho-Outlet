@@ -24,7 +24,6 @@ Partial Class FReturPembelian
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FReturPembelian))
-        Me.ButtonBarang = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.TextboxHarga = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.TextboxNamaBarang = New Bunifu.Framework.UI.BunifuMaterialTextbox()
@@ -46,45 +45,13 @@ Partial Class FReturPembelian
         Me.BindingSourceReturPembelian = New System.Windows.Forms.BindingSource(Me.components)
         Me.Database_Boho_OutletDataSet = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet()
         Me.Tabel_Retur_PembelianTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_Retur_PembelianTableAdapter()
+        Me.ImageButtonKodeBarang = New Bunifu.Framework.UI.BunifuImageButton()
         CType(Me.ImageButtonKeluar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPemasok.SuspendLayout()
         CType(Me.BindingSourceReturPembelian, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Database_Boho_OutletDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImageButtonKodeBarang, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ButtonBarang
-        '
-        Me.ButtonBarang.Activecolor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ButtonBarang.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ButtonBarang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ButtonBarang.BorderRadius = 0
-        Me.ButtonBarang.ButtonText = "..."
-        Me.ButtonBarang.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonBarang.DisabledColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.ButtonBarang.Iconcolor = System.Drawing.Color.Transparent
-        Me.ButtonBarang.Iconimage = Nothing
-        Me.ButtonBarang.Iconimage_right = Nothing
-        Me.ButtonBarang.Iconimage_right_Selected = Nothing
-        Me.ButtonBarang.Iconimage_Selected = Nothing
-        Me.ButtonBarang.IconMarginLeft = 0
-        Me.ButtonBarang.IconMarginRight = 0
-        Me.ButtonBarang.IconRightVisible = True
-        Me.ButtonBarang.IconRightZoom = 0R
-        Me.ButtonBarang.IconVisible = True
-        Me.ButtonBarang.IconZoom = 90.0R
-        Me.ButtonBarang.IsTab = False
-        Me.ButtonBarang.Location = New System.Drawing.Point(183, 181)
-        Me.ButtonBarang.Name = "ButtonBarang"
-        Me.ButtonBarang.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ButtonBarang.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ButtonBarang.OnHoverTextColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.ButtonBarang.selected = False
-        Me.ButtonBarang.Size = New System.Drawing.Size(36, 28)
-        Me.ButtonBarang.TabIndex = 71
-        Me.ButtonBarang.Text = "..."
-        Me.ButtonBarang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.ButtonBarang.Textcolor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.ButtonBarang.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
         'BunifuCustomLabel1
         '
@@ -349,9 +316,9 @@ Partial Class FReturPembelian
         '
         Me.PanelPemasok.BackgroundImage = CType(resources.GetObject("PanelPemasok.BackgroundImage"), System.Drawing.Image)
         Me.PanelPemasok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PanelPemasok.Controls.Add(Me.ImageButtonKodeBarang)
         Me.PanelPemasok.Controls.Add(Me.TextboxKeterangan)
         Me.PanelPemasok.Controls.Add(Me.BunifuCustomLabel5)
-        Me.PanelPemasok.Controls.Add(Me.ButtonBarang)
         Me.PanelPemasok.Controls.Add(Me.BunifuCustomLabel1)
         Me.PanelPemasok.Controls.Add(Me.TextboxHarga)
         Me.PanelPemasok.Controls.Add(Me.TextboxNamaBarang)
@@ -459,6 +426,19 @@ Partial Class FReturPembelian
         '
         Me.Tabel_Retur_PembelianTableAdapter.ClearBeforeFill = True
         '
+        'ImageButtonKodeBarang
+        '
+        Me.ImageButtonKodeBarang.BackColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.ImageButtonKodeBarang.Image = Global.Aplikasi_Boho_Outlet.My.Resources.Resources.More_96px1
+        Me.ImageButtonKodeBarang.ImageActive = Nothing
+        Me.ImageButtonKodeBarang.Location = New System.Drawing.Point(184, 180)
+        Me.ImageButtonKodeBarang.Name = "ImageButtonKodeBarang"
+        Me.ImageButtonKodeBarang.Size = New System.Drawing.Size(30, 30)
+        Me.ImageButtonKodeBarang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.ImageButtonKodeBarang.TabIndex = 74
+        Me.ImageButtonKodeBarang.TabStop = False
+        Me.ImageButtonKodeBarang.Zoom = 10
+        '
         'FReturPembelian
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -474,11 +454,10 @@ Partial Class FReturPembelian
         Me.PanelPemasok.PerformLayout()
         CType(Me.BindingSourceReturPembelian, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Database_Boho_OutletDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImageButtonKodeBarang, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents ButtonBarang As Bunifu.Framework.UI.BunifuFlatButton
     Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents TextboxHarga As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents TextboxNamaBarang As Bunifu.Framework.UI.BunifuMaterialTextbox
@@ -500,4 +479,5 @@ Partial Class FReturPembelian
     Friend WithEvents BindingSourceReturPembelian As BindingSource
     Friend WithEvents Database_Boho_OutletDataSet As Database_Boho_OutletDataSet
     Friend WithEvents Tabel_Retur_PembelianTableAdapter As Database_Boho_OutletDataSetTableAdapters.Tabel_Retur_PembelianTableAdapter
+    Friend WithEvents ImageButtonKodeBarang As Bunifu.Framework.UI.BunifuImageButton
 End Class

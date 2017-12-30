@@ -21,7 +21,10 @@ Public Class FPemasok
             TextboxAlamat.Text = Data(0).Alamat
             TextboxKota.Text = Data(0).Kota
             TextboxKodePos.Text = Data(0).Kode_Pos
-            'PictureboxGambar = Data(0).Gambar
+            If Not Data(0).Gambar Is Nothing Then
+                PictureboxPemasok.Image = ConvertByteToImage(Data(0).Gambar)
+            End If
+
 
         End If
 
@@ -69,6 +72,7 @@ Public Class FPemasok
         TextboxAlamat.Text = ""
         TextboxKota.Text = ""
         TextboxKodePos.Text = ""
+        PictureboxPemasok.Image = Nothing
 
         Me.Tabel_PemasokTableAdapter.Fill(Me.Database_Boho_OutletDataSet.Tabel_Pemasok)
 
@@ -114,16 +118,22 @@ Public Class FPemasok
         End Using
     End Function
 
+    Private Function ConvertByteToImage(bit As Byte()) As Image
+        Using memoryStream As New MemoryStream(bit)
+            Return Image.FromStream(memoryStream)
+        End Using
+    End Function
+
     Private Sub ValidatingTextBoxes(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles TextboxKodePemasok.Validating,
-                                                                                                            TextboxNamaPemasok.Validating,
-                                                                                                            TextboxAlamat.Validating,
-                                                                                                            TextboxHP.Validating,
-                                                                                                            TextboxTelepon.Validating,
-                                                                                                            TextboxKota.Validating,
-                                                                                                            TextboxKodePos.Validating
+                                                                                                          TextboxNamaPemasok.Validating,
+                                                                                                          TextboxAlamat.Validating,
+                                                                                                          TextboxHP.Validating,
+                                                                                                          TextboxTelepon.Validating,
+                                                                                                          TextboxKota.Validating,
+                                                                                                          TextboxKodePos.Validating
 
         Dim TextBoxes = DirectCast(sender, BunifuMaterialTextbox).Text
-        Dim IsError As String = ErrorMessageKodeBarang(TextBoxes)
+        Dim IsError As String = ErrorMessageKodePemasok(TextBoxes)
         If Not IsError = "" Then
             TooltipError(DirectCast(sender, BunifuMaterialTextbox), IsError)
             DirectCast(sender, BunifuMaterialTextbox).LineFocusedColor = Color.FromArgb(255, 20, 20)
@@ -133,7 +143,7 @@ Public Class FPemasok
         End If
     End Sub
 
-    Private Function ErrorMessageKodeBarang(TextBoxes As String) As String
+    Private Function ErrorMessageKodePemasok(TextBoxes As String) As String
         If TextBoxes.Length = 0 Then
             Return "Tidak boleh kosong.!!!"
         Else
@@ -143,8 +153,9 @@ Public Class FPemasok
 
 
     Private Sub TooltipError(TextBoxes As BunifuMaterialTextbox, Pesan As String)
-        Dim toolTip1 As New ToolTip()
-        toolTip1.ShowAlways = True
+        Dim toolTip1 As New ToolTip With {
+            .ShowAlways = True
+        }
         toolTip1.Show(Pesan, TextBoxes, 0, -25, 1000)
     End Sub
 

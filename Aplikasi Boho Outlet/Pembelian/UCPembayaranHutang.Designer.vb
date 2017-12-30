@@ -27,24 +27,21 @@ Partial Class UCPembayaranHutang
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.BunifuGradientPanel2 = New Bunifu.Framework.UI.BunifuGradientPanel()
-        Me.BunifuImageButton5 = New Bunifu.Framework.UI.BunifuImageButton()
         Me.ImageButtonMenyegarkan = New Bunifu.Framework.UI.BunifuImageButton()
         Me.ImageButtonTambah = New Bunifu.Framework.UI.BunifuImageButton()
         Me.DatagridPenyesuaian = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.BunifuMaterialTextbox1 = New Bunifu.Framework.UI.BunifuMaterialTextbox()
-        Me.BunifuDropdown1 = New Bunifu.Framework.UI.BunifuDropdown()
-        Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.BindingSourcePembayaranHutang = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Database_Boho_OutletDataSet = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet()
-        Me.Tabel_Pembayaran_HutangTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_Pembayaran_HutangTableAdapter()
         Me.NomorPembayaranDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TanggalPembayaranDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NomorPembelianDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.KodePemasokDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NamaPemasokDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BindingSourcePembayaranHutang = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Database_Boho_OutletDataSet = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet()
+        Me.TextboxPencarian = New Bunifu.Framework.UI.BunifuMaterialTextbox()
+        Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.Tabel_Pembayaran_HutangTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_Pembayaran_HutangTableAdapter()
         Me.BunifuGradientPanel2.SuspendLayout()
-        CType(Me.BunifuImageButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImageButtonMenyegarkan, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImageButtonTambah, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatagridPenyesuaian, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,12 +53,10 @@ Partial Class UCPembayaranHutang
         '
         Me.BunifuGradientPanel2.BackgroundImage = CType(resources.GetObject("BunifuGradientPanel2.BackgroundImage"), System.Drawing.Image)
         Me.BunifuGradientPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BunifuGradientPanel2.Controls.Add(Me.BunifuImageButton5)
         Me.BunifuGradientPanel2.Controls.Add(Me.ImageButtonMenyegarkan)
         Me.BunifuGradientPanel2.Controls.Add(Me.ImageButtonTambah)
         Me.BunifuGradientPanel2.Controls.Add(Me.DatagridPenyesuaian)
-        Me.BunifuGradientPanel2.Controls.Add(Me.BunifuMaterialTextbox1)
-        Me.BunifuGradientPanel2.Controls.Add(Me.BunifuDropdown1)
+        Me.BunifuGradientPanel2.Controls.Add(Me.TextboxPencarian)
         Me.BunifuGradientPanel2.Controls.Add(Me.BunifuCustomLabel1)
         Me.BunifuGradientPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BunifuGradientPanel2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -74,19 +69,6 @@ Partial Class UCPembayaranHutang
         Me.BunifuGradientPanel2.Quality = 10
         Me.BunifuGradientPanel2.Size = New System.Drawing.Size(1111, 660)
         Me.BunifuGradientPanel2.TabIndex = 6
-        '
-        'BunifuImageButton5
-        '
-        Me.BunifuImageButton5.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuImageButton5.Image = CType(resources.GetObject("BunifuImageButton5.Image"), System.Drawing.Image)
-        Me.BunifuImageButton5.ImageActive = Nothing
-        Me.BunifuImageButton5.Location = New System.Drawing.Point(663, 68)
-        Me.BunifuImageButton5.Name = "BunifuImageButton5"
-        Me.BunifuImageButton5.Size = New System.Drawing.Size(35, 35)
-        Me.BunifuImageButton5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.BunifuImageButton5.TabIndex = 8
-        Me.BunifuImageButton5.TabStop = False
-        Me.BunifuImageButton5.Zoom = 10
         '
         'ImageButtonMenyegarkan
         '
@@ -146,68 +128,6 @@ Partial Class UCPembayaranHutang
         Me.DatagridPenyesuaian.Size = New System.Drawing.Size(1053, 516)
         Me.DatagridPenyesuaian.TabIndex = 3
         '
-        'BunifuMaterialTextbox1
-        '
-        Me.BunifuMaterialTextbox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.BunifuMaterialTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.BunifuMaterialTextbox1.Font = New System.Drawing.Font("Century Gothic", 9.75!)
-        Me.BunifuMaterialTextbox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuMaterialTextbox1.HintText = "Pencarian"
-        Me.BunifuMaterialTextbox1.isPassword = False
-        Me.BunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.BunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuMaterialTextbox1.LineThickness = 3
-        Me.BunifuMaterialTextbox1.Location = New System.Drawing.Point(705, 68)
-        Me.BunifuMaterialTextbox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.BunifuMaterialTextbox1.Name = "BunifuMaterialTextbox1"
-        Me.BunifuMaterialTextbox1.Size = New System.Drawing.Size(185, 35)
-        Me.BunifuMaterialTextbox1.TabIndex = 2
-        Me.BunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'BunifuDropdown1
-        '
-        Me.BunifuDropdown1.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuDropdown1.BorderRadius = 3
-        Me.BunifuDropdown1.DisabledColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuDropdown1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.BunifuDropdown1.Items = New String(-1) {}
-        Me.BunifuDropdown1.Location = New System.Drawing.Point(897, 67)
-        Me.BunifuDropdown1.Name = "BunifuDropdown1"
-        Me.BunifuDropdown1.NomalColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuDropdown1.onHoverColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuDropdown1.selectedIndex = -1
-        Me.BunifuDropdown1.Size = New System.Drawing.Size(185, 35)
-        Me.BunifuDropdown1.TabIndex = 1
-        '
-        'BunifuCustomLabel1
-        '
-        Me.BunifuCustomLabel1.AutoSize = True
-        Me.BunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuCustomLabel1.Font = New System.Drawing.Font("Century Gothic", 16.0!)
-        Me.BunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(24, 21)
-        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
-        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(189, 25)
-        Me.BunifuCustomLabel1.TabIndex = 0
-        Me.BunifuCustomLabel1.Text = "Retur Pembelian"
-        Me.BunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'BindingSourcePembayaranHutang
-        '
-        Me.BindingSourcePembayaranHutang.DataMember = "Tabel Pembayaran Hutang"
-        Me.BindingSourcePembayaranHutang.DataSource = Me.Database_Boho_OutletDataSet
-        '
-        'Database_Boho_OutletDataSet
-        '
-        Me.Database_Boho_OutletDataSet.DataSetName = "Database_Boho_OutletDataSet"
-        Me.Database_Boho_OutletDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Tabel_Pembayaran_HutangTableAdapter
-        '
-        Me.Tabel_Pembayaran_HutangTableAdapter.ClearBeforeFill = True
-        '
         'NomorPembayaranDataGridViewTextBoxColumn
         '
         Me.NomorPembayaranDataGridViewTextBoxColumn.DataPropertyName = "Nomor Pembayaran"
@@ -244,6 +164,53 @@ Partial Class UCPembayaranHutang
         Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
         Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
         '
+        'BindingSourcePembayaranHutang
+        '
+        Me.BindingSourcePembayaranHutang.DataMember = "Tabel Pembayaran Hutang"
+        Me.BindingSourcePembayaranHutang.DataSource = Me.Database_Boho_OutletDataSet
+        '
+        'Database_Boho_OutletDataSet
+        '
+        Me.Database_Boho_OutletDataSet.DataSetName = "Database_Boho_OutletDataSet"
+        Me.Database_Boho_OutletDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TextboxPencarian
+        '
+        Me.TextboxPencarian.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
+        Me.TextboxPencarian.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxPencarian.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.TextboxPencarian.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.TextboxPencarian.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.TextboxPencarian.HintText = "Pencarian"
+        Me.TextboxPencarian.isPassword = False
+        Me.TextboxPencarian.LineFocusedColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.TextboxPencarian.LineIdleColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.TextboxPencarian.LineMouseHoverColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.TextboxPencarian.LineThickness = 3
+        Me.TextboxPencarian.Location = New System.Drawing.Point(897, 67)
+        Me.TextboxPencarian.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextboxPencarian.Name = "TextboxPencarian"
+        Me.TextboxPencarian.Size = New System.Drawing.Size(185, 35)
+        Me.TextboxPencarian.TabIndex = 2
+        Me.TextboxPencarian.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
+        'BunifuCustomLabel1
+        '
+        Me.BunifuCustomLabel1.AutoSize = True
+        Me.BunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent
+        Me.BunifuCustomLabel1.Font = New System.Drawing.Font("Century Gothic", 16.0!)
+        Me.BunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(24, 21)
+        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
+        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(239, 25)
+        Me.BunifuCustomLabel1.TabIndex = 0
+        Me.BunifuCustomLabel1.Text = "Pembayaran Hutang"
+        Me.BunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Tabel_Pembayaran_HutangTableAdapter
+        '
+        Me.Tabel_Pembayaran_HutangTableAdapter.ClearBeforeFill = True
+        '
         'UCPembayaranHutang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -253,7 +220,6 @@ Partial Class UCPembayaranHutang
         Me.Size = New System.Drawing.Size(1111, 660)
         Me.BunifuGradientPanel2.ResumeLayout(False)
         Me.BunifuGradientPanel2.PerformLayout()
-        CType(Me.BunifuImageButton5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImageButtonMenyegarkan, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ImageButtonTambah, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DatagridPenyesuaian, System.ComponentModel.ISupportInitialize).EndInit()
@@ -264,12 +230,10 @@ Partial Class UCPembayaranHutang
     End Sub
 
     Friend WithEvents BunifuGradientPanel2 As Bunifu.Framework.UI.BunifuGradientPanel
-    Friend WithEvents BunifuImageButton5 As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents ImageButtonMenyegarkan As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents ImageButtonTambah As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents DatagridPenyesuaian As Bunifu.Framework.UI.BunifuCustomDataGrid
-    Friend WithEvents BunifuMaterialTextbox1 As Bunifu.Framework.UI.BunifuMaterialTextbox
-    Friend WithEvents BunifuDropdown1 As Bunifu.Framework.UI.BunifuDropdown
+    Friend WithEvents TextboxPencarian As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents BindingSourcePembayaranHutang As BindingSource
     Friend WithEvents Database_Boho_OutletDataSet As Database_Boho_OutletDataSet

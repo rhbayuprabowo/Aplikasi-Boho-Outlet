@@ -123,4 +123,9 @@
 
     End Sub
 
+    Private Sub ImageButtonMemperkecil_Click(sender As Object, e As EventArgs) Handles ImageButtonMemperkecil.Click
+
+        Me.WindowState = FormWindowState.Minimized
+
+    End Sub
 End Class

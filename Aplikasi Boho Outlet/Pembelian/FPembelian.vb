@@ -1,6 +1,9 @@
-﻿Public Class FPembelian
+﻿Imports System.IO
+Imports Bunifu.Framework.UI
+Public Class FPembelian
 
     Private Tambah As Boolean = True
+    Private fileName As String = ""
 
     Public Sub EditData(TambahBaru As Boolean, NomorPembelian As String)
 
@@ -14,6 +17,7 @@
             DatepickerTanggalPembelian.Value = Data(0).Tanggal_Pembelian
             TextboxKodePemasok.Text = Data(0).Kode_Pemasok
             TextboxNamaPemasok.Text = Data(0).Nama_Pemasok
+            TextboxKeterangan.Text = Data(0).Keterangan
 
             For i = 0 To Data.Count - 1
 
@@ -123,6 +127,48 @@
 
         Keluar()
 
+    End Sub
+
+    Private Sub FPembelian_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+        DatepickerTanggalPembelian.Value = Date.Now
+
+        Using data_tabel As DataTable = Tabel_PembelianTableAdapter.GetData()
+
+        End Using
+
+    End Sub
+
+    Private Sub ValidatingTextBoxes(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles TextboxNomorPembelian.Validating,
+                                                                                                         TextboxKodePemasok.Validating,
+                                                                                                         TextboxNamaPemasok.Validating,
+                                                                                                         TextboxKeterangan.Validating
+
+
+        Dim TextBoxes = DirectCast(sender, BunifuMaterialTextbox).Text
+        Dim IsError As String = ErrorMessageNomorPembelian(TextBoxes)
+        If Not IsError = "" Then
+            TooltipError(DirectCast(sender, BunifuMaterialTextbox), IsError)
+            DirectCast(sender, BunifuMaterialTextbox).LineFocusedColor = Color.FromArgb(255, 20, 20)
+            e.Cancel = True
+        Else
+            DirectCast(sender, BunifuMaterialTextbox).LineFocusedColor = Color.FromArgb(48, 48, 48)
+        End If
+    End Sub
+
+    Private Function ErrorMessageNomorPembelian(TextBoxes As String) As String
+        If TextBoxes.Length = 0 Then
+            Return "Tidak boleh kosong.!!!"
+        Else
+            Return ""
+        End If
+    End Function
+
+    Private Sub TooltipError(TextBoxes As BunifuMaterialTextbox, Pesan As String)
+        Dim toolTip1 As New ToolTip With {
+            .ShowAlways = True
+        }
+        toolTip1.Show(Pesan, TextBoxes, 0, -25, 1000)
     End Sub
 
 End Class

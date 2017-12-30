@@ -106,6 +106,12 @@
     <Compile Include="Barang\UCPenyesuaian.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Data\FData.Designer.vb">
+      <DependentUpon>FData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FData.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Database_Boho_OutletDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Barang\UCPenyesuaian.resx">
       <DependentUpon>UCPenyesuaian.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\FData.resx">
+      <DependentUpon>FData.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FMasuk.resx">
       <DependentUpon>FMasuk.vb</DependentUpon>
@@ -370,7 +379,9 @@
   <ItemGroup>
     <None Include="Resources\Used Product_96px.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Add File_96px2.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Add File_96px1.png" />
   </ItemGroup>
@@ -463,6 +474,195 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Used Product_96px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Box_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buy_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close Window_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Contacts_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Debt_96px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete File_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit File_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filter_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fortune Teller_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Purchase_Order_162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Shop_322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ID Card_24px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ID Card_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_24px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize Window_24px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\More_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Product_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\People_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Person_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Price Tag_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Product_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Purchase Order_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Restore Window_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Return Purchase_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sell_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Used Product_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add File_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Box_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Buy_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close Window_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Contacts_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Debt_96px2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete File_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit File_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Filter_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fortune Teller_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Purchase_Order_163.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_Shop_323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ID Card_24px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ID Card_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu_24px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize Window_24px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\More_96px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New Product_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\People_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Person_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Price Tag_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Product_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Purchase Order_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Restore Window_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Return Purchase_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sell_96px3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Used Product_96px3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -37,7 +37,7 @@ Partial Class FPenyesuaian
         Me.ButtonBaru = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.BunifuCustomLabel8 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.PanelPemasok = New Bunifu.Framework.UI.BunifuGradientPanel()
-        Me.ButtonBarang = New Bunifu.Framework.UI.BunifuFlatButton()
+        Me.ImageButtonKodeBarang = New Bunifu.Framework.UI.BunifuImageButton()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.TextboxKeterangan = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.TextboxNamaBarang = New Bunifu.Framework.UI.BunifuMaterialTextbox()
@@ -46,6 +46,7 @@ Partial Class FPenyesuaian
         Me.Tabel_PenyesuaianTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_PenyesuaianTableAdapter()
         CType(Me.ImageButtonKeluar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPemasok.SuspendLayout()
+        CType(Me.ImageButtonKodeBarang, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourcePenyesuaian, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Database_Boho_OutletDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -294,7 +295,7 @@ Partial Class FPenyesuaian
         '
         Me.PanelPemasok.BackgroundImage = CType(resources.GetObject("PanelPemasok.BackgroundImage"), System.Drawing.Image)
         Me.PanelPemasok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PanelPemasok.Controls.Add(Me.ButtonBarang)
+        Me.PanelPemasok.Controls.Add(Me.ImageButtonKodeBarang)
         Me.PanelPemasok.Controls.Add(Me.BunifuCustomLabel1)
         Me.PanelPemasok.Controls.Add(Me.TextboxKeterangan)
         Me.PanelPemasok.Controls.Add(Me.TextboxNamaBarang)
@@ -321,39 +322,18 @@ Partial Class FPenyesuaian
         Me.PanelPemasok.Size = New System.Drawing.Size(760, 350)
         Me.PanelPemasok.TabIndex = 6
         '
-        'ButtonBarang
+        'ImageButtonKodeBarang
         '
-        Me.ButtonBarang.Activecolor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ButtonBarang.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ButtonBarang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ButtonBarang.BorderRadius = 0
-        Me.ButtonBarang.ButtonText = "..."
-        Me.ButtonBarang.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ButtonBarang.DisabledColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.ButtonBarang.Iconcolor = System.Drawing.Color.Transparent
-        Me.ButtonBarang.Iconimage = Nothing
-        Me.ButtonBarang.Iconimage_right = Nothing
-        Me.ButtonBarang.Iconimage_right_Selected = Nothing
-        Me.ButtonBarang.Iconimage_Selected = Nothing
-        Me.ButtonBarang.IconMarginLeft = 0
-        Me.ButtonBarang.IconMarginRight = 0
-        Me.ButtonBarang.IconRightVisible = True
-        Me.ButtonBarang.IconRightZoom = 0R
-        Me.ButtonBarang.IconVisible = True
-        Me.ButtonBarang.IconZoom = 90.0R
-        Me.ButtonBarang.IsTab = False
-        Me.ButtonBarang.Location = New System.Drawing.Point(320, 117)
-        Me.ButtonBarang.Name = "ButtonBarang"
-        Me.ButtonBarang.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ButtonBarang.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.ButtonBarang.OnHoverTextColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.ButtonBarang.selected = False
-        Me.ButtonBarang.Size = New System.Drawing.Size(36, 28)
-        Me.ButtonBarang.TabIndex = 71
-        Me.ButtonBarang.Text = "..."
-        Me.ButtonBarang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.ButtonBarang.Textcolor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.ButtonBarang.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ImageButtonKodeBarang.BackColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.ImageButtonKodeBarang.Image = Global.Aplikasi_Boho_Outlet.My.Resources.Resources.More_96px1
+        Me.ImageButtonKodeBarang.ImageActive = Nothing
+        Me.ImageButtonKodeBarang.Location = New System.Drawing.Point(320, 111)
+        Me.ImageButtonKodeBarang.Name = "ImageButtonKodeBarang"
+        Me.ImageButtonKodeBarang.Size = New System.Drawing.Size(30, 30)
+        Me.ImageButtonKodeBarang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.ImageButtonKodeBarang.TabIndex = 71
+        Me.ImageButtonKodeBarang.TabStop = False
+        Me.ImageButtonKodeBarang.Zoom = 10
         '
         'BunifuCustomLabel1
         '
@@ -435,6 +415,7 @@ Partial Class FPenyesuaian
         CType(Me.ImageButtonKeluar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelPemasok.ResumeLayout(False)
         Me.PanelPemasok.PerformLayout()
+        CType(Me.ImageButtonKodeBarang, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSourcePenyesuaian, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Database_Boho_OutletDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -459,5 +440,5 @@ Partial Class FPenyesuaian
     Friend WithEvents BindingSourcePenyesuaian As BindingSource
     Friend WithEvents Database_Boho_OutletDataSet As Database_Boho_OutletDataSet
     Friend WithEvents Tabel_PenyesuaianTableAdapter As Database_Boho_OutletDataSetTableAdapters.Tabel_PenyesuaianTableAdapter
-    Friend WithEvents ButtonBarang As Bunifu.Framework.UI.BunifuFlatButton
+    Friend WithEvents ImageButtonKodeBarang As Bunifu.Framework.UI.BunifuImageButton
 End Class

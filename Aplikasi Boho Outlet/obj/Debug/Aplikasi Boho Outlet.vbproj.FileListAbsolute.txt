@@ -12,8 +12,14 @@ D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.Resources.resources
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FPemasok.resources
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.UCPemasok.resources
+D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FPembayaramHutang.resources
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FPembelian.resources
+D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FReturPembelian.resources
+D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.UCPembayaranHutang.resources
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.UCPembelian.resources
+D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.UCReturPembelian.resources
+D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FPenjualan.resources
+D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.UCPenjualan.resources
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi Boho Outlet.vbproj.GenerateResource.Cache
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi Boho Outlet.exe.licenses
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi Boho Outlet.vbproj.CoreCompileInputs.cache
@@ -21,9 +27,4 @@ D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi Boho Outlet.xml
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi Boho Outlet.pdb
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi Boho Outlet.vbprojResolveAssemblyReference.cache
-D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FReturPembelian.resources
-D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.UCReturPembelian.resources
-D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FPembayaramHutang.resources
-D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.UCPembayaranHutang.resources
-D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FPenjualan.resources
-D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.UCPenjualan.resources
+D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FData.resources

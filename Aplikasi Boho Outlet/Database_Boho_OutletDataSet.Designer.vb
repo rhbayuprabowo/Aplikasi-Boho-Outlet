@@ -3460,11 +3460,11 @@ Partial Public Class Database_Boho_OutletDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Gambar() As Byte()
             Get
-                Try 
+                If Me.IsGambarNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTabel_Barang.GambarColumn),Byte())
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Gambar' in table 'Tabel Barang' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTabel_Barang.GambarColumn) = value
@@ -3688,11 +3688,11 @@ Partial Public Class Database_Boho_OutletDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Gambar() As Byte()
             Get
-                Try 
+                If Me.IsGambarNull Then
+                    Return Nothing
+                Else
                     Return CType(Me(Me.tableTabel_Pemasok.GambarColumn),Byte())
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Gambar' in table 'Tabel Pemasok' is DBNull.", e)
-                End Try
+                End If
             End Get
             Set
                 Me(Me.tableTabel_Pemasok.GambarColumn) = value
@@ -5694,7 +5694,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT [Kode Barang], [Nama Barang], [Kategori Barang], [Merek Barang], Jumlah, S"& _ 
@@ -5709,36 +5709,29 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        [Kode Barang], [Nama Barang], [Kategori Barang], [Merek Barang], Ju"& _ 
                 "mlah, Satuan, [Harga Beli], [Harga Jual], Gambar"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Barang]"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Kode Barang] = @KodeBarang)"
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Kode Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Na"& _ 
+                "ma Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Kategori Barang] LIKE"& _ 
+                " @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Merek Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                        (Jumlah LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (S"& _ 
+                "atuan LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Harga Beli] LIKE @Pencaria"& _ 
+                "n) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Harga Jual] LIKE @Pencarian)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@KodeBarang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pencarian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "INSERT INTO [Tabel Barang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Kode Barang], [Nama Barang"& _ 
+            Me._commandCollection(3).CommandText = "SELECT        [Kode Barang], [Nama Barang], [Kategori Barang], [Merek Barang], Ju"& _ 
+                "mlah, Satuan, [Harga Beli], [Harga Jual], Gambar"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Barang]"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Kode Barang] = @KodeBarang)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@KodeBarang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "INSERT INTO [Tabel Barang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Kode Barang], [Nama Barang"& _ 
                 "], [Kategori Barang], [Merek Barang], Jumlah, Satuan, [Harga Beli], [Harga Jual]"& _ 
                 ", Gambar)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@Kode_Barang,@Nama_Barang,@Kategori_Barang,@Merek_Bara"& _ 
                 "ng,@Jumlah,@Satuan,@Harga_Beli,@Harga_Jual,@Gambar); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Kode Barang], [Na"& _ 
                 "ma Barang], [Kategori Barang], [Merek Barang], Jumlah, Satuan, [Harga Beli], [Ha"& _ 
                 "rga Jual], Gambar FROM [Tabel Barang] WHERE ([Kode Barang] = @Kode_Barang)"
-            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kategori_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kategori Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Merek_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Merek Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Satuan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga_Beli", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga Beli", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga_Jual", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga Jual", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Gambar", Global.System.Data.SqlDbType.Image, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Gambar", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "UPDATE       [Tabel Barang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Kode Barang] = @Kode_Barang, [Na"& _ 
-                "ma Barang] = @Nama_Barang, [Kategori Barang] = @Kategori_Barang, [Merek Barang] "& _ 
-                "= @Merek_Barang, Jumlah = @Jumlah, Satuan = @Satuan, [Harga Beli] = @Harga_Beli,"& _ 
-                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         [Harga Jual] = @Harga_Jual, Gambar = @Gambar"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "& _ 
-                "       ([Kode Barang] = @Original_Kode_Barang);  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Kode Barang], [Nama B"& _ 
-                "arang], [Kategori Barang], [Merek Barang], Jumlah, Satuan, [Harga Beli], [Harga "& _ 
-                "Jual], Gambar FROM [Tabel Barang] WHERE ([Kode Barang] = @Kode_Barang)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5749,7 +5742,26 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga_Beli", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga Beli", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga_Jual", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga Jual", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Gambar", Global.System.Data.SqlDbType.Image, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Gambar", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "UPDATE       [Tabel Barang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Kode Barang] = @Kode_Barang, [Na"& _ 
+                "ma Barang] = @Nama_Barang, [Kategori Barang] = @Kategori_Barang, [Merek Barang] "& _ 
+                "= @Merek_Barang, Jumlah = @Jumlah, Satuan = @Satuan, [Harga Beli] = @Harga_Beli,"& _ 
+                " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         [Harga Jual] = @Harga_Jual, Gambar = @Gambar"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "& _ 
+                "       ([Kode Barang] = @Original_Kode_Barang);  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Kode Barang], [Nama B"& _ 
+                "arang], [Kategori Barang], [Merek Barang], Jumlah, Satuan, [Harga Beli], [Harga "& _ 
+                "Jual], Gambar FROM [Tabel Barang] WHERE ([Kode Barang] = @Kode_Barang)"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kategori_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kategori Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Merek_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Merek Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Satuan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga_Beli", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga Beli", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga_Jual", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga Jual", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Gambar", Global.System.Data.SqlDbType.Image, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Gambar", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5780,8 +5792,42 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByKodeBarang(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_BarangDataTable, ByVal KodeBarang As String) As Integer
+        Public Overloads Overridable Function FillByFilterPencarian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_BarangDataTable, ByVal Pencarian As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByFilterPencarian(ByVal Pencarian As String) As Database_Boho_OutletDataSet.Tabel_BarangDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            Dim dataTable As Database_Boho_OutletDataSet.Tabel_BarangDataTable = New Database_Boho_OutletDataSet.Tabel_BarangDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByKodeBarang(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_BarangDataTable, ByVal KodeBarang As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (KodeBarang Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("KodeBarang")
             Else
@@ -5799,7 +5845,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByKodeBarang(ByVal KodeBarang As String) As Database_Boho_OutletDataSet.Tabel_BarangDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (KodeBarang Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("KodeBarang")
             Else
@@ -6169,7 +6215,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
         Public Overloads Overridable Function InsertQueryByKodeBarang(ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Kategori_Barang As String, ByVal Merek_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Satuan As String, ByVal Harga_Beli As Global.System.Nullable(Of Integer), ByVal Harga_Jual As Global.System.Nullable(Of Integer), ByVal Gambar() As Byte) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (Kode_Barang Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Kode_Barang")
             Else
@@ -6236,7 +6282,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateQueryByKodeBarang(ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Kategori_Barang As String, ByVal Merek_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Satuan As String, ByVal Harga_Beli As Global.System.Nullable(Of Integer), ByVal Harga_Jual As Global.System.Nullable(Of Integer), ByVal Gambar() As Byte, ByVal Original_Kode_Barang As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
             If (Kode_Barang Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Kode_Barang")
             Else
@@ -6528,7 +6574,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT [Kode Pemasok], [Nama Pemasok], Telepon, HP, Alamat, Kota, [Kode Pos], Gam"& _ 
@@ -6543,34 +6589,28 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        [Kode Pemasok], [Nama Pemasok], Telepon, HP, Alamat, Kota, [Kode Po"& _ 
-                "s], Gambar"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Pemasok]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Kode Pemasok] = @Kod"& _ 
-                "ePemasok)"
+                "s], Gambar"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Pemasok]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Kode Pemasok] LIKE @"& _ 
+                "Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nama Pemasok] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                      (Telepon LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (HP"& _ 
+                " LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Alamat LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                     (Kota LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Kode "& _ 
+                "Pos] LIKE @Pencarian)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@KodePemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pencarian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "INSERT INTO [dbo].[Tabel Pemasok] ([Kode Pemasok], [Nama Pemasok], [Telepon], [HP"& _ 
+            Me._commandCollection(3).CommandText = "SELECT        [Kode Pemasok], [Nama Pemasok], Telepon, HP, Alamat, Kota, [Kode Po"& _ 
+                "s], Gambar"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Pemasok]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Kode Pemasok] = @Kod"& _ 
+                "ePemasok)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@KodePemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "INSERT INTO [dbo].[Tabel Pemasok] ([Kode Pemasok], [Nama Pemasok], [Telepon], [HP"& _ 
                 "], [Alamat], [Kota], [Kode Pos], [Gambar]) VALUES (@Kode_Pemasok, @Nama_Pemasok,"& _ 
                 " @Telepon, @HP, @Alamat, @Kota, @Kode_Pos, @Gambar);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Kode Pemasok], [Na"& _ 
                 "ma Pemasok], Telepon, HP, Alamat, Kota, [Kode Pos], Gambar FROM [Tabel Pemasok] "& _ 
                 "WHERE ([Kode Pemasok] = @Kode_Pemasok)"
-            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Telepon", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Telepon", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HP", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "HP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Alamat", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Alamat", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kota", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kota", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Pos", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Gambar", Global.System.Data.SqlDbType.Image, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Gambar", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "UPDATE       [Tabel Pemasok]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Kode Pemasok] = @Kode_Pemasok, "& _ 
-                "[Nama Pemasok] = @Nama_Pemasok, Telepon = @Telepon, HP = @HP, Alamat = @Alamat, "& _ 
-                "Kota = @Kota, [Kode Pos] = @Kode_Pos, Gambar = @Gambar"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Kode Pema"& _ 
-                "sok] = @Original_Kode_Pemasok); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Kode Pemasok], [Nama Pemasok], Telepon"& _ 
-                ", HP, Alamat, Kota, [Kode Pos], Gambar FROM [Tabel Pemasok] WHERE ([Kode Pemasok"& _ 
-                "] = @Kode_Pemasok)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -6580,7 +6620,24 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kota", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kota", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Pos", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Gambar", Global.System.Data.SqlDbType.Image, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Gambar", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Kode_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "UPDATE       [Tabel Pemasok]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Kode Pemasok] = @Kode_Pemasok, "& _ 
+                "[Nama Pemasok] = @Nama_Pemasok, Telepon = @Telepon, HP = @HP, Alamat = @Alamat, "& _ 
+                "Kota = @Kota, [Kode Pos] = @Kode_Pos, Gambar = @Gambar"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Kode Pema"& _ 
+                "sok] = @Original_Kode_Pemasok); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Kode Pemasok], [Nama Pemasok], Telepon"& _ 
+                ", HP, Alamat, Kota, [Kode Pos], Gambar FROM [Tabel Pemasok] WHERE ([Kode Pemasok"& _ 
+                "] = @Kode_Pemasok)"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Telepon", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Telepon", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@HP", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "HP", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Alamat", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Alamat", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kota", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kota", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Pos", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pos", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Gambar", Global.System.Data.SqlDbType.Image, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Gambar", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Kode_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6611,8 +6668,42 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByKodePemasok(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_PemasokDataTable, ByVal KodePemasok As String) As Integer
+        Public Overloads Overridable Function FillByFilterPencarian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_PemasokDataTable, ByVal Pencarian As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByFilterPencarian(ByVal Pencarian As String) As Database_Boho_OutletDataSet.Tabel_PemasokDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            Dim dataTable As Database_Boho_OutletDataSet.Tabel_PemasokDataTable = New Database_Boho_OutletDataSet.Tabel_PemasokDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByKodePemasok(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_PemasokDataTable, ByVal KodePemasok As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (KodePemasok Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("KodePemasok")
             Else
@@ -6630,7 +6721,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByKodePemasok(ByVal KodePemasok As String) As Database_Boho_OutletDataSet.Tabel_PemasokDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (KodePemasok Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("KodePemasok")
             Else
@@ -6943,7 +7034,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
         Public Overloads Overridable Function InsertQueryByKodePemasok(ByVal Kode_Pemasok As String, ByVal Nama_Pemasok As String, ByVal Telepon As String, ByVal HP As String, ByVal Alamat As String, ByVal Kota As String, ByVal Kode_Pos As String, ByVal Gambar() As Byte) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (Kode_Pemasok Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Kode_Pemasok")
             Else
@@ -7005,7 +7096,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateQueryByKodePemasok(ByVal Kode_Pemasok As String, ByVal Nama_Pemasok As String, ByVal Telepon As String, ByVal HP As String, ByVal Alamat As String, ByVal Kota As String, ByVal Kode_Pos As String, ByVal Gambar() As Byte, ByVal Original_Kode_Pemasok As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
             If (Kode_Pemasok Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Kode_Pemasok")
             Else
@@ -7271,7 +7362,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT [Nomor Penyesuaian], [Kode Barang], [Nama Barang], Jumlah, Keterangan FROM"& _ 
@@ -7286,30 +7377,40 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        [Nomor Penyesuaian], [Kode Barang], [Nama Barang], Jumlah, Keterang"& _ 
-                "an"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Penyesuaian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Penyesuaian] = @No"& _ 
-                "morPenesuaian)"
+                "an"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Penyesuaian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Penyesuaian] LIKE "& _ 
+                "@Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Kode Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                      ([Nama Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
+                "   (Jumlah LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Keterangan LIKE @Penca"& _ 
+                "rian)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorPenesuaian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penyesuaian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pencarian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penyesuaian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "INSERT INTO [dbo].[Tabel Penyesuaian] ([Nomor Penyesuaian], [Kode Barang], [Nama "& _ 
+            Me._commandCollection(3).CommandText = "SELECT        [Nomor Penyesuaian], [Kode Barang], [Nama Barang], Jumlah, Keterang"& _ 
+                "an"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Penyesuaian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Penyesuaian] = @No"& _ 
+                "morPenesuaian)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorPenesuaian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penyesuaian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "INSERT INTO [dbo].[Tabel Penyesuaian] ([Nomor Penyesuaian], [Kode Barang], [Nama "& _ 
                 "Barang], [Jumlah], [Keterangan]) VALUES (@Nomor_Penyesuaian, @Kode_Barang, @Nama"& _ 
                 "_Barang, @Jumlah, @Keterangan);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Penyesuaian], [Kode Barang], [Nam"& _ 
                 "a Barang], Jumlah, Keterangan FROM [Tabel Penyesuaian] WHERE ([Nomor Penyesuaian"& _ 
                 "] = @Nomor_Penyesuaian)"
-            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Penyesuaian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penyesuaian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keterangan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Keterangan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "UPDATE       [Tabel Barang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Jumlah = Jumlah + @JumlahPenyesua"& _ 
-                "ian"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Kode Barang] = @Original_Kode_Barang)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@JumlahPenyesuaian", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Penyesuaian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penyesuaian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keterangan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Keterangan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "UPDATE       [Tabel Barang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Jumlah = Jumlah + @JumlahPenyesua"& _ 
+                "ian"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Kode Barang] = @Original_Kode_Barang)"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@JumlahPenyesuaian", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7340,8 +7441,42 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByNomorPenyesuaian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_PenyesuaianDataTable, ByVal NomorPenesuaian As String) As Integer
+        Public Overloads Overridable Function FillByFilterPencarian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_PenyesuaianDataTable, ByVal Pencarian As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByFilterPencarian(ByVal Pencarian As String) As Database_Boho_OutletDataSet.Tabel_PenyesuaianDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            Dim dataTable As Database_Boho_OutletDataSet.Tabel_PenyesuaianDataTable = New Database_Boho_OutletDataSet.Tabel_PenyesuaianDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByNomorPenyesuaian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_PenyesuaianDataTable, ByVal NomorPenesuaian As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (NomorPenesuaian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NomorPenesuaian")
             Else
@@ -7359,7 +7494,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByNomorPenyesuaian(ByVal NomorPenesuaian As String) As Database_Boho_OutletDataSet.Tabel_PenyesuaianDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (NomorPenesuaian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NomorPenesuaian")
             Else
@@ -7612,7 +7747,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
         Public Overloads Overridable Function InsertQueryByNomorPenyesuaian(ByVal Nomor_Penyesuaian As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Keterangan As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (Nomor_Penyesuaian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nomor_Penyesuaian")
             Else
@@ -7659,7 +7794,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateQueryByNomorPenyesuaian(ByVal JumlahPenyesuaian As Global.System.Nullable(Of Integer), ByVal Original_Kode_Barang As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
             If (JumlahPenyesuaian.HasValue = true) Then
                 command.Parameters(0).Value = CType(JumlahPenyesuaian.Value,Integer)
             Else
@@ -7953,7 +8088,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT [Nomor Pembelian], [Tanggal Pembelian], [Kode Pemasok], [Nama Pemasok], Ke"& _ 
@@ -7970,13 +8105,28 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        [Nomor Pembelian], [Tanggal Pembelian], [Kode Pemasok], [Nama Pemas"& _ 
                 "ok], Keterangan, [Kode Barang], [Nama Barang], Jumlah, Satuan, Harga, Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FRO"& _ 
-                "M            [Tabel Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Pembelian] = @NomorPembelia"& _ 
-                "n)"
+                "M            [Tabel Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Pembelian] LIKE @Pencarian)"& _ 
+                " OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Tanggal Pembelian] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                 ([Kode Pemasok] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ("& _ 
+                "[Nama Pemasok] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Keterangan LIKE @P"& _ 
+                "encarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Kode Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "                    ([Nama Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
+                " (Jumlah LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Satuan LIKE @Pencarian) "& _ 
+                "OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Harga LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  (Total LIKE @Pencarian)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorPembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pencarian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "INSERT INTO [Tabel Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nomor Pembelian], [Tang"& _ 
+            Me._commandCollection(3).CommandText = "SELECT        [Nomor Pembelian], [Tanggal Pembelian], [Kode Pemasok], [Nama Pemas"& _ 
+                "ok], Keterangan, [Kode Barang], [Nama Barang], Jumlah, Satuan, Harga, Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FRO"& _ 
+                "M            [Tabel Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Pembelian] = @NomorPembelia"& _ 
+                "n)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorPembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "INSERT INTO [Tabel Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nomor Pembelian], [Tang"& _ 
                 "gal Pembelian], [Kode Pemasok], [Nama Pemasok], Keterangan, [Kode Barang], [Nama"& _ 
                 " Barang], Jumlah, Satuan, Harga, Total)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@Nomor_Pembelian,@Tangga"& _ 
                 "l_Pembelian,@Kode_Pemasok,@Nama_Pemasok,@Keterangan,@Kode_Barang,@Nama_Barang,@J"& _ 
@@ -7984,29 +8134,6 @@ Namespace Database_Boho_OutletDataSetTableAdapters
                 "Kode Pemasok], [Nama Pemasok], Keterangan, [Kode Barang], [Nama Barang], Jumlah,"& _ 
                 " Satuan, Harga, Total FROM [Tabel Pembelian] WHERE ([Nomor Pembelian] = @Nomor_P"& _ 
                 "embelian)"
-            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Pembelian", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keterangan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Keterangan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Satuan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "UPDATE       [Tabel Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Nomor Pembelian] = @Nomor_Pem"& _ 
-                "belian, [Tanggal Pembelian] = @Tanggal_Pembelian, [Kode Pemasok] = @Kode_Pemasok"& _ 
-                ", [Nama Pemasok] = @Nama_Pemasok, Keterangan = @Keterangan, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
-                "       [Kode Barang] = @Kode_Barang, [Nama Barang] = @Nama_Barang, Jumlah = @Jum"& _ 
-                "lah, Satuan = @Satuan, Harga = @Harga, Total = @Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Pemb"& _ 
-                "elian] = @Original_Nomor_Pembelian); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Pembelian], [Tanggal Pembel"& _ 
-                "ian], [Kode Pemasok], [Nama Pemasok], Keterangan, [Kode Barang], [Nama Barang], "& _ 
-                "Jumlah, Satuan, Harga, Total FROM [Tabel Pembelian] WHERE ([Nomor Pembelian] = @"& _ 
-                "Nomor_Pembelian)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Pembelian", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -8019,7 +8146,30 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Satuan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "UPDATE       [Tabel Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Nomor Pembelian] = @Nomor_Pem"& _ 
+                "belian, [Tanggal Pembelian] = @Tanggal_Pembelian, [Kode Pemasok] = @Kode_Pemasok"& _ 
+                ", [Nama Pemasok] = @Nama_Pemasok, Keterangan = @Keterangan, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
+                "       [Kode Barang] = @Kode_Barang, [Nama Barang] = @Nama_Barang, Jumlah = @Jum"& _ 
+                "lah, Satuan = @Satuan, Harga = @Harga, Total = @Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Pemb"& _ 
+                "elian] = @Original_Nomor_Pembelian); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Pembelian], [Tanggal Pembel"& _ 
+                "ian], [Kode Pemasok], [Nama Pemasok], Keterangan, [Kode Barang], [Nama Barang], "& _ 
+                "Jumlah, Satuan, Harga, Total FROM [Tabel Pembelian] WHERE ([Nomor Pembelian] = @"& _ 
+                "Nomor_Pembelian)"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Pembelian", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keterangan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Keterangan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Satuan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8050,8 +8200,42 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByNomorPembelian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_PembelianDataTable, ByVal NomorPembelian As String) As Integer
+        Public Overloads Overridable Function FillByFilterPencarian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_PembelianDataTable, ByVal Pencarian As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByFilterPencarian(ByVal Pencarian As String) As Database_Boho_OutletDataSet.Tabel_PembelianDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            Dim dataTable As Database_Boho_OutletDataSet.Tabel_PembelianDataTable = New Database_Boho_OutletDataSet.Tabel_PembelianDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByNomorPembelian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_PembelianDataTable, ByVal NomorPembelian As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (NomorPembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NomorPembelian")
             Else
@@ -8069,7 +8253,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByNomorPembelian(ByVal NomorPembelian As String) As Database_Boho_OutletDataSet.Tabel_PembelianDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (NomorPembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NomorPembelian")
             Else
@@ -8511,7 +8695,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
         Public Overloads Overridable Function InsertQueryByNomorPembelian(ByVal Nomor_Pembelian As String, ByVal Tanggal_Pembelian As String, ByVal Kode_Pemasok As String, ByVal Nama_Pemasok As String, ByVal Keterangan As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Satuan As String, ByVal Harga As Global.System.Nullable(Of Integer), ByVal Total As Global.System.Nullable(Of Integer)) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (Nomor_Pembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nomor_Pembelian")
             Else
@@ -8588,7 +8772,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateQueryByNomorPembelian(ByVal Nomor_Pembelian As String, ByVal Tanggal_Pembelian As String, ByVal Kode_Pemasok As String, ByVal Nama_Pemasok As String, ByVal Keterangan As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Satuan As String, ByVal Harga As Global.System.Nullable(Of Integer), ByVal Total As Global.System.Nullable(Of Integer), ByVal Original_Nomor_Pembelian As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
             If (Nomor_Pembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nomor_Pembelian")
             Else
@@ -8880,7 +9064,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT [Nomor Retur Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harga, Kete"& _ 
@@ -8896,29 +9080,24 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        [Nomor Retur Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harg"& _ 
                 "a, Keterangan"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Retur Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Ret"& _ 
-                "ur Pembelian] = @NomorReturPembelian)"
+                "ur Pembelian] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Kode Barang] LIKE "& _ 
+                "@Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nama Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                      (Jumlah LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Har"& _ 
+                "ga LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Keterangan LIKE @Pencarian)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorReturPembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pencarian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "INSERT INTO [dbo].[Tabel Retur Pembelian] ([Nomor Retur Pembelian], [Kode Barang]"& _ 
-                ", [Nama Barang], [Jumlah], [Harga], [Keterangan]) VALUES (@Nomor_Retur_Pembelian"& _ 
-                ", @Kode_Barang, @Nama_Barang, @Jumlah, @Harga, @Keterangan);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Retu"& _ 
-                "r Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harga, Keterangan FROM [Tabe"& _ 
-                "l Retur Pembelian] WHERE ([Nomor Retur Pembelian] = @Nomor_Retur_Pembelian)"
+            Me._commandCollection(3).CommandText = "SELECT        [Nomor Retur Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harg"& _ 
+                "a, Keterangan"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Retur Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Ret"& _ 
+                "ur Pembelian] = @NomorReturPembelian)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Retur_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keterangan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Keterangan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorReturPembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "UPDATE       [Tabel Retur Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Nomor Retur Pembelian] "& _ 
-                "= @Nomor_Retur_Pembelian, [Kode Barang] = @Kode_Barang, [Nama Barang] = @Nama_Ba"& _ 
-                "rang, Jumlah = @Jumlah, Harga = @Harga, Keterangan = @Keterangan"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ("& _ 
-                "[Nomor Retur Pembelian] = @Original_Nomor_Retur_Pembelian); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Retu"& _ 
+            Me._commandCollection(4).CommandText = "INSERT INTO [dbo].[Tabel Retur Pembelian] ([Nomor Retur Pembelian], [Kode Barang]"& _ 
+                ", [Nama Barang], [Jumlah], [Harga], [Keterangan]) VALUES (@Nomor_Retur_Pembelian"& _ 
+                ", @Kode_Barang, @Nama_Barang, @Jumlah, @Harga, @Keterangan);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Retu"& _ 
                 "r Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harga, Keterangan FROM [Tabe"& _ 
                 "l Retur Pembelian] WHERE ([Nomor Retur Pembelian] = @Nomor_Retur_Pembelian)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
@@ -8928,7 +9107,22 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keterangan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Keterangan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Retur_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "UPDATE       [Tabel Retur Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Nomor Retur Pembelian] "& _ 
+                "= @Nomor_Retur_Pembelian, [Kode Barang] = @Kode_Barang, [Nama Barang] = @Nama_Ba"& _ 
+                "rang, Jumlah = @Jumlah, Harga = @Harga, Keterangan = @Keterangan"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ("& _ 
+                "[Nomor Retur Pembelian] = @Original_Nomor_Retur_Pembelian); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Retu"& _ 
+                "r Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harga, Keterangan FROM [Tabe"& _ 
+                "l Retur Pembelian] WHERE ([Nomor Retur Pembelian] = @Nomor_Retur_Pembelian)"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Retur_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keterangan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Keterangan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Retur_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8959,8 +9153,42 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByNomorReturPembelian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_Retur_PembelianDataTable, ByVal NomorReturPembelian As String) As Integer
+        Public Overloads Overridable Function FillByFilterPencarian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_Retur_PembelianDataTable, ByVal Pencarian As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByFilterPencarian(ByVal Pencarian As String) As Database_Boho_OutletDataSet.Tabel_Retur_PembelianDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            Dim dataTable As Database_Boho_OutletDataSet.Tabel_Retur_PembelianDataTable = New Database_Boho_OutletDataSet.Tabel_Retur_PembelianDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByNomorReturPembelian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_Retur_PembelianDataTable, ByVal NomorReturPembelian As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (NomorReturPembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NomorReturPembelian")
             Else
@@ -8978,7 +9206,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByNomorReturPembelian(ByVal NomorReturPembelian As String) As Database_Boho_OutletDataSet.Tabel_Retur_PembelianDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (NomorReturPembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NomorReturPembelian")
             Else
@@ -9257,7 +9485,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
         Public Overloads Overridable Function InsertQueryByNomorReturPembelian(ByVal Nomor_Retur_Pembelian As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Harga As Global.System.Nullable(Of Integer), ByVal Keterangan As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (Nomor_Retur_Pembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nomor_Retur_Pembelian")
             Else
@@ -9309,7 +9537,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateQueryByNomorReturPembelian(ByVal Nomor_Retur_Pembelian As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Harga As Global.System.Nullable(Of Integer), ByVal Keterangan As String, ByVal Original_Nomor_Retur_Pembelian As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
             If (Nomor_Retur_Pembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nomor_Retur_Pembelian")
             Else
@@ -9578,7 +9806,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT [Nomor Pembayaran], [Tanggal Pembayaran], [Nomor Pembelian], [Kode Pemasok"& _ 
@@ -9594,33 +9822,28 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        [Nomor Pembayaran], [Tanggal Pembayaran], [Nomor Pembelian], [Kode "& _ 
                 "Pemasok], [Nama Pemasok], Status"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Pembayaran Hutang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
-                "RE        ([Nomor Pembayaran] = @NomorPembayaran)"
+                "RE        ([Nomor Pembayaran] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Ta"& _ 
+                "nggal Pembayaran] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nomor Pembelia"& _ 
+                "n] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Kode Pemasok] LIKE @Pencarian"& _ 
+                ") OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nama Pemasok] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             (Status LIKE @Pencarian)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorPembayaran", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembayaran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pencarian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembayaran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "INSERT INTO [Tabel Pembayaran Hutang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nomor Pembayara"& _ 
+            Me._commandCollection(3).CommandText = "SELECT        [Nomor Pembayaran], [Tanggal Pembayaran], [Nomor Pembelian], [Kode "& _ 
+                "Pemasok], [Nama Pemasok], Status"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Pembayaran Hutang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
+                "RE        ([Nomor Pembayaran] = @NomorPembayaran)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorPembayaran", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembayaran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "INSERT INTO [Tabel Pembayaran Hutang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nomor Pembayara"& _ 
                 "n], [Tanggal Pembayaran], [Nomor Pembelian], [Kode Pemasok], [Nama Pemasok], Sta"& _ 
                 "tus)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@Nomor_Pembayaran,@Tanggal_Pembayaran,@Nomor_Pembelian,@Kod"& _ 
                 "e_Pemasok,@Nama_Pemasok,@Status); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Pembayaran], [Tanggal Pembayar"& _ 
                 "an], [Nomor Pembelian], [Kode Pemasok], [Nama Pemasok], Status FROM [Tabel Pemba"& _ 
                 "yaran Hutang] WHERE ([Nomor Pembayaran] = @Nomor_Pembayaran)"
-            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Pembayaran", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembayaran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Pembayaran", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Pembayaran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "UPDATE       [Tabel Pembayaran Hutang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Nomor Pembayaran] = @"& _ 
-                "Nomor_Pembayaran, [Tanggal Pembayaran] = @Tanggal_Pembayaran, [Nomor Pembelian] "& _ 
-                "= @Nomor_Pembelian, [Kode Pemasok] = @Kode_Pemasok, [Nama Pemasok] = @Nama_Pemas"& _ 
-                "ok, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Status = @Status"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Pembayaran"& _ 
-                "] = @Original_Nomor_Pembayaran); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Pembayaran], [Tanggal Pembayara"& _ 
-                "n], [Nomor Pembelian], [Kode Pemasok], [Nama Pemasok], Status FROM [Tabel Pembay"& _ 
-                "aran Hutang] WHERE ([Nomor Pembayaran] = @Nomor_Pembayaran)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Pembayaran", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembayaran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Pembayaran", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Pembayaran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -9628,7 +9851,23 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Pembayaran", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembayaran", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "UPDATE       [Tabel Pembayaran Hutang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Nomor Pembayaran] = @"& _ 
+                "Nomor_Pembayaran, [Tanggal Pembayaran] = @Tanggal_Pembayaran, [Nomor Pembelian] "& _ 
+                "= @Nomor_Pembelian, [Kode Pemasok] = @Kode_Pemasok, [Nama Pemasok] = @Nama_Pemas"& _ 
+                "ok, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Status = @Status"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Pembayaran"& _ 
+                "] = @Original_Nomor_Pembayaran); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Pembayaran], [Tanggal Pembayara"& _ 
+                "n], [Nomor Pembelian], [Kode Pemasok], [Nama Pemasok], Status FROM [Tabel Pembay"& _ 
+                "aran Hutang] WHERE ([Nomor Pembayaran] = @Nomor_Pembayaran)"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Pembayaran", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembayaran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Pembayaran", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Pembayaran", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pemasok", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pemasok", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Pembayaran", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembayaran", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9659,8 +9898,42 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByNomorPembayaran(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_Pembayaran_HutangDataTable, ByVal NomorPembayaran As String) As Integer
+        Public Overloads Overridable Function FillByFilterPencarian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_Pembayaran_HutangDataTable, ByVal Pencarian As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByFilterPencarian(ByVal Pencarian As String) As Database_Boho_OutletDataSet.Tabel_Pembayaran_HutangDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            Dim dataTable As Database_Boho_OutletDataSet.Tabel_Pembayaran_HutangDataTable = New Database_Boho_OutletDataSet.Tabel_Pembayaran_HutangDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByNomorPembayaran(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_Pembayaran_HutangDataTable, ByVal NomorPembayaran As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (NomorPembayaran Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NomorPembayaran")
             Else
@@ -9678,7 +9951,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByNomorPembayaran(ByVal NomorPembayaran As String) As Database_Boho_OutletDataSet.Tabel_Pembayaran_HutangDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (NomorPembayaran Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NomorPembayaran")
             Else
@@ -9957,7 +10230,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
         Public Overloads Overridable Function InsertQueryByNomorPembayaran(ByVal Nomor_Pembayaran As String, ByVal Tanggal_Pembayaran As String, ByVal Nomor_Pembelian As String, ByVal Kode_Pemasok As String, ByVal Nama_Pemasok As String, ByVal Status As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (Nomor_Pembayaran Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nomor_Pembayaran")
             Else
@@ -10009,7 +10282,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateQueryByNomorPembayaran(ByVal Nomor_Pembayaran As String, ByVal Tanggal_Pembayaran As String, ByVal Nomor_Pembelian As String, ByVal Kode_Pemasok As String, ByVal Nama_Pemasok As String, ByVal Status As String, ByVal Original_Nomor_Pembayaran As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
             If (Nomor_Pembayaran Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nomor_Pembayaran")
             Else
@@ -10307,7 +10580,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT [Nomor Penjualan], [Nama Pelanggan], [Tanggal Penjualan], [Kode Barang], ["& _ 
@@ -10323,37 +10596,31 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        [Nomor Penjualan], [Nama Pelanggan], [Tanggal Penjualan], [Kode Bar"& _ 
                 "ang], [Nama Barang], Jumlah, Satuan, Harga, Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Penjua"& _ 
-                "lan]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Penjualan] = @NomorPenjualan)"
+                "lan]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Penjualan] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    ([Nama Pelanggan] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Tanggal Pe"& _ 
+                "njualan] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Kode Barang] LIKE @Penc"& _ 
+                "arian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nama Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                 (Jumlah LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Satuan L"& _ 
+                "IKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Harga LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  (Total LIKE @Pencarian)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorPenjualan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pencarian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "INSERT INTO [Tabel Penjualan]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nomor Penjualan], [Nama"& _ 
+            Me._commandCollection(3).CommandText = "SELECT        [Nomor Penjualan], [Nama Pelanggan], [Tanggal Penjualan], [Kode Bar"& _ 
+                "ang], [Nama Barang], Jumlah, Satuan, Harga, Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Penjua"& _ 
+                "lan]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Penjualan] = @NomorPenjualan)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorPenjualan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "INSERT INTO [Tabel Penjualan]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nomor Penjualan], [Nama"& _ 
                 " Pelanggan], [Tanggal Penjualan], [Kode Barang], [Nama Barang], Jumlah, Satuan, "& _ 
                 "Harga, Total)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@Nomor_Penjualan,@Nama_Pelanggan,@Tanggal_Penjuala"& _ 
                 "n,@Kode_Barang,@Nama_Barang,@Jumlah,@Satuan,@Harga,@Total); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Penj"& _ 
                 "ualan], [Nama Pelanggan], [Tanggal Penjualan], [Kode Barang], [Nama Barang], Jum"& _ 
                 "lah, Satuan, Harga, Total FROM [Tabel Penjualan] WHERE ([Nomor Penjualan] = @Nom"& _ 
                 "or_Penjualan)"
-            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Penjualan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pelanggan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pelanggan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Penjualan", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Penjualan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Satuan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "UPDATE       [Tabel Penjualan]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Nomor Penjualan] = @Nomor_Pen"& _ 
-                "jualan, [Nama Pelanggan] = @Nama_Pelanggan, [Tanggal Penjualan] = @Tanggal_Penju"& _ 
-                "alan, [Kode Barang] = @Kode_Barang, [Nama Barang] = @Nama_Barang, Jumlah = @Juml"& _ 
-                "ah, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Satuan = @Satuan, Harga = @Harga, Total = @Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Penjualan] = @Original_Nomor_Penjualan); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor P"& _ 
-                "enjualan], [Nama Pelanggan], [Tanggal Penjualan], [Kode Barang], [Nama Barang], "& _ 
-                "Jumlah, Satuan, Harga, Total FROM [Tabel Penjualan] WHERE ([Nomor Penjualan] = @"& _ 
-                "Nomor_Penjualan)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Penjualan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pelanggan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pelanggan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -10364,7 +10631,26 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Satuan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Penjualan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "UPDATE       [Tabel Penjualan]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Nomor Penjualan] = @Nomor_Pen"& _ 
+                "jualan, [Nama Pelanggan] = @Nama_Pelanggan, [Tanggal Penjualan] = @Tanggal_Penju"& _ 
+                "alan, [Kode Barang] = @Kode_Barang, [Nama Barang] = @Nama_Barang, Jumlah = @Juml"& _ 
+                "ah, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Satuan = @Satuan, Harga = @Harga, Total = @Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Penjualan] = @Original_Nomor_Penjualan); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor P"& _ 
+                "enjualan], [Nama Pelanggan], [Tanggal Penjualan], [Kode Barang], [Nama Barang], "& _ 
+                "Jumlah, Satuan, Harga, Total FROM [Tabel Penjualan] WHERE ([Nomor Penjualan] = @"& _ 
+                "Nomor_Penjualan)"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Penjualan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pelanggan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pelanggan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Penjualan", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Penjualan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Satuan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Penjualan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10395,8 +10681,42 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByNomorPenjualan(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_PenjualanDataTable, ByVal NomorPenjualan As String) As Integer
+        Public Overloads Overridable Function FillByFilterPencarian(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_PenjualanDataTable, ByVal Pencarian As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataByFilterPencarian(ByVal Pencarian As String) As Database_Boho_OutletDataSet.Tabel_PenjualanDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Pencarian Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Pencarian")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Pencarian,String)
+            End If
+            Dim dataTable As Database_Boho_OutletDataSet.Tabel_PenjualanDataTable = New Database_Boho_OutletDataSet.Tabel_PenjualanDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByNomorPenjualan(ByVal dataTable As Database_Boho_OutletDataSet.Tabel_PenjualanDataTable, ByVal NomorPenjualan As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (NomorPenjualan Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NomorPenjualan")
             Else
@@ -10414,7 +10734,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetDataByNomorPenjualan(ByVal NomorPenjualan As String) As Database_Boho_OutletDataSet.Tabel_PenjualanDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (NomorPenjualan Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NomorPenjualan")
             Else
@@ -10800,7 +11120,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
         Public Overloads Overridable Function InsertQueryByNomorPenjualan(ByVal Nomor_Penjualan As String, ByVal Nama_Pelanggan As String, ByVal Tanggal_Penjualan As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Satuan As String, ByVal Harga As Global.System.Nullable(Of Integer), ByVal Total As Global.System.Nullable(Of Integer)) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (Nomor_Penjualan Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nomor_Penjualan")
             Else
@@ -10867,7 +11187,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
         Public Overloads Overridable Function UpdateQueryByNomorPenjualan(ByVal Nomor_Penjualan As String, ByVal Nama_Pelanggan As String, ByVal Tanggal_Penjualan As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Satuan As String, ByVal Harga As Global.System.Nullable(Of Integer), ByVal Total As Global.System.Nullable(Of Integer), ByVal Original_Nomor_Penjualan As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
             If (Nomor_Penjualan Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nomor_Penjualan")
             Else

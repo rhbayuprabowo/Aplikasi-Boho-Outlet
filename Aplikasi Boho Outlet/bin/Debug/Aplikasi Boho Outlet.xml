@@ -32,12 +32,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Add_File_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Add_File_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Box_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Box_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Box_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Box_96px3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -52,12 +72,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Buy_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Buy_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Cancel_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Cancel_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Cancel_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Cancel_96px3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -72,12 +112,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Close_Window_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Close_Window_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Contacts_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Contacts_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Contacts_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Contacts_96px3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -92,7 +152,27 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Dashboard_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Dashboard_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Debt_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Debt_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Debt_96px2">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -107,12 +187,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Delete_File_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Delete_File_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Edit_File_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Edit_File_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Edit_File_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Edit_File_96px3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -127,12 +227,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Exit_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Exit_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Filter_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Filter_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Filter_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Filter_96px3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -147,12 +267,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Fortune_Teller_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Fortune_Teller_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Home_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Home_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Home_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Home_96px3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -167,12 +307,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.icons8_Purchase_Order_162">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.icons8_Purchase_Order_163">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.icons8_Shop_32">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.icons8_Shop_321">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.icons8_Shop_322">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.icons8_Shop_323">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -187,12 +347,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.ID_Card_24px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.ID_Card_24px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.ID_Card_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.ID_Card_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.ID_Card_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.ID_Card_96px3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -207,12 +387,42 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Menu_24px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Menu_24px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Minimize_Window_24px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Minimize_Window_24px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Minimize_Window_24px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Minimize_Window_24px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.More_96px">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.More_96px1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -227,12 +437,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.New_Product_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.New_Product_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.People_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.People_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.People_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.People_96px3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -247,12 +477,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Person_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Person_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Price_Tag_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Price_Tag_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Price_Tag_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Price_Tag_96px3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -267,12 +517,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Product_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Product_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Purchase_Order_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Purchase_Order_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Purchase_Order_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Purchase_Order_96px3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -287,12 +557,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Refresh_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Refresh_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Restore_Window_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Restore_Window_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Restore_Window_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Restore_Window_96px3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -307,6 +597,16 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Return_Purchase_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Return_Purchase_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Sell_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -317,12 +617,32 @@ Aplikasi Boho Outlet
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Sell_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Sell_96px3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Used_Product_96px">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Used_Product_96px1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Used_Product_96px2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Aplikasi_Boho_Outlet.My.Resources.Resources.Used_Product_96px3">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

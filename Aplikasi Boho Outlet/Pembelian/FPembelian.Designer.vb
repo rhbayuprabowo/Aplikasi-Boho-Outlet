@@ -26,6 +26,9 @@ Partial Class FPembelian
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FPembelian))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.BindingSourcePembelian = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Database_Boho_OutletDataSet = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet()
+        Me.Tabel_PembelianTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_PembelianTableAdapter()
         Me.BunifuGradientPanel2 = New Bunifu.Framework.UI.BunifuGradientPanel()
         Me.DatagridPembelian = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.KodeBarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -40,12 +43,10 @@ Partial Class FPembelian
         Me.ButtonKeluar = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.ButtonSimpan = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.ButtonHapus = New Bunifu.Framework.UI.BunifuFlatButton()
-        Me.BindingSourcePembelian = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Database_Boho_OutletDataSet = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet()
         Me.BunifuGradientPanel1 = New Bunifu.Framework.UI.BunifuGradientPanel()
         Me.TextboxKeterangan = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.BunifuCustomLabel2 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.ImageButtonPembelian = New Bunifu.Framework.UI.BunifuImageButton()
+        Me.ImageButtonKodePemasok = New Bunifu.Framework.UI.BunifuImageButton()
         Me.TextboxNamaPemasok = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.BunifuCustomLabel6 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.DatepickerTanggalPembelian = New Bunifu.Framework.UI.BunifuDatepicker()
@@ -57,15 +58,28 @@ Partial Class FPembelian
         Me.TextboxKodePemasok = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.BunifuCustomLabel3 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
-        Me.Tabel_PembelianTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_PembelianTableAdapter()
-        Me.BunifuGradientPanel2.SuspendLayout()
-        CType(Me.DatagridPembelian, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSourcePembelian, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Database_Boho_OutletDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.BunifuGradientPanel2.SuspendLayout()
+        CType(Me.DatagridPembelian, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BunifuGradientPanel1.SuspendLayout()
-        CType(Me.ImageButtonPembelian, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImageButtonKodePemasok, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BIBKeluar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'BindingSourcePembelian
+        '
+        Me.BindingSourcePembelian.DataMember = "Tabel Pembelian"
+        Me.BindingSourcePembelian.DataSource = Me.Database_Boho_OutletDataSet
+        '
+        'Database_Boho_OutletDataSet
+        '
+        Me.Database_Boho_OutletDataSet.DataSetName = "Database_Boho_OutletDataSet"
+        Me.Database_Boho_OutletDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'Tabel_PembelianTableAdapter
+        '
+        Me.Tabel_PembelianTableAdapter.ClearBeforeFill = True
         '
         'BunifuGradientPanel2
         '
@@ -311,16 +325,6 @@ Partial Class FPembelian
         Me.ButtonHapus.Textcolor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.ButtonHapus.TextFont = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
-        'BindingSourcePembelian
-        '
-        Me.BindingSourcePembelian.DataMember = "Tabel Pembelian"
-        Me.BindingSourcePembelian.DataSource = Me.Database_Boho_OutletDataSet
-        '
-        'Database_Boho_OutletDataSet
-        '
-        Me.Database_Boho_OutletDataSet.DataSetName = "Database_Boho_OutletDataSet"
-        Me.Database_Boho_OutletDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'BunifuGradientPanel1
         '
         Me.BunifuGradientPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
@@ -328,7 +332,7 @@ Partial Class FPembelian
         Me.BunifuGradientPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BunifuGradientPanel1.Controls.Add(Me.TextboxKeterangan)
         Me.BunifuGradientPanel1.Controls.Add(Me.BunifuCustomLabel2)
-        Me.BunifuGradientPanel1.Controls.Add(Me.ImageButtonPembelian)
+        Me.BunifuGradientPanel1.Controls.Add(Me.ImageButtonKodePemasok)
         Me.BunifuGradientPanel1.Controls.Add(Me.TextboxNamaPemasok)
         Me.BunifuGradientPanel1.Controls.Add(Me.BunifuCustomLabel6)
         Me.BunifuGradientPanel1.Controls.Add(Me.DatepickerTanggalPembelian)
@@ -385,18 +389,18 @@ Partial Class FPembelian
         Me.BunifuCustomLabel2.Text = "Keterangan"
         Me.BunifuCustomLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'ImageButtonPembelian
+        'ImageButtonKodePemasok
         '
-        Me.ImageButtonPembelian.BackColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.ImageButtonPembelian.Image = CType(resources.GetObject("ImageButtonPembelian.Image"), System.Drawing.Image)
-        Me.ImageButtonPembelian.ImageActive = Nothing
-        Me.ImageButtonPembelian.Location = New System.Drawing.Point(361, 90)
-        Me.ImageButtonPembelian.Name = "ImageButtonPembelian"
-        Me.ImageButtonPembelian.Size = New System.Drawing.Size(30, 30)
-        Me.ImageButtonPembelian.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.ImageButtonPembelian.TabIndex = 34
-        Me.ImageButtonPembelian.TabStop = False
-        Me.ImageButtonPembelian.Zoom = 10
+        Me.ImageButtonKodePemasok.BackColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.ImageButtonKodePemasok.Image = Global.Aplikasi_Boho_Outlet.My.Resources.Resources.More_96px1
+        Me.ImageButtonKodePemasok.ImageActive = Nothing
+        Me.ImageButtonKodePemasok.Location = New System.Drawing.Point(361, 90)
+        Me.ImageButtonKodePemasok.Name = "ImageButtonKodePemasok"
+        Me.ImageButtonKodePemasok.Size = New System.Drawing.Size(30, 30)
+        Me.ImageButtonKodePemasok.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.ImageButtonKodePemasok.TabIndex = 34
+        Me.ImageButtonKodePemasok.TabStop = False
+        Me.ImageButtonKodePemasok.Zoom = 10
         '
         'TextboxNamaPemasok
         '
@@ -562,10 +566,6 @@ Partial Class FPembelian
         Me.BunifuCustomLabel1.Text = "Pembelian"
         Me.BunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'Tabel_PembelianTableAdapter
-        '
-        Me.Tabel_PembelianTableAdapter.ClearBeforeFill = True
-        '
         'FPembelian
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -576,20 +576,20 @@ Partial Class FPembelian
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FPembelian"
         Me.Text = "Pembelian"
+        CType(Me.BindingSourcePembelian, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Database_Boho_OutletDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BunifuGradientPanel2.ResumeLayout(False)
         Me.BunifuGradientPanel2.PerformLayout()
         CType(Me.DatagridPembelian, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSourcePembelian, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Database_Boho_OutletDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BunifuGradientPanel1.ResumeLayout(False)
         Me.BunifuGradientPanel1.PerformLayout()
-        CType(Me.ImageButtonPembelian, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImageButtonKodePemasok, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BIBKeluar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents ImageButtonPembelian As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents ImageButtonKodePemasok As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents BunifuGradientPanel2 As Bunifu.Framework.UI.BunifuGradientPanel
     Friend WithEvents LabelCetak As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents CheckboxCetak As Bunifu.Framework.UI.BunifuCheckbox
@@ -609,7 +609,6 @@ Partial Class FPembelian
     Friend WithEvents BunifuCustomLabel3 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents BunifuGradientPanel1 As Bunifu.Framework.UI.BunifuGradientPanel
-    Friend WithEvents TextboxKeterangan As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents BunifuCustomLabel2 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents DatagridPembelian As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents BindingSourcePembelian As BindingSource
@@ -621,4 +620,5 @@ Partial Class FPembelian
     Friend WithEvents Satuan As DataGridViewComboBoxColumn
     Friend WithEvents Harga As DataGridViewTextBoxColumn
     Friend WithEvents Total As DataGridViewTextBoxColumn
+    Friend WithEvents TextboxKeterangan As Bunifu.Framework.UI.BunifuMaterialTextbox
 End Class
