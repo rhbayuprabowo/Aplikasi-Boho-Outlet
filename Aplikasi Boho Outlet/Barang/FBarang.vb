@@ -66,15 +66,7 @@ Public Class FBarang
 
         End If
 
-        TextboxKodeBarang.Text = ""
-        TextboxNamaBarang.Text = ""
-        DropdownKategoriBarang.Clear()
-        DropdownMerekBarang.Clear()
-        TextboxJumlah.Text = ""
-        DropdownSatuan.Clear()
-        TextboxHargaBeli.Text = ""
-        TextboxHargaJual.Text = ""
-        PictureboxBarang.Image = Nothing
+        Me.Close()
 
     End Sub
 
@@ -170,4 +162,17 @@ Public Class FBarang
         toolTip1.Show(Pesan, TextBoxes, 0, -25, 1000)
     End Sub
 
+    Private Sub FBarang_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+        Using data_tabel = Tabel_BarangTableAdapter.GetData()
+            If data_tabel.Rows.Count = 0 Then
+                TextboxKodeBarang.Text = "KBAR-" + 1.ToString("D4")
+            Else
+                Dim NomorArray = data_tabel(data_tabel.Count - 1).Kode_Barang.Split("-"c)
+                Dim KodeBarang = Convert.ToInt32(NomorArray(1)) + 1
+                TextboxKodeBarang.Text = "KBAR-" + KodeBarang.ToString("D4")
+            End If
+        End Using
+
+    End Sub
 End Class

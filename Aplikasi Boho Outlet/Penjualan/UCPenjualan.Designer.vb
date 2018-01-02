@@ -58,6 +58,8 @@ Partial Class UCPenjualan
         '
         'DataGridPenjualan
         '
+        Me.DataGridPenjualan.AllowUserToAddRows = False
+        Me.DataGridPenjualan.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.DataGridPenjualan.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridPenjualan.AutoGenerateColumns = False
@@ -82,6 +84,7 @@ Partial Class UCPenjualan
         Me.DataGridPenjualan.HeaderForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.DataGridPenjualan.Location = New System.Drawing.Point(29, 109)
         Me.DataGridPenjualan.Name = "DataGridPenjualan"
+        Me.DataGridPenjualan.ReadOnly = True
         Me.DataGridPenjualan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DataGridPenjualan.Size = New System.Drawing.Size(1053, 520)
         Me.DataGridPenjualan.TabIndex = 9
@@ -91,54 +94,63 @@ Partial Class UCPenjualan
         Me.NomorPenjualanDataGridViewTextBoxColumn.DataPropertyName = "Nomor Penjualan"
         Me.NomorPenjualanDataGridViewTextBoxColumn.HeaderText = "Nomor Penjualan"
         Me.NomorPenjualanDataGridViewTextBoxColumn.Name = "NomorPenjualanDataGridViewTextBoxColumn"
+        Me.NomorPenjualanDataGridViewTextBoxColumn.ReadOnly = True
         '
         'NamaPelangganDataGridViewTextBoxColumn
         '
         Me.NamaPelangganDataGridViewTextBoxColumn.DataPropertyName = "Nama Pelanggan"
         Me.NamaPelangganDataGridViewTextBoxColumn.HeaderText = "Nama Pelanggan"
         Me.NamaPelangganDataGridViewTextBoxColumn.Name = "NamaPelangganDataGridViewTextBoxColumn"
+        Me.NamaPelangganDataGridViewTextBoxColumn.ReadOnly = True
         '
         'TanggalPenjualanDataGridViewTextBoxColumn
         '
         Me.TanggalPenjualanDataGridViewTextBoxColumn.DataPropertyName = "Tanggal Penjualan"
         Me.TanggalPenjualanDataGridViewTextBoxColumn.HeaderText = "Tanggal Penjualan"
         Me.TanggalPenjualanDataGridViewTextBoxColumn.Name = "TanggalPenjualanDataGridViewTextBoxColumn"
+        Me.TanggalPenjualanDataGridViewTextBoxColumn.ReadOnly = True
         '
         'KodeBarangDataGridViewTextBoxColumn
         '
         Me.KodeBarangDataGridViewTextBoxColumn.DataPropertyName = "Kode Barang"
         Me.KodeBarangDataGridViewTextBoxColumn.HeaderText = "Kode Barang"
         Me.KodeBarangDataGridViewTextBoxColumn.Name = "KodeBarangDataGridViewTextBoxColumn"
+        Me.KodeBarangDataGridViewTextBoxColumn.ReadOnly = True
         '
         'NamaBarangDataGridViewTextBoxColumn
         '
         Me.NamaBarangDataGridViewTextBoxColumn.DataPropertyName = "Nama Barang"
         Me.NamaBarangDataGridViewTextBoxColumn.HeaderText = "Nama Barang"
         Me.NamaBarangDataGridViewTextBoxColumn.Name = "NamaBarangDataGridViewTextBoxColumn"
+        Me.NamaBarangDataGridViewTextBoxColumn.ReadOnly = True
         '
         'JumlahDataGridViewTextBoxColumn
         '
         Me.JumlahDataGridViewTextBoxColumn.DataPropertyName = "Jumlah"
         Me.JumlahDataGridViewTextBoxColumn.HeaderText = "Jumlah"
         Me.JumlahDataGridViewTextBoxColumn.Name = "JumlahDataGridViewTextBoxColumn"
+        Me.JumlahDataGridViewTextBoxColumn.ReadOnly = True
         '
         'SatuanDataGridViewTextBoxColumn
         '
         Me.SatuanDataGridViewTextBoxColumn.DataPropertyName = "Satuan"
         Me.SatuanDataGridViewTextBoxColumn.HeaderText = "Satuan"
         Me.SatuanDataGridViewTextBoxColumn.Name = "SatuanDataGridViewTextBoxColumn"
+        Me.SatuanDataGridViewTextBoxColumn.ReadOnly = True
         '
         'HargaDataGridViewTextBoxColumn
         '
         Me.HargaDataGridViewTextBoxColumn.DataPropertyName = "Harga"
         Me.HargaDataGridViewTextBoxColumn.HeaderText = "Harga"
         Me.HargaDataGridViewTextBoxColumn.Name = "HargaDataGridViewTextBoxColumn"
+        Me.HargaDataGridViewTextBoxColumn.ReadOnly = True
         '
         'TotalDataGridViewTextBoxColumn
         '
         Me.TotalDataGridViewTextBoxColumn.DataPropertyName = "Total"
         Me.TotalDataGridViewTextBoxColumn.HeaderText = "Total"
         Me.TotalDataGridViewTextBoxColumn.Name = "TotalDataGridViewTextBoxColumn"
+        Me.TotalDataGridViewTextBoxColumn.ReadOnly = True
         '
         'BindingSourcePenjualan
         '
@@ -155,7 +167,7 @@ Partial Class UCPenjualan
         Me.ImageButtonMenyegarkan.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ImageButtonMenyegarkan.Image = CType(resources.GetObject("ImageButtonMenyegarkan.Image"), System.Drawing.Image)
         Me.ImageButtonMenyegarkan.ImageActive = Nothing
-        Me.ImageButtonMenyegarkan.Location = New System.Drawing.Point(167, 62)
+        Me.ImageButtonMenyegarkan.Location = New System.Drawing.Point(75, 62)
         Me.ImageButtonMenyegarkan.Name = "ImageButtonMenyegarkan"
         Me.ImageButtonMenyegarkan.Size = New System.Drawing.Size(40, 40)
         Me.ImageButtonMenyegarkan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -168,12 +180,13 @@ Partial Class UCPenjualan
         Me.ImageButtonHapus.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ImageButtonHapus.Image = CType(resources.GetObject("ImageButtonHapus.Image"), System.Drawing.Image)
         Me.ImageButtonHapus.ImageActive = Nothing
-        Me.ImageButtonHapus.Location = New System.Drawing.Point(121, 63)
+        Me.ImageButtonHapus.Location = New System.Drawing.Point(167, 62)
         Me.ImageButtonHapus.Name = "ImageButtonHapus"
         Me.ImageButtonHapus.Size = New System.Drawing.Size(40, 40)
         Me.ImageButtonHapus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ImageButtonHapus.TabIndex = 6
         Me.ImageButtonHapus.TabStop = False
+        Me.ImageButtonHapus.Visible = False
         Me.ImageButtonHapus.Zoom = 10
         '
         'ImageButtonEdit
@@ -181,12 +194,13 @@ Partial Class UCPenjualan
         Me.ImageButtonEdit.BackColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.ImageButtonEdit.Image = CType(resources.GetObject("ImageButtonEdit.Image"), System.Drawing.Image)
         Me.ImageButtonEdit.ImageActive = Nothing
-        Me.ImageButtonEdit.Location = New System.Drawing.Point(75, 63)
+        Me.ImageButtonEdit.Location = New System.Drawing.Point(121, 62)
         Me.ImageButtonEdit.Name = "ImageButtonEdit"
         Me.ImageButtonEdit.Size = New System.Drawing.Size(40, 40)
         Me.ImageButtonEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.ImageButtonEdit.TabIndex = 5
         Me.ImageButtonEdit.TabStop = False
+        Me.ImageButtonEdit.Visible = False
         Me.ImageButtonEdit.Zoom = 10
         '
         'ImageButtonTambah

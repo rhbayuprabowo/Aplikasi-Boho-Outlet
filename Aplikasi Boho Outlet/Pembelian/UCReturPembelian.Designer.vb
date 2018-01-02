@@ -31,6 +31,7 @@ Partial Class UCReturPembelian
         Me.ImageButtonTambah = New Bunifu.Framework.UI.BunifuImageButton()
         Me.DatagridPenyesuaian = New Bunifu.Framework.UI.BunifuCustomDataGrid()
         Me.NomorReturPembelianDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TanggalReturPembelianDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.KodeBarangDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NamaBarangDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.JumlahDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -115,7 +116,7 @@ Partial Class UCReturPembelian
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DatagridPenyesuaian.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DatagridPenyesuaian.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DatagridPenyesuaian.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NomorReturPembelianDataGridViewTextBoxColumn, Me.KodeBarangDataGridViewTextBoxColumn, Me.NamaBarangDataGridViewTextBoxColumn, Me.JumlahDataGridViewTextBoxColumn, Me.HargaDataGridViewTextBoxColumn, Me.KeteranganDataGridViewTextBoxColumn})
+        Me.DatagridPenyesuaian.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NomorReturPembelianDataGridViewTextBoxColumn, Me.TanggalReturPembelianDataGridViewTextBoxColumn, Me.KodeBarangDataGridViewTextBoxColumn, Me.NamaBarangDataGridViewTextBoxColumn, Me.JumlahDataGridViewTextBoxColumn, Me.HargaDataGridViewTextBoxColumn, Me.KeteranganDataGridViewTextBoxColumn})
         Me.DatagridPenyesuaian.DataSource = Me.BindingSourceReturPembelian
         Me.DatagridPenyesuaian.DoubleBuffered = True
         Me.DatagridPenyesuaian.EnableHeadersVisualStyles = False
@@ -124,6 +125,7 @@ Partial Class UCReturPembelian
         Me.DatagridPenyesuaian.HeaderForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.DatagridPenyesuaian.Location = New System.Drawing.Point(29, 110)
         Me.DatagridPenyesuaian.Name = "DatagridPenyesuaian"
+        Me.DatagridPenyesuaian.ReadOnly = True
         Me.DatagridPenyesuaian.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DatagridPenyesuaian.Size = New System.Drawing.Size(1053, 516)
         Me.DatagridPenyesuaian.TabIndex = 3
@@ -133,36 +135,49 @@ Partial Class UCReturPembelian
         Me.NomorReturPembelianDataGridViewTextBoxColumn.DataPropertyName = "Nomor Retur Pembelian"
         Me.NomorReturPembelianDataGridViewTextBoxColumn.HeaderText = "Nomor Retur Pembelian"
         Me.NomorReturPembelianDataGridViewTextBoxColumn.Name = "NomorReturPembelianDataGridViewTextBoxColumn"
+        Me.NomorReturPembelianDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TanggalReturPembelianDataGridViewTextBoxColumn
+        '
+        Me.TanggalReturPembelianDataGridViewTextBoxColumn.DataPropertyName = "Tanggal Retur Pembelian"
+        Me.TanggalReturPembelianDataGridViewTextBoxColumn.HeaderText = "Tanggal Retur Pembelian"
+        Me.TanggalReturPembelianDataGridViewTextBoxColumn.Name = "TanggalReturPembelianDataGridViewTextBoxColumn"
+        Me.TanggalReturPembelianDataGridViewTextBoxColumn.ReadOnly = True
         '
         'KodeBarangDataGridViewTextBoxColumn
         '
         Me.KodeBarangDataGridViewTextBoxColumn.DataPropertyName = "Kode Barang"
         Me.KodeBarangDataGridViewTextBoxColumn.HeaderText = "Kode Barang"
         Me.KodeBarangDataGridViewTextBoxColumn.Name = "KodeBarangDataGridViewTextBoxColumn"
+        Me.KodeBarangDataGridViewTextBoxColumn.ReadOnly = True
         '
         'NamaBarangDataGridViewTextBoxColumn
         '
         Me.NamaBarangDataGridViewTextBoxColumn.DataPropertyName = "Nama Barang"
         Me.NamaBarangDataGridViewTextBoxColumn.HeaderText = "Nama Barang"
         Me.NamaBarangDataGridViewTextBoxColumn.Name = "NamaBarangDataGridViewTextBoxColumn"
+        Me.NamaBarangDataGridViewTextBoxColumn.ReadOnly = True
         '
         'JumlahDataGridViewTextBoxColumn
         '
         Me.JumlahDataGridViewTextBoxColumn.DataPropertyName = "Jumlah"
         Me.JumlahDataGridViewTextBoxColumn.HeaderText = "Jumlah"
         Me.JumlahDataGridViewTextBoxColumn.Name = "JumlahDataGridViewTextBoxColumn"
+        Me.JumlahDataGridViewTextBoxColumn.ReadOnly = True
         '
         'HargaDataGridViewTextBoxColumn
         '
         Me.HargaDataGridViewTextBoxColumn.DataPropertyName = "Harga"
         Me.HargaDataGridViewTextBoxColumn.HeaderText = "Harga"
         Me.HargaDataGridViewTextBoxColumn.Name = "HargaDataGridViewTextBoxColumn"
+        Me.HargaDataGridViewTextBoxColumn.ReadOnly = True
         '
         'KeteranganDataGridViewTextBoxColumn
         '
         Me.KeteranganDataGridViewTextBoxColumn.DataPropertyName = "Keterangan"
         Me.KeteranganDataGridViewTextBoxColumn.HeaderText = "Keterangan"
         Me.KeteranganDataGridViewTextBoxColumn.Name = "KeteranganDataGridViewTextBoxColumn"
+        Me.KeteranganDataGridViewTextBoxColumn.ReadOnly = True
         '
         'BindingSourceReturPembelian
         '
@@ -235,13 +250,14 @@ Partial Class UCReturPembelian
     Friend WithEvents DatagridPenyesuaian As Bunifu.Framework.UI.BunifuCustomDataGrid
     Friend WithEvents TextboxPencarian As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
-    Friend WithEvents BindingSourceReturPembelian As BindingSource
-    Friend WithEvents Database_Boho_OutletDataSet As Database_Boho_OutletDataSet
-    Friend WithEvents Tabel_Retur_PembelianTableAdapter As Database_Boho_OutletDataSetTableAdapters.Tabel_Retur_PembelianTableAdapter
     Friend WithEvents NomorReturPembelianDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TanggalReturPembelianDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents KodeBarangDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NamaBarangDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents JumlahDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents HargaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents KeteranganDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents BindingSourceReturPembelian As BindingSource
+    Friend WithEvents Database_Boho_OutletDataSet As Database_Boho_OutletDataSet
+    Friend WithEvents Tabel_Retur_PembelianTableAdapter As Database_Boho_OutletDataSetTableAdapters.Tabel_Retur_PembelianTableAdapter
 End Class

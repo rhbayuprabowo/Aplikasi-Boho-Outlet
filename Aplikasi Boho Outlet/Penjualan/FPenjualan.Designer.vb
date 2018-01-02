@@ -39,20 +39,22 @@ Partial Class FPenjualan
         Me.BunifuSeparator1 = New Bunifu.Framework.UI.BunifuSeparator()
         Me.BIBKeluar = New Bunifu.Framework.UI.BunifuImageButton()
         Me.DatagridPenjualan = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.KodeBarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NamaBarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Jumlah = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Satuan = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.Harga = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BunifuCustomLabel5 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.ButtonHapus = New Bunifu.Framework.UI.BunifuFlatButton()
         Me.BunifuGradientPanel2 = New Bunifu.Framework.UI.BunifuGradientPanel()
+        Me.BunifuCustomLabel7 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.BunifuGradientPanel1 = New Bunifu.Framework.UI.BunifuGradientPanel()
         Me.BindingSourcePenjualan = New System.Windows.Forms.BindingSource(Me.components)
         Me.Database_Boho_OutletDataSet = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet()
         Me.Tabel_PenjualanTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_PenjualanTableAdapter()
+        Me.Tabel_BarangTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_BarangTableAdapter()
+        Me.KodeBarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NamaBarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Jumlah = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Satuan = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Harga = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.BIBKeluar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatagridPenjualan, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BunifuGradientPanel2.SuspendLayout()
@@ -251,6 +253,7 @@ Partial Class FPenjualan
         '
         Me.TextboxNomorPenjualan.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxNomorPenjualan.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxNomorPenjualan.Enabled = False
         Me.TextboxNomorPenjualan.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxNomorPenjualan.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxNomorPenjualan.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -323,37 +326,6 @@ Partial Class FPenjualan
         Me.DatagridPenjualan.Size = New System.Drawing.Size(1299, 306)
         Me.DatagridPenjualan.TabIndex = 47
         '
-        'KodeBarang
-        '
-        Me.KodeBarang.HeaderText = "Kode Barang"
-        Me.KodeBarang.Name = "KodeBarang"
-        '
-        'NamaBarang
-        '
-        Me.NamaBarang.HeaderText = "Nama Barang"
-        Me.NamaBarang.Name = "NamaBarang"
-        '
-        'Jumlah
-        '
-        Me.Jumlah.HeaderText = "Jumlah"
-        Me.Jumlah.Name = "Jumlah"
-        '
-        'Satuan
-        '
-        Me.Satuan.HeaderText = "Satuan"
-        Me.Satuan.Items.AddRange(New Object() {"PCS"})
-        Me.Satuan.Name = "Satuan"
-        '
-        'Harga
-        '
-        Me.Harga.HeaderText = "Harga"
-        Me.Harga.Name = "Harga"
-        '
-        'Total
-        '
-        Me.Total.HeaderText = "Total"
-        Me.Total.Name = "Total"
-        '
         'BunifuCustomLabel5
         '
         Me.BunifuCustomLabel5.AutoSize = True
@@ -418,6 +390,7 @@ Partial Class FPenjualan
         '
         Me.BunifuGradientPanel2.BackgroundImage = CType(resources.GetObject("BunifuGradientPanel2.BackgroundImage"), System.Drawing.Image)
         Me.BunifuGradientPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BunifuGradientPanel2.Controls.Add(Me.BunifuCustomLabel7)
         Me.BunifuGradientPanel2.Controls.Add(Me.DatagridPenjualan)
         Me.BunifuGradientPanel2.Controls.Add(Me.LabelCetak)
         Me.BunifuGradientPanel2.Controls.Add(Me.CheckboxCetak)
@@ -435,6 +408,19 @@ Partial Class FPenjualan
         Me.BunifuGradientPanel2.Quality = 10
         Me.BunifuGradientPanel2.Size = New System.Drawing.Size(1368, 440)
         Me.BunifuGradientPanel2.TabIndex = 8
+        '
+        'BunifuCustomLabel7
+        '
+        Me.BunifuCustomLabel7.AutoSize = True
+        Me.BunifuCustomLabel7.BackColor = System.Drawing.Color.Transparent
+        Me.BunifuCustomLabel7.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.BunifuCustomLabel7.Location = New System.Drawing.Point(31, 3)
+        Me.BunifuCustomLabel7.Name = "BunifuCustomLabel7"
+        Me.BunifuCustomLabel7.Size = New System.Drawing.Size(233, 17)
+        Me.BunifuCustomLabel7.TabIndex = 38
+        Me.BunifuCustomLabel7.Text = "Tekan F2 untuk membuka Data Barang"
+        Me.BunifuCustomLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'BunifuGradientPanel1
         '
@@ -476,6 +462,46 @@ Partial Class FPenjualan
         '
         Me.Tabel_PenjualanTableAdapter.ClearBeforeFill = True
         '
+        'Tabel_BarangTableAdapter
+        '
+        Me.Tabel_BarangTableAdapter.ClearBeforeFill = True
+        '
+        'KodeBarang
+        '
+        Me.KodeBarang.HeaderText = "Kode Barang"
+        Me.KodeBarang.Name = "KodeBarang"
+        Me.KodeBarang.ReadOnly = True
+        '
+        'NamaBarang
+        '
+        Me.NamaBarang.HeaderText = "Nama Barang"
+        Me.NamaBarang.Name = "NamaBarang"
+        Me.NamaBarang.ReadOnly = True
+        '
+        'Jumlah
+        '
+        Me.Jumlah.HeaderText = "Jumlah"
+        Me.Jumlah.Name = "Jumlah"
+        '
+        'Satuan
+        '
+        Me.Satuan.HeaderText = "Satuan"
+        Me.Satuan.Name = "Satuan"
+        Me.Satuan.ReadOnly = True
+        Me.Satuan.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Satuan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Harga
+        '
+        Me.Harga.HeaderText = "Harga"
+        Me.Harga.Name = "Harga"
+        '
+        'Total
+        '
+        Me.Total.HeaderText = "Total"
+        Me.Total.Name = "Total"
+        Me.Total.ReadOnly = True
+        '
         'FPenjualan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -511,12 +537,6 @@ Partial Class FPenjualan
     Friend WithEvents BunifuSeparator1 As Bunifu.Framework.UI.BunifuSeparator
     Friend WithEvents BIBKeluar As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents DatagridPenjualan As Bunifu.Framework.UI.BunifuCustomDataGrid
-    Friend WithEvents KodeBarang As DataGridViewTextBoxColumn
-    Friend WithEvents NamaBarang As DataGridViewTextBoxColumn
-    Friend WithEvents Jumlah As DataGridViewTextBoxColumn
-    Friend WithEvents Satuan As DataGridViewComboBoxColumn
-    Friend WithEvents Harga As DataGridViewTextBoxColumn
-    Friend WithEvents Total As DataGridViewTextBoxColumn
     Friend WithEvents BunifuCustomLabel5 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents BunifuCustomLabel1 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents ButtonHapus As Bunifu.Framework.UI.BunifuFlatButton
@@ -525,4 +545,12 @@ Partial Class FPenjualan
     Friend WithEvents BindingSourcePenjualan As BindingSource
     Friend WithEvents Database_Boho_OutletDataSet As Database_Boho_OutletDataSet
     Friend WithEvents Tabel_PenjualanTableAdapter As Database_Boho_OutletDataSetTableAdapters.Tabel_PenjualanTableAdapter
+    Friend WithEvents BunifuCustomLabel7 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents Tabel_BarangTableAdapter As Database_Boho_OutletDataSetTableAdapters.Tabel_BarangTableAdapter
+    Friend WithEvents KodeBarang As DataGridViewTextBoxColumn
+    Friend WithEvents NamaBarang As DataGridViewTextBoxColumn
+    Friend WithEvents Jumlah As DataGridViewTextBoxColumn
+    Friend WithEvents Satuan As DataGridViewTextBoxColumn
+    Friend WithEvents Harga As DataGridViewTextBoxColumn
+    Friend WithEvents Total As DataGridViewTextBoxColumn
 End Class

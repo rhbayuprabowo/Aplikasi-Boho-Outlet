@@ -124,6 +124,7 @@ Partial Class UCPembayaranHutang
         Me.DatagridPenyesuaian.HeaderForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.DatagridPenyesuaian.Location = New System.Drawing.Point(29, 110)
         Me.DatagridPenyesuaian.Name = "DatagridPenyesuaian"
+        Me.DatagridPenyesuaian.ReadOnly = True
         Me.DatagridPenyesuaian.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DatagridPenyesuaian.Size = New System.Drawing.Size(1053, 516)
         Me.DatagridPenyesuaian.TabIndex = 3
@@ -133,36 +134,42 @@ Partial Class UCPembayaranHutang
         Me.NomorPembayaranDataGridViewTextBoxColumn.DataPropertyName = "Nomor Pembayaran"
         Me.NomorPembayaranDataGridViewTextBoxColumn.HeaderText = "Nomor Pembayaran"
         Me.NomorPembayaranDataGridViewTextBoxColumn.Name = "NomorPembayaranDataGridViewTextBoxColumn"
+        Me.NomorPembayaranDataGridViewTextBoxColumn.ReadOnly = True
         '
         'TanggalPembayaranDataGridViewTextBoxColumn
         '
         Me.TanggalPembayaranDataGridViewTextBoxColumn.DataPropertyName = "Tanggal Pembayaran"
         Me.TanggalPembayaranDataGridViewTextBoxColumn.HeaderText = "Tanggal Pembayaran"
         Me.TanggalPembayaranDataGridViewTextBoxColumn.Name = "TanggalPembayaranDataGridViewTextBoxColumn"
+        Me.TanggalPembayaranDataGridViewTextBoxColumn.ReadOnly = True
         '
         'NomorPembelianDataGridViewTextBoxColumn
         '
         Me.NomorPembelianDataGridViewTextBoxColumn.DataPropertyName = "Nomor Pembelian"
         Me.NomorPembelianDataGridViewTextBoxColumn.HeaderText = "Nomor Pembelian"
         Me.NomorPembelianDataGridViewTextBoxColumn.Name = "NomorPembelianDataGridViewTextBoxColumn"
+        Me.NomorPembelianDataGridViewTextBoxColumn.ReadOnly = True
         '
         'KodePemasokDataGridViewTextBoxColumn
         '
         Me.KodePemasokDataGridViewTextBoxColumn.DataPropertyName = "Kode Pemasok"
         Me.KodePemasokDataGridViewTextBoxColumn.HeaderText = "Kode Pemasok"
         Me.KodePemasokDataGridViewTextBoxColumn.Name = "KodePemasokDataGridViewTextBoxColumn"
+        Me.KodePemasokDataGridViewTextBoxColumn.ReadOnly = True
         '
         'NamaPemasokDataGridViewTextBoxColumn
         '
         Me.NamaPemasokDataGridViewTextBoxColumn.DataPropertyName = "Nama Pemasok"
         Me.NamaPemasokDataGridViewTextBoxColumn.HeaderText = "Nama Pemasok"
         Me.NamaPemasokDataGridViewTextBoxColumn.Name = "NamaPemasokDataGridViewTextBoxColumn"
+        Me.NamaPemasokDataGridViewTextBoxColumn.ReadOnly = True
         '
         'StatusDataGridViewTextBoxColumn
         '
         Me.StatusDataGridViewTextBoxColumn.DataPropertyName = "Status"
         Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
         Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
+        Me.StatusDataGridViewTextBoxColumn.ReadOnly = True
         '
         'BindingSourcePembayaranHutang
         '

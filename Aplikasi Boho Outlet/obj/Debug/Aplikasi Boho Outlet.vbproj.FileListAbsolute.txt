@@ -27,4 +27,6 @@ D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi Boho Outlet.xml
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi Boho Outlet.pdb
 D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi Boho Outlet.vbprojResolveAssemblyReference.cache
-D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FData.resources
+D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FDataPemasok.resources
+D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FDataBarang.resources
+D:\Riza Fahmi Aditya P\Tugas Akhir\Aplikasi Boho Outlet\Aplikasi Boho Outlet\obj\Debug\Aplikasi_Boho_Outlet.FDataPembelian.resources

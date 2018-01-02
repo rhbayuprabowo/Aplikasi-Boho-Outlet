@@ -139,7 +139,7 @@ Partial Class FBarang
         Me.DropdownMerekBarang.BorderRadius = 3
         Me.DropdownMerekBarang.DisabledColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.DropdownMerekBarang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.DropdownMerekBarang.Items = New String() {"Adidas", "Nike", "Vans"}
+        Me.DropdownMerekBarang.Items = New String() {"Adidas", "Nike", "Levi's", "Vans", "Converse"}
         Me.DropdownMerekBarang.Location = New System.Drawing.Point(200, 235)
         Me.DropdownMerekBarang.Name = "DropdownMerekBarang"
         Me.DropdownMerekBarang.NomalColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -154,7 +154,7 @@ Partial Class FBarang
         Me.DropdownKategoriBarang.BorderRadius = 3
         Me.DropdownKategoriBarang.DisabledColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.DropdownKategoriBarang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
-        Me.DropdownKategoriBarang.Items = New String() {"Topi", "Baju", "Celana", "Sepatu"}
+        Me.DropdownKategoriBarang.Items = New String() {"Atasan", "Sepatu", "Celana", "Outerwear", "Sepatu", "Aksesoris"}
         Me.DropdownKategoriBarang.Location = New System.Drawing.Point(200, 194)
         Me.DropdownKategoriBarang.Name = "DropdownKategoriBarang"
         Me.DropdownKategoriBarang.NomalColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -506,6 +506,7 @@ Partial Class FBarang
         '
         Me.TextboxKodeBarang.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxKodeBarang.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxKodeBarang.Enabled = False
         Me.TextboxKodeBarang.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxKodeBarang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxKodeBarang.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))

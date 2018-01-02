@@ -7,13 +7,18 @@ Public Class FReturPembelian
     Private Sub ButtonSimpan_Click(sender As Object, e As EventArgs) Handles ButtonSimpan.Click
 
         Tabel_Retur_PembelianTableAdapter.InsertQueryByNomorReturPembelian(TextboxNomorReturPembelian.Text,
-                                                                   TextboxKodeBarang.Text,
-                                                                   TextboxNamaBarang.Text,
-                                                                   TextboxJumlah.Text,
-                                                                   TextboxHarga.Text,
-                                                                   TextboxKeterangan.Text)
+                                                                           DatepickerTanggalReturPembelian.Value.ToShortDateString(),
+                                                                           TextboxKodeBarang.Text,
+                                                                           TextboxNamaBarang.Text,
+                                                                           TextboxJumlah.Text,
+                                                                           TextboxHarga.Text,
+                                                                           TextboxKeterangan.Text)
+
+        Tabel_Retur_PembelianTableAdapter.UpdateQueryNomorReturPembelian(TextboxJumlah.Text,
+                                                                    TextboxKodeBarang.Text)
 
         TextboxNomorReturPembelian.Text = ""
+        DatepickerTanggalReturPembelian.Value = Date.Now
         TextboxKodeBarang.Text = ""
         TextboxNamaBarang.Text = ""
         TextboxJumlah.Text = ""
@@ -73,4 +78,31 @@ Public Class FReturPembelian
         toolTip1.Show(Pesan, TextBoxes, 0, -25, 1000)
     End Sub
 
+    Private Sub FReturPembelian_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        DatepickerTanggalReturPembelian.Value = Date.Now
+
+        Using data_tabel = Tabel_Retur_PembelianTableAdapter.GetData()
+            If data_tabel.Rows.Count = 0 Then
+                TextboxNomorReturPembelian.Text = "NRPEM-" + 1.ToString("D4")
+            Else
+                Dim NomorArray = data_tabel(data_tabel.Count - 1).Nomor_Retur_Pembelian.Split("-"c)
+                Dim NomorPembayaranHutang = Convert.ToInt32(NomorArray(1)) + 1
+                TextboxNomorReturPembelian.Text = "NRPEM-" + NomorPembayaranHutang.ToString("D4")
+            End If
+        End Using
+
+    End Sub
+
+    Private Sub BunifuImageNomorPembelian_Click(sender As Object, e As EventArgs) Handles BunifuImageNomorPembelian.Click
+
+        Dim FormData = New FDataPembelian
+        FormData.ShowDialog()
+        TextboxNomorPembelian.Text = FormData.Nomor_Pembelian
+        TextboxKodeBarang.Text = FormData.Kode_Barang
+        TextboxNamaBarang.Text = FormData.Nama_Barang
+        TextboxHarga.Text = FormData.Harga
+        FormData.Dispose()
+
+    End Sub
 End Class

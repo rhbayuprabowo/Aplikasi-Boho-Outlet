@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FPenyesuaian
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FPenyesuaian
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FPenyesuaian))
@@ -44,6 +44,7 @@ Partial Class FPenyesuaian
         Me.BindingSourcePenyesuaian = New System.Windows.Forms.BindingSource(Me.components)
         Me.Database_Boho_OutletDataSet = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet()
         Me.Tabel_PenyesuaianTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_PenyesuaianTableAdapter()
+        Me.BunifuCustomLabel3 = New Bunifu.Framework.UI.BunifuCustomLabel()
         CType(Me.ImageButtonKeluar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelPemasok.SuspendLayout()
         CType(Me.ImageButtonKodeBarang, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -195,6 +196,7 @@ Partial Class FPenyesuaian
         '
         Me.TextboxKodeBarang.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxKodeBarang.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxKodeBarang.Enabled = False
         Me.TextboxKodeBarang.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxKodeBarang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxKodeBarang.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -228,6 +230,7 @@ Partial Class FPenyesuaian
         '
         Me.TextboxNomorPenyesuaian.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxNomorPenyesuaian.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxNomorPenyesuaian.Enabled = False
         Me.TextboxNomorPenyesuaian.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxNomorPenyesuaian.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxNomorPenyesuaian.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -295,6 +298,7 @@ Partial Class FPenyesuaian
         '
         Me.PanelPemasok.BackgroundImage = CType(resources.GetObject("PanelPemasok.BackgroundImage"), System.Drawing.Image)
         Me.PanelPemasok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PanelPemasok.Controls.Add(Me.BunifuCustomLabel3)
         Me.PanelPemasok.Controls.Add(Me.ImageButtonKodeBarang)
         Me.PanelPemasok.Controls.Add(Me.BunifuCustomLabel1)
         Me.PanelPemasok.Controls.Add(Me.TextboxKeterangan)
@@ -341,7 +345,7 @@ Partial Class FPenyesuaian
         Me.BunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent
         Me.BunifuCustomLabel1.Font = New System.Drawing.Font("Century Gothic", 12.0!)
         Me.BunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(30, 202)
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(30, 217)
         Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
         Me.BunifuCustomLabel1.Size = New System.Drawing.Size(104, 21)
         Me.BunifuCustomLabel1.TabIndex = 70
@@ -361,7 +365,7 @@ Partial Class FPenyesuaian
         Me.TextboxKeterangan.LineIdleColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.TextboxKeterangan.LineMouseHoverColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxKeterangan.LineThickness = 3
-        Me.TextboxKeterangan.Location = New System.Drawing.Point(171, 195)
+        Me.TextboxKeterangan.Location = New System.Drawing.Point(171, 210)
         Me.TextboxKeterangan.Margin = New System.Windows.Forms.Padding(4)
         Me.TextboxKeterangan.Name = "TextboxKeterangan"
         Me.TextboxKeterangan.Size = New System.Drawing.Size(548, 35)
@@ -372,6 +376,7 @@ Partial Class FPenyesuaian
         '
         Me.TextboxNamaBarang.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxNamaBarang.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxNamaBarang.Enabled = False
         Me.TextboxNamaBarang.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxNamaBarang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxNamaBarang.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -401,6 +406,19 @@ Partial Class FPenyesuaian
         'Tabel_PenyesuaianTableAdapter
         '
         Me.Tabel_PenyesuaianTableAdapter.ClearBeforeFill = True
+        '
+        'BunifuCustomLabel3
+        '
+        Me.BunifuCustomLabel3.AutoSize = True
+        Me.BunifuCustomLabel3.BackColor = System.Drawing.Color.Transparent
+        Me.BunifuCustomLabel3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.BunifuCustomLabel3.Location = New System.Drawing.Point(556, 189)
+        Me.BunifuCustomLabel3.Name = "BunifuCustomLabel3"
+        Me.BunifuCustomLabel3.Size = New System.Drawing.Size(172, 17)
+        Me.BunifuCustomLabel3.TabIndex = 73
+        Me.BunifuCustomLabel3.Text = "* - Jika terjadi pengurangan"
+        Me.BunifuCustomLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'FPenyesuaian
         '
@@ -441,4 +459,5 @@ Partial Class FPenyesuaian
     Friend WithEvents Database_Boho_OutletDataSet As Database_Boho_OutletDataSet
     Friend WithEvents Tabel_PenyesuaianTableAdapter As Database_Boho_OutletDataSetTableAdapters.Tabel_PenyesuaianTableAdapter
     Friend WithEvents ImageButtonKodeBarang As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents BunifuCustomLabel3 As Bunifu.Framework.UI.BunifuCustomLabel
 End Class

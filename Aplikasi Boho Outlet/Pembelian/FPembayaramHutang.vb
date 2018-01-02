@@ -55,6 +55,16 @@ Public Class FPembayaramHutang
 
         DatepickerTanggalPembayaran.Value = Date.Now
 
+        Using data_tabel = Tabel_Pembayaran_HutangTableAdapter.GetData()
+            If data_tabel.Rows.Count = 0 Then
+                TextboxNomorPembayaranHutang.Text = "NPEMH-" + 1.ToString("D4")
+            Else
+                Dim NomorArray = data_tabel(data_tabel.Count - 1).Nomor_Pembayaran.Split("-"c)
+                Dim NomorPembayaranHutang = Convert.ToInt32(NomorArray(1)) + 1
+                TextboxNomorPembayaranHutang.Text = "NPEMH-" + NomorPembayaranHutang.ToString("D4")
+            End If
+        End Using
+
     End Sub
 
     Private Sub ValidatingTextBoxes(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles TextboxNomorPembayaranHutang.Validating,
@@ -88,4 +98,20 @@ Public Class FPembayaramHutang
         toolTip1.Show(Pesan, TextBoxes, 0, -25, 1000)
     End Sub
 
+    Private Sub ImageButtonKodePemasok_Click(sender As Object, e As EventArgs) Handles ImageButtonKodePemasok.Click
+        Dim FormData = New FDataPemasok
+        FormData.ShowDialog()
+        TextboxKodePemasok.Text = FormData.Kode_Pemasok
+        TextboxNamaPemasok.Text = FormData.Nama_Pemasok
+        FormData.Dispose()
+    End Sub
+
+    Private Sub BunifuImageNomorPembelian_Click(sender As Object, e As EventArgs) Handles BunifuImageNomorPembelian.Click
+
+        Dim FormData = New FDataPembelian
+        FormData.ShowDialog()
+        TextboxNomorPembelian.Text = FormData.Nomor_Pembelian
+        FormData.Dispose()
+
+    End Sub
 End Class

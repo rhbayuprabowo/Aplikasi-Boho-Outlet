@@ -102,6 +102,7 @@ Partial Class UCPenyesuaian
         Me.DatagridPenyesuaian.HeaderForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.DatagridPenyesuaian.Location = New System.Drawing.Point(29, 110)
         Me.DatagridPenyesuaian.Name = "DatagridPenyesuaian"
+        Me.DatagridPenyesuaian.ReadOnly = True
         Me.DatagridPenyesuaian.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DatagridPenyesuaian.Size = New System.Drawing.Size(1053, 516)
         Me.DatagridPenyesuaian.TabIndex = 3
@@ -111,30 +112,35 @@ Partial Class UCPenyesuaian
         Me.NomorPenyesuaianDataGridViewTextBoxColumn.DataPropertyName = "Nomor Penyesuaian"
         Me.NomorPenyesuaianDataGridViewTextBoxColumn.HeaderText = "Nomor Penyesuaian"
         Me.NomorPenyesuaianDataGridViewTextBoxColumn.Name = "NomorPenyesuaianDataGridViewTextBoxColumn"
+        Me.NomorPenyesuaianDataGridViewTextBoxColumn.ReadOnly = True
         '
         'KodeBarangDataGridViewTextBoxColumn
         '
         Me.KodeBarangDataGridViewTextBoxColumn.DataPropertyName = "Kode Barang"
         Me.KodeBarangDataGridViewTextBoxColumn.HeaderText = "Kode Barang"
         Me.KodeBarangDataGridViewTextBoxColumn.Name = "KodeBarangDataGridViewTextBoxColumn"
+        Me.KodeBarangDataGridViewTextBoxColumn.ReadOnly = True
         '
         'NamaBarangDataGridViewTextBoxColumn
         '
         Me.NamaBarangDataGridViewTextBoxColumn.DataPropertyName = "Nama Barang"
         Me.NamaBarangDataGridViewTextBoxColumn.HeaderText = "Nama Barang"
         Me.NamaBarangDataGridViewTextBoxColumn.Name = "NamaBarangDataGridViewTextBoxColumn"
+        Me.NamaBarangDataGridViewTextBoxColumn.ReadOnly = True
         '
         'JumlahDataGridViewTextBoxColumn
         '
         Me.JumlahDataGridViewTextBoxColumn.DataPropertyName = "Jumlah"
         Me.JumlahDataGridViewTextBoxColumn.HeaderText = "Jumlah"
         Me.JumlahDataGridViewTextBoxColumn.Name = "JumlahDataGridViewTextBoxColumn"
+        Me.JumlahDataGridViewTextBoxColumn.ReadOnly = True
         '
         'KeteranganDataGridViewTextBoxColumn
         '
         Me.KeteranganDataGridViewTextBoxColumn.DataPropertyName = "Keterangan"
         Me.KeteranganDataGridViewTextBoxColumn.HeaderText = "Keterangan"
         Me.KeteranganDataGridViewTextBoxColumn.Name = "KeteranganDataGridViewTextBoxColumn"
+        Me.KeteranganDataGridViewTextBoxColumn.ReadOnly = True
         '
         'BindingSourcePenyesuaian
         '

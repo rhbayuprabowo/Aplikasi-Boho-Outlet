@@ -1850,6 +1850,8 @@ Partial Public Class Database_Boho_OutletDataSet
     Partial Public Class Tabel_PembelianDataTable
         Inherits Global.System.Data.TypedTableBase(Of Tabel_PembelianRow)
         
+        Private columnNomor_Urut As Global.System.Data.DataColumn
+        
         Private columnNomor_Pembelian As Global.System.Data.DataColumn
         
         Private columnTanggal_Pembelian As Global.System.Data.DataColumn
@@ -1906,6 +1908,14 @@ Partial Public Class Database_Boho_OutletDataSet
             MyBase.New(info, context)
             Me.InitVars
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Nomor_UrutColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNomor_Urut
+            End Get
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -2034,16 +2044,10 @@ Partial Public Class Database_Boho_OutletDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Overloads Function AddTabel_PembelianRow(ByVal Nomor_Pembelian As String, ByVal Tanggal_Pembelian As Date, ByVal Kode_Pemasok As String, ByVal Nama_Pemasok As String, ByVal Keterangan As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Integer, ByVal Satuan As String, ByVal Harga As Integer, ByVal Total As Integer) As Tabel_PembelianRow
             Dim rowTabel_PembelianRow As Tabel_PembelianRow = CType(Me.NewRow,Tabel_PembelianRow)
-            Dim columnValuesArray() As Object = New Object() {Nomor_Pembelian, Tanggal_Pembelian, Kode_Pemasok, Nama_Pemasok, Keterangan, Kode_Barang, Nama_Barang, Jumlah, Satuan, Harga, Total}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nomor_Pembelian, Tanggal_Pembelian, Kode_Pemasok, Nama_Pemasok, Keterangan, Kode_Barang, Nama_Barang, Jumlah, Satuan, Harga, Total}
             rowTabel_PembelianRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTabel_PembelianRow)
             Return rowTabel_PembelianRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByNomor_Pembelian(ByVal Nomor_Pembelian As String) As Tabel_PembelianRow
-            Return CType(Me.Rows.Find(New Object() {Nomor_Pembelian}),Tabel_PembelianRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2063,6 +2067,7 @@ Partial Public Class Database_Boho_OutletDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
+            Me.columnNomor_Urut = MyBase.Columns("Nomor Urut")
             Me.columnNomor_Pembelian = MyBase.Columns("Nomor Pembelian")
             Me.columnTanggal_Pembelian = MyBase.Columns("Tanggal Pembelian")
             Me.columnKode_Pemasok = MyBase.Columns("Kode Pemasok")
@@ -2079,6 +2084,8 @@ Partial Public Class Database_Boho_OutletDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitClass()
+            Me.columnNomor_Urut = New Global.System.Data.DataColumn("Nomor Urut", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNomor_Urut)
             Me.columnNomor_Pembelian = New Global.System.Data.DataColumn("Nomor Pembelian", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNomor_Pembelian)
             Me.columnTanggal_Pembelian = New Global.System.Data.DataColumn("Tanggal Pembelian", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
@@ -2101,9 +2108,14 @@ Partial Public Class Database_Boho_OutletDataSet
             MyBase.Columns.Add(Me.columnHarga)
             Me.columnTotal = New Global.System.Data.DataColumn("Total", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTotal)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNomor_Pembelian}, true))
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint21", New Global.System.Data.DataColumn() {Me.columnNomor_Urut}, false))
+            Me.columnNomor_Urut.AutoIncrement = true
+            Me.columnNomor_Urut.AutoIncrementSeed = -1
+            Me.columnNomor_Urut.AutoIncrementStep = -1
+            Me.columnNomor_Urut.AllowDBNull = false
+            Me.columnNomor_Urut.ReadOnly = true
+            Me.columnNomor_Urut.Unique = true
             Me.columnNomor_Pembelian.AllowDBNull = false
-            Me.columnNomor_Pembelian.Unique = true
             Me.columnNomor_Pembelian.MaxLength = 50
             Me.columnKode_Pemasok.MaxLength = 50
             Me.columnNama_Pemasok.MaxLength = 50
@@ -2250,6 +2262,8 @@ Partial Public Class Database_Boho_OutletDataSet
         
         Private columnNomor_Retur_Pembelian As Global.System.Data.DataColumn
         
+        Private columnTanggal_Retur_Pembelian As Global.System.Data.DataColumn
+        
         Private columnKode_Barang As Global.System.Data.DataColumn
         
         Private columnNama_Barang As Global.System.Data.DataColumn
@@ -2300,6 +2314,14 @@ Partial Public Class Database_Boho_OutletDataSet
         Public ReadOnly Property Nomor_Retur_PembelianColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnNomor_Retur_Pembelian
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Tanggal_Retur_PembelianColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTanggal_Retur_Pembelian
             End Get
         End Property
         
@@ -2380,9 +2402,9 @@ Partial Public Class Database_Boho_OutletDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddTabel_Retur_PembelianRow(ByVal Nomor_Retur_Pembelian As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Integer, ByVal Harga As Integer, ByVal Keterangan As String) As Tabel_Retur_PembelianRow
+        Public Overloads Function AddTabel_Retur_PembelianRow(ByVal Nomor_Retur_Pembelian As String, ByVal Tanggal_Retur_Pembelian As Date, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Integer, ByVal Harga As Integer, ByVal Keterangan As String) As Tabel_Retur_PembelianRow
             Dim rowTabel_Retur_PembelianRow As Tabel_Retur_PembelianRow = CType(Me.NewRow,Tabel_Retur_PembelianRow)
-            Dim columnValuesArray() As Object = New Object() {Nomor_Retur_Pembelian, Kode_Barang, Nama_Barang, Jumlah, Harga, Keterangan}
+            Dim columnValuesArray() As Object = New Object() {Nomor_Retur_Pembelian, Tanggal_Retur_Pembelian, Kode_Barang, Nama_Barang, Jumlah, Harga, Keterangan}
             rowTabel_Retur_PembelianRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTabel_Retur_PembelianRow)
             Return rowTabel_Retur_PembelianRow
@@ -2412,6 +2434,7 @@ Partial Public Class Database_Boho_OutletDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnNomor_Retur_Pembelian = MyBase.Columns("Nomor Retur Pembelian")
+            Me.columnTanggal_Retur_Pembelian = MyBase.Columns("Tanggal Retur Pembelian")
             Me.columnKode_Barang = MyBase.Columns("Kode Barang")
             Me.columnNama_Barang = MyBase.Columns("Nama Barang")
             Me.columnJumlah = MyBase.Columns("Jumlah")
@@ -2424,6 +2447,8 @@ Partial Public Class Database_Boho_OutletDataSet
         Private Sub InitClass()
             Me.columnNomor_Retur_Pembelian = New Global.System.Data.DataColumn("Nomor Retur Pembelian", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNomor_Retur_Pembelian)
+            Me.columnTanggal_Retur_Pembelian = New Global.System.Data.DataColumn("Tanggal Retur Pembelian", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTanggal_Retur_Pembelian)
             Me.columnKode_Barang = New Global.System.Data.DataColumn("Kode Barang", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnKode_Barang)
             Me.columnNama_Barang = New Global.System.Data.DataColumn("Nama Barang", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -2909,6 +2934,8 @@ Partial Public Class Database_Boho_OutletDataSet
     Partial Public Class Tabel_PenjualanDataTable
         Inherits Global.System.Data.TypedTableBase(Of Tabel_PenjualanRow)
         
+        Private columnNomor_Urut As Global.System.Data.DataColumn
+        
         Private columnNomor_Penjualan As Global.System.Data.DataColumn
         
         Private columnNama_Pelanggan As Global.System.Data.DataColumn
@@ -2961,6 +2988,14 @@ Partial Public Class Database_Boho_OutletDataSet
             MyBase.New(info, context)
             Me.InitVars
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Nomor_UrutColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNomor_Urut
+            End Get
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -3073,7 +3108,7 @@ Partial Public Class Database_Boho_OutletDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Overloads Function AddTabel_PenjualanRow(ByVal Nomor_Penjualan As String, ByVal Nama_Pelanggan As String, ByVal Tanggal_Penjualan As Date, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Integer, ByVal Satuan As String, ByVal Harga As Integer, ByVal Total As Integer) As Tabel_PenjualanRow
             Dim rowTabel_PenjualanRow As Tabel_PenjualanRow = CType(Me.NewRow,Tabel_PenjualanRow)
-            Dim columnValuesArray() As Object = New Object() {Nomor_Penjualan, Nama_Pelanggan, Tanggal_Penjualan, Kode_Barang, Nama_Barang, Jumlah, Satuan, Harga, Total}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nomor_Penjualan, Nama_Pelanggan, Tanggal_Penjualan, Kode_Barang, Nama_Barang, Jumlah, Satuan, Harga, Total}
             rowTabel_PenjualanRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTabel_PenjualanRow)
             Return rowTabel_PenjualanRow
@@ -3081,8 +3116,8 @@ Partial Public Class Database_Boho_OutletDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByNomor_Penjualan(ByVal Nomor_Penjualan As String) As Tabel_PenjualanRow
-            Return CType(Me.Rows.Find(New Object() {Nomor_Penjualan}),Tabel_PenjualanRow)
+        Public Function FindByNomor_Urut(ByVal Nomor_Urut As Integer) As Tabel_PenjualanRow
+            Return CType(Me.Rows.Find(New Object() {Nomor_Urut}),Tabel_PenjualanRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3102,6 +3137,7 @@ Partial Public Class Database_Boho_OutletDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
+            Me.columnNomor_Urut = MyBase.Columns("Nomor Urut")
             Me.columnNomor_Penjualan = MyBase.Columns("Nomor Penjualan")
             Me.columnNama_Pelanggan = MyBase.Columns("Nama Pelanggan")
             Me.columnTanggal_Penjualan = MyBase.Columns("Tanggal Penjualan")
@@ -3116,6 +3152,8 @@ Partial Public Class Database_Boho_OutletDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitClass()
+            Me.columnNomor_Urut = New Global.System.Data.DataColumn("Nomor Urut", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNomor_Urut)
             Me.columnNomor_Penjualan = New Global.System.Data.DataColumn("Nomor Penjualan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNomor_Penjualan)
             Me.columnNama_Pelanggan = New Global.System.Data.DataColumn("Nama Pelanggan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -3134,9 +3172,14 @@ Partial Public Class Database_Boho_OutletDataSet
             MyBase.Columns.Add(Me.columnHarga)
             Me.columnTotal = New Global.System.Data.DataColumn("Total", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTotal)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNomor_Penjualan}, true))
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNomor_Urut}, true))
+            Me.columnNomor_Urut.AutoIncrement = true
+            Me.columnNomor_Urut.AutoIncrementSeed = -1
+            Me.columnNomor_Urut.AutoIncrementStep = -1
+            Me.columnNomor_Urut.AllowDBNull = false
+            Me.columnNomor_Urut.ReadOnly = true
+            Me.columnNomor_Urut.Unique = true
             Me.columnNomor_Penjualan.AllowDBNull = false
-            Me.columnNomor_Penjualan.Unique = true
             Me.columnNomor_Penjualan.MaxLength = 50
             Me.columnNama_Pelanggan.MaxLength = 50
             Me.columnKode_Barang.MaxLength = 50
@@ -3920,6 +3963,17 @@ Partial Public Class Database_Boho_OutletDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Nomor_Urut() As Integer
+            Get
+                Return CType(Me(Me.tableTabel_Pembelian.Nomor_UrutColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableTabel_Pembelian.Nomor_UrutColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Nomor_Pembelian() As String
             Get
                 Return CType(Me(Me.tableTabel_Pembelian.Nomor_PembelianColumn),String)
@@ -4228,6 +4282,22 @@ Partial Public Class Database_Boho_OutletDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Tanggal_Retur_Pembelian() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableTabel_Retur_Pembelian.Tanggal_Retur_PembelianColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Tanggal Retur Pembelian' in table 'Tabel Retur Pembelian' i"& _ 
+                            "s DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableTabel_Retur_Pembelian.Tanggal_Retur_PembelianColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property Kode_Barang() As String
             Get
                 Try 
@@ -4300,6 +4370,18 @@ Partial Public Class Database_Boho_OutletDataSet
                 Me(Me.tableTabel_Retur_Pembelian.KeteranganColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsTanggal_Retur_PembelianNull() As Boolean
+            Return Me.IsNull(Me.tableTabel_Retur_Pembelian.Tanggal_Retur_PembelianColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetTanggal_Retur_PembelianNull()
+            Me(Me.tableTabel_Retur_Pembelian.Tanggal_Retur_PembelianColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -4542,6 +4624,17 @@ Partial Public Class Database_Boho_OutletDataSet
             MyBase.New(rb)
             Me.tableTabel_Penjualan = CType(Me.Table,Tabel_PenjualanDataTable)
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property Nomor_Urut() As Integer
+            Get
+                Return CType(Me(Me.tableTabel_Penjualan.Nomor_UrutColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableTabel_Penjualan.Nomor_UrutColumn) = value
+            End Set
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -5694,7 +5787,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(7) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT [Kode Barang], [Nama Barang], [Kategori Barang], [Merek Barang], Jumlah, S"& _ 
@@ -5748,9 +5841,9 @@ Namespace Database_Boho_OutletDataSetTableAdapters
                 "ma Barang] = @Nama_Barang, [Kategori Barang] = @Kategori_Barang, [Merek Barang] "& _ 
                 "= @Merek_Barang, Jumlah = @Jumlah, Satuan = @Satuan, [Harga Beli] = @Harga_Beli,"& _ 
                 " "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         [Harga Jual] = @Harga_Jual, Gambar = @Gambar"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE "& _ 
-                "       ([Kode Barang] = @Original_Kode_Barang);  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Kode Barang], [Nama B"& _ 
-                "arang], [Kategori Barang], [Merek Barang], Jumlah, Satuan, [Harga Beli], [Harga "& _ 
-                "Jual], Gambar FROM [Tabel Barang] WHERE ([Kode Barang] = @Kode_Barang)"
+                "       ([Kode Barang] = @Original_Kode_Barang);    "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Kode Barang], [Nama"& _ 
+                " Barang], [Kategori Barang], [Merek Barang], Jumlah, Satuan, [Harga Beli], [Harg"& _ 
+                "a Jual], Gambar FROM [Tabel Barang] WHERE ([Kode Barang] = @Kode_Barang)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -5762,6 +5855,20 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga_Jual", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga Jual", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Gambar", Global.System.Data.SqlDbType.Image, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Gambar", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(6) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(6).Connection = Me.Connection
+            Me._commandCollection(6).CommandText = "UPDATE       [Tabel Barang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Jumlah = Jumlah - @Selisih"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"& _ 
+                "        ([Kode Barang] = @Original_Kode_Barang);     "
+            Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Selisih", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(7) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(7).Connection = Me.Connection
+            Me._commandCollection(7).CommandText = "UPDATE       [Tabel Barang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Jumlah = Jumlah + @Selisih"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE"& _ 
+                "        ([Kode Barang] = @Original_Kode_Barang);     "
+            Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Selisih", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(7).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6332,6 +6439,70 @@ Namespace Database_Boho_OutletDataSetTableAdapters
                 Throw New Global.System.ArgumentNullException("Original_Kode_Barang")
             Else
                 command.Parameters(9).Value = CType(Original_Kode_Barang,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateQueryJumlahDiKurang(ByVal Selisih As Global.System.Nullable(Of Integer), ByVal Original_Kode_Barang As String) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(6)
+            If (Selisih.HasValue = true) Then
+                command.Parameters(0).Value = CType(Selisih.Value,Integer)
+            Else
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Kode_Barang Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Kode_Barang")
+            Else
+                command.Parameters(1).Value = CType(Original_Kode_Barang,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateQueryJumlahDiTambah(ByVal Selisih As Global.System.Nullable(Of Integer), ByVal Original_Kode_Barang As String) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(7)
+            If (Selisih.HasValue = true) Then
+                command.Parameters(0).Value = CType(Selisih.Value,Integer)
+            Else
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Kode_Barang Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Kode_Barang")
+            Else
+                command.Parameters(1).Value = CType(Original_Kode_Barang,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -7963,21 +8134,23 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Tabel Pembelian] WHERE (([Nomor Pembelian] = @Original_Nomor_P"& _ 
-                "embelian) AND ((@IsNull_Tanggal_Pembelian = 1 AND [Tanggal Pembelian] IS NULL) O"& _ 
-                "R ([Tanggal Pembelian] = @Original_Tanggal_Pembelian)) AND ((@IsNull_Kode_Pemaso"& _ 
-                "k = 1 AND [Kode Pemasok] IS NULL) OR ([Kode Pemasok] = @Original_Kode_Pemasok)) "& _ 
-                "AND ((@IsNull_Nama_Pemasok = 1 AND [Nama Pemasok] IS NULL) OR ([Nama Pemasok] = "& _ 
-                "@Original_Nama_Pemasok)) AND ((@IsNull_Keterangan = 1 AND [Keterangan] IS NULL) "& _ 
-                "OR ([Keterangan] = @Original_Keterangan)) AND ((@IsNull_Kode_Barang = 1 AND [Kod"& _ 
-                "e Barang] IS NULL) OR ([Kode Barang] = @Original_Kode_Barang)) AND ((@IsNull_Nam"& _ 
-                "a_Barang = 1 AND [Nama Barang] IS NULL) OR ([Nama Barang] = @Original_Nama_Baran"& _ 
-                "g)) AND ((@IsNull_Jumlah = 1 AND [Jumlah] IS NULL) OR ([Jumlah] = @Original_Juml"& _ 
-                "ah)) AND ((@IsNull_Satuan = 1 AND [Satuan] IS NULL) OR ([Satuan] = @Original_Sat"& _ 
-                "uan)) AND ((@IsNull_Harga = 1 AND [Harga] IS NULL) OR ([Harga] = @Original_Harga"& _ 
-                ")) AND ((@IsNull_Total = 1 AND [Total] IS NULL) OR ([Total] = @Original_Total)))"& _ 
-                ""
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Tabel Pembelian] WHERE (((@IsNull_Nomor_Pembelian = 1 AND [Nomor Pem"& _ 
+                "belian] IS NULL) OR ([Nomor Pembelian] = @Original_Nomor_Pembelian)) AND ((@IsNu"& _ 
+                "ll_Tanggal_Pembelian = 1 AND [Tanggal Pembelian] IS NULL) OR ([Tanggal Pembelian"& _ 
+                "] = @Original_Tanggal_Pembelian)) AND ((@IsNull_Kode_Pemasok = 1 AND [Kode Pemas"& _ 
+                "ok] IS NULL) OR ([Kode Pemasok] = @Original_Kode_Pemasok)) AND ((@IsNull_Nama_Pe"& _ 
+                "masok = 1 AND [Nama Pemasok] IS NULL) OR ([Nama Pemasok] = @Original_Nama_Pemaso"& _ 
+                "k)) AND ((@IsNull_Keterangan = 1 AND [Keterangan] IS NULL) OR ([Keterangan] = @O"& _ 
+                "riginal_Keterangan)) AND ((@IsNull_Kode_Barang = 1 AND [Kode Barang] IS NULL) OR"& _ 
+                " ([Kode Barang] = @Original_Kode_Barang)) AND ((@IsNull_Nama_Barang = 1 AND [Nam"& _ 
+                "a Barang] IS NULL) OR ([Nama Barang] = @Original_Nama_Barang)) AND ((@IsNull_Jum"& _ 
+                "lah = 1 AND [Jumlah] IS NULL) OR ([Jumlah] = @Original_Jumlah)) AND ((@IsNull_Sa"& _ 
+                "tuan = 1 AND [Satuan] IS NULL) OR ([Satuan] = @Original_Satuan)) AND ((@IsNull_H"& _ 
+                "arga = 1 AND [Harga] IS NULL) OR ([Harga] = @Original_Harga)) AND ((@IsNull_Tota"& _ 
+                "l = 1 AND [Total] IS NULL) OR ([Total] = @Original_Total)) AND ([Nomor Urut] = @"& _ 
+                "Original_Nomor_Urut))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nomor_Pembelian", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Pembelian", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Tanggal_Pembelian", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Pembelian", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tanggal_Pembelian", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -7999,16 +8172,14 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Harga", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Total", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Urut", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Urut", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Tabel Pembelian] ([Nomor Pembelian], [Tanggal Pembelian], [Kod"& _ 
-                "e Pemasok], [Nama Pemasok], [Keterangan], [Kode Barang], [Nama Barang], [Jumlah]"& _ 
-                ", [Satuan], [Harga], [Total]) VALUES (@Nomor_Pembelian, @Tanggal_Pembelian, @Kod"& _ 
-                "e_Pemasok, @Nama_Pemasok, @Keterangan, @Kode_Barang, @Nama_Barang, @Jumlah, @Sat"& _ 
-                "uan, @Harga, @Total);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Pembelian], [Tanggal Pembelian], [Kode Pema"& _ 
-                "sok], [Nama Pemasok], Keterangan, [Kode Barang], [Nama Barang], Jumlah, Satuan, "& _ 
-                "Harga, Total FROM [Tabel Pembelian] WHERE ([Nomor Pembelian] = @Nomor_Pembelian)"& _ 
-                ""
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Tabel Pembelian] ([Nomor Pembelian], [Tanggal Pembelian], [Kode Pema"& _ 
+                "sok], [Nama Pemasok], [Keterangan], [Kode Barang], [Nama Barang], [Jumlah], [Sat"& _ 
+                "uan], [Harga], [Total]) VALUES (@Nomor_Pembelian, @Tanggal_Pembelian, @Kode_Pema"& _ 
+                "sok, @Nama_Pemasok, @Keterangan, @Kode_Barang, @Nama_Barang, @Jumlah, @Satuan, @"& _ 
+                "Harga, @Total)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Pembelian", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Pembelian", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -8023,26 +8194,27 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Tabel Pembelian] SET [Nomor Pembelian] = @Nomor_Pembelian, [Tanggal"& _ 
-                " Pembelian] = @Tanggal_Pembelian, [Kode Pemasok] = @Kode_Pemasok, [Nama Pemasok]"& _ 
-                " = @Nama_Pemasok, [Keterangan] = @Keterangan, [Kode Barang] = @Kode_Barang, [Nam"& _ 
-                "a Barang] = @Nama_Barang, [Jumlah] = @Jumlah, [Satuan] = @Satuan, [Harga] = @Har"& _ 
-                "ga, [Total] = @Total WHERE (([Nomor Pembelian] = @Original_Nomor_Pembelian) AND "& _ 
-                "((@IsNull_Tanggal_Pembelian = 1 AND [Tanggal Pembelian] IS NULL) OR ([Tanggal Pe"& _ 
-                "mbelian] = @Original_Tanggal_Pembelian)) AND ((@IsNull_Kode_Pemasok = 1 AND [Kod"& _ 
-                "e Pemasok] IS NULL) OR ([Kode Pemasok] = @Original_Kode_Pemasok)) AND ((@IsNull_"& _ 
-                "Nama_Pemasok = 1 AND [Nama Pemasok] IS NULL) OR ([Nama Pemasok] = @Original_Nama"& _ 
-                "_Pemasok)) AND ((@IsNull_Keterangan = 1 AND [Keterangan] IS NULL) OR ([Keteranga"& _ 
-                "n] = @Original_Keterangan)) AND ((@IsNull_Kode_Barang = 1 AND [Kode Barang] IS N"& _ 
-                "ULL) OR ([Kode Barang] = @Original_Kode_Barang)) AND ((@IsNull_Nama_Barang = 1 A"& _ 
-                "ND [Nama Barang] IS NULL) OR ([Nama Barang] = @Original_Nama_Barang)) AND ((@IsN"& _ 
-                "ull_Jumlah = 1 AND [Jumlah] IS NULL) OR ([Jumlah] = @Original_Jumlah)) AND ((@Is"& _ 
-                "Null_Satuan = 1 AND [Satuan] IS NULL) OR ([Satuan] = @Original_Satuan)) AND ((@I"& _ 
-                "sNull_Harga = 1 AND [Harga] IS NULL) OR ([Harga] = @Original_Harga)) AND ((@IsNu"& _ 
-                "ll_Total = 1 AND [Total] IS NULL) OR ([Total] = @Original_Total)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nom"& _ 
-                "or Pembelian], [Tanggal Pembelian], [Kode Pemasok], [Nama Pemasok], Keterangan, "& _ 
-                "[Kode Barang], [Nama Barang], Jumlah, Satuan, Harga, Total FROM [Tabel Pembelian"& _ 
-                "] WHERE ([Nomor Pembelian] = @Nomor_Pembelian)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Tabel Pembelian] SET [Nomor Pembelian] = @Nomor_Pembelian, [Tanggal Pembe"& _ 
+                "lian] = @Tanggal_Pembelian, [Kode Pemasok] = @Kode_Pemasok, [Nama Pemasok] = @Na"& _ 
+                "ma_Pemasok, [Keterangan] = @Keterangan, [Kode Barang] = @Kode_Barang, [Nama Bara"& _ 
+                "ng] = @Nama_Barang, [Jumlah] = @Jumlah, [Satuan] = @Satuan, [Harga] = @Harga, [T"& _ 
+                "otal] = @Total WHERE (((@IsNull_Nomor_Pembelian = 1 AND [Nomor Pembelian] IS NUL"& _ 
+                "L) OR ([Nomor Pembelian] = @Original_Nomor_Pembelian)) AND ((@IsNull_Tanggal_Pem"& _ 
+                "belian = 1 AND [Tanggal Pembelian] IS NULL) OR ([Tanggal Pembelian] = @Original_"& _ 
+                "Tanggal_Pembelian)) AND ((@IsNull_Kode_Pemasok = 1 AND [Kode Pemasok] IS NULL) O"& _ 
+                "R ([Kode Pemasok] = @Original_Kode_Pemasok)) AND ((@IsNull_Nama_Pemasok = 1 AND "& _ 
+                "[Nama Pemasok] IS NULL) OR ([Nama Pemasok] = @Original_Nama_Pemasok)) AND ((@IsN"& _ 
+                "ull_Keterangan = 1 AND [Keterangan] IS NULL) OR ([Keterangan] = @Original_Ketera"& _ 
+                "ngan)) AND ((@IsNull_Kode_Barang = 1 AND [Kode Barang] IS NULL) OR ([Kode Barang"& _ 
+                "] = @Original_Kode_Barang)) AND ((@IsNull_Nama_Barang = 1 AND [Nama Barang] IS N"& _ 
+                "ULL) OR ([Nama Barang] = @Original_Nama_Barang)) AND ((@IsNull_Jumlah = 1 AND [J"& _ 
+                "umlah] IS NULL) OR ([Jumlah] = @Original_Jumlah)) AND ((@IsNull_Satuan = 1 AND ["& _ 
+                "Satuan] IS NULL) OR ([Satuan] = @Original_Satuan)) AND ((@IsNull_Harga = 1 AND ["& _ 
+                "Harga] IS NULL) OR ([Harga] = @Original_Harga)) AND ((@IsNull_Total = 1 AND [Tot"& _ 
+                "al] IS NULL) OR ([Total] = @Original_Total)) AND ([Nomor Urut] = @Original_Nomor"& _ 
+                "_Urut));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Pembelian], [Tanggal Pembelian], [Kode Pemasok], [Nama P"& _ 
+                "emasok], Keterangan, [Kode Barang], [Nama Barang], Jumlah, Satuan, Harga, Total,"& _ 
+                " [Nomor Urut] FROM [Tabel Pembelian] WHERE ([Nomor Urut] = @Nomor_Urut)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Pembelian", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Pembelian", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -8055,6 +8227,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Satuan", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nomor_Pembelian", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Pembelian", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Tanggal_Pembelian", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Pembelian", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tanggal_Pembelian", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -8076,6 +8249,8 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Harga", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Total", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Urut", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Urut", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Urut", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Urut", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8092,8 +8267,8 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT [Nomor Pembelian], [Tanggal Pembelian], [Kode Pemasok], [Nama Pemasok], Ke"& _ 
-                "terangan, [Kode Barang], [Nama Barang], Jumlah, Satuan, Harga, Total FROM dbo.[T"& _ 
-                "abel Pembelian]"
+                "terangan, [Kode Barang], [Nama Barang], Jumlah, Satuan, Harga, Total FROM [Tabel"& _ 
+                " Pembelian]"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -8103,25 +8278,20 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT        [Nomor Pembelian], [Tanggal Pembelian], [Kode Pemasok], [Nama Pemas"& _ 
-                "ok], Keterangan, [Kode Barang], [Nama Barang], Jumlah, Satuan, Harga, Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FRO"& _ 
-                "M            [Tabel Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Pembelian] LIKE @Pencarian)"& _ 
-                " OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Tanggal Pembelian] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
-                "                 ([Kode Pemasok] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ("& _ 
-                "[Nama Pemasok] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Keterangan LIKE @P"& _ 
-                "encarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Kode Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                    ([Nama Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
-                " (Jumlah LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Satuan LIKE @Pencarian) "& _ 
-                "OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Harga LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
-                "  (Total LIKE @Pencarian)"
+            Me._commandCollection(2).CommandText = "SELECT [Nomor Pembelian], [Tanggal Pembelian], [Kode Pemasok], [Nama Pemasok], Ke"& _ 
+                "terangan, [Kode Barang], [Nama Barang], Jumlah, Satuan, Harga, Total FROM [Tabel"& _ 
+                " Pembelian] WHERE ([Nomor Pembelian] LIKE @Pencarian) OR ([Tanggal Pembelian] LI"& _ 
+                "KE @Pencarian) OR ([Kode Pemasok] LIKE @Pencarian) OR ([Nama Pemasok] LIKE @Penc"& _ 
+                "arian) OR (Keterangan LIKE @Pencarian) OR ([Kode Barang] LIKE @Pencarian) OR ([N"& _ 
+                "ama Barang] LIKE @Pencarian) OR (Jumlah LIKE @Pencarian) OR (Satuan LIKE @Pencar"& _ 
+                "ian) OR (Harga LIKE @Pencarian) OR (Total LIKE @Pencarian)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pencarian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT        [Nomor Pembelian], [Tanggal Pembelian], [Kode Pemasok], [Nama Pemas"& _ 
-                "ok], Keterangan, [Kode Barang], [Nama Barang], Jumlah, Satuan, Harga, Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FRO"& _ 
-                "M            [Tabel Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Pembelian] = @NomorPembelia"& _ 
-                "n)"
+            Me._commandCollection(3).CommandText = "SELECT [Nomor Pembelian], [Tanggal Pembelian], [Kode Pemasok], [Nama Pemasok], Ke"& _ 
+                "terangan, [Kode Barang], [Nama Barang], Jumlah, Satuan, Harga, Total FROM [Tabel"& _ 
+                " Pembelian] WHERE ([Nomor Pembelian] = @NomorPembelian)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorPembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
@@ -8296,82 +8466,85 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Nomor_Pembelian As String, ByVal Original_Tanggal_Pembelian As Global.System.Nullable(Of Date), ByVal Original_Kode_Pemasok As String, ByVal Original_Nama_Pemasok As String, ByVal Original_Keterangan As String, ByVal Original_Kode_Barang As String, ByVal Original_Nama_Barang As String, ByVal Original_Jumlah As Global.System.Nullable(Of Integer), ByVal Original_Satuan As String, ByVal Original_Harga As Global.System.Nullable(Of Integer), ByVal Original_Total As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_Nomor_Pembelian As String, ByVal Original_Tanggal_Pembelian As Global.System.Nullable(Of Date), ByVal Original_Kode_Pemasok As String, ByVal Original_Nama_Pemasok As String, ByVal Original_Keterangan As String, ByVal Original_Kode_Barang As String, ByVal Original_Nama_Barang As String, ByVal Original_Jumlah As Global.System.Nullable(Of Integer), ByVal Original_Satuan As String, ByVal Original_Harga As Global.System.Nullable(Of Integer), ByVal Original_Total As Global.System.Nullable(Of Integer), ByVal Original_Nomor_Urut As Integer) As Integer
             If (Original_Nomor_Pembelian Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Nomor_Pembelian")
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Nomor_Pembelian,String)
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Nomor_Pembelian,String)
             End If
             If (Original_Tanggal_Pembelian.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Tanggal_Pembelian.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_Tanggal_Pembelian.Value,Date)
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
             If (Original_Kode_Pemasok Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Kode_Pemasok,String)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Kode_Pemasok,String)
             End If
             If (Original_Nama_Pemasok Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Nama_Pemasok,String)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_Nama_Pemasok,String)
             End If
             If (Original_Keterangan Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Keterangan,String)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_Keterangan,String)
             End If
             If (Original_Kode_Barang Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Kode_Barang,String)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_Kode_Barang,String)
             End If
             If (Original_Nama_Barang Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Nama_Barang,String)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_Nama_Barang,String)
             End If
             If (Original_Jumlah.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_Jumlah.Value,Integer)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_Jumlah.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
             If (Original_Satuan Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_Satuan,String)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(Original_Satuan,String)
             End If
             If (Original_Harga.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_Harga.Value,Integer)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(Original_Harga.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(19).Value = Global.System.DBNull.Value
             End If
             If (Original_Total.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(Original_Total.Value,Integer)
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(21).Value = CType(Original_Total.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
+            Me.Adapter.DeleteCommand.Parameters(22).Value = CType(Original_Nomor_Urut,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -8393,7 +8566,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
         Public Overloads Overridable Function Insert(ByVal Nomor_Pembelian As String, ByVal Tanggal_Pembelian As Global.System.Nullable(Of Date), ByVal Kode_Pemasok As String, ByVal Nama_Pemasok As String, ByVal Keterangan As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Satuan As String, ByVal Harga As Global.System.Nullable(Of Integer), ByVal Total As Global.System.Nullable(Of Integer)) As Integer
             If (Nomor_Pembelian Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Nomor_Pembelian")
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(Nomor_Pembelian,String)
             End If
@@ -8488,9 +8661,11 @@ Namespace Database_Boho_OutletDataSetTableAdapters
                     ByVal Original_Jumlah As Global.System.Nullable(Of Integer),  _
                     ByVal Original_Satuan As String,  _
                     ByVal Original_Harga As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Total As Global.System.Nullable(Of Integer)) As Integer
+                    ByVal Original_Total As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Nomor_Urut As Integer,  _
+                    ByVal Nomor_Urut As Integer) As Integer
             If (Nomor_Pembelian Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Nomor_Pembelian")
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Nomor_Pembelian,String)
             End If
@@ -8545,80 +8720,84 @@ Namespace Database_Boho_OutletDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             If (Original_Nomor_Pembelian Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Nomor_Pembelian")
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Nomor_Pembelian,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Nomor_Pembelian,String)
             End If
             If (Original_Tanggal_Pembelian.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Tanggal_Pembelian.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Tanggal_Pembelian.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
             If (Original_Kode_Pemasok Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Kode_Pemasok,String)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Kode_Pemasok,String)
             End If
             If (Original_Nama_Pemasok Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Nama_Pemasok,String)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Nama_Pemasok,String)
             End If
             If (Original_Keterangan Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Keterangan,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Keterangan,String)
             End If
             If (Original_Kode_Barang Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Kode_Barang,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Kode_Barang,String)
             End If
             If (Original_Nama_Barang Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Nama_Barang,String)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_Nama_Barang,String)
             End If
             If (Original_Jumlah.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Jumlah.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_Jumlah.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             End If
             If (Original_Satuan Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_Satuan,String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_Satuan,String)
             End If
             If (Original_Harga.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_Harga.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_Harga.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             End If
             If (Original_Total.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_Total.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_Total.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
             End If
+            Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Nomor_Urut,Integer)
+            Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Nomor_Urut,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -8632,35 +8811,6 @@ Namespace Database_Boho_OutletDataSetTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal Tanggal_Pembelian As Global.System.Nullable(Of Date),  _
-                    ByVal Kode_Pemasok As String,  _
-                    ByVal Nama_Pemasok As String,  _
-                    ByVal Keterangan As String,  _
-                    ByVal Kode_Barang As String,  _
-                    ByVal Nama_Barang As String,  _
-                    ByVal Jumlah As Global.System.Nullable(Of Integer),  _
-                    ByVal Satuan As String,  _
-                    ByVal Harga As Global.System.Nullable(Of Integer),  _
-                    ByVal Total As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Nomor_Pembelian As String,  _
-                    ByVal Original_Tanggal_Pembelian As Global.System.Nullable(Of Date),  _
-                    ByVal Original_Kode_Pemasok As String,  _
-                    ByVal Original_Nama_Pemasok As String,  _
-                    ByVal Original_Keterangan As String,  _
-                    ByVal Original_Kode_Barang As String,  _
-                    ByVal Original_Nama_Barang As String,  _
-                    ByVal Original_Jumlah As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Satuan As String,  _
-                    ByVal Original_Harga As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Total As Global.System.Nullable(Of Integer)) As Integer
-            Return Me.Update(Original_Nomor_Pembelian, Tanggal_Pembelian, Kode_Pemasok, Nama_Pemasok, Keterangan, Kode_Barang, Nama_Barang, Jumlah, Satuan, Harga, Total, Original_Nomor_Pembelian, Original_Tanggal_Pembelian, Original_Kode_Pemasok, Original_Nama_Pemasok, Original_Keterangan, Original_Kode_Barang, Original_Nama_Barang, Original_Jumlah, Original_Satuan, Original_Harga, Original_Total)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8983,19 +9133,23 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Jumlah", "Jumlah")
             tableMapping.ColumnMappings.Add("Harga", "Harga")
             tableMapping.ColumnMappings.Add("Keterangan", "Keterangan")
+            tableMapping.ColumnMappings.Add("Tanggal Retur Pembelian", "Tanggal Retur Pembelian")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Tabel Retur Pembelian] WHERE (([Nomor Retur Pembelian] = @Orig"& _ 
-                "inal_Nomor_Retur_Pembelian) AND ((@IsNull_Kode_Barang = 1 AND [Kode Barang] IS N"& _ 
-                "ULL) OR ([Kode Barang] = @Original_Kode_Barang)) AND ((@IsNull_Nama_Barang = 1 A"& _ 
-                "ND [Nama Barang] IS NULL) OR ([Nama Barang] = @Original_Nama_Barang)) AND ((@IsN"& _ 
-                "ull_Jumlah = 1 AND [Jumlah] IS NULL) OR ([Jumlah] = @Original_Jumlah)) AND ((@Is"& _ 
-                "Null_Harga = 1 AND [Harga] IS NULL) OR ([Harga] = @Original_Harga)) AND ((@IsNul"& _ 
-                "l_Keterangan = 1 AND [Keterangan] IS NULL) OR ([Keterangan] = @Original_Keterang"& _ 
-                "an)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Tabel Retur Pembelian] WHERE (([Nomor Retur Pembelian] = @Original_N"& _ 
+                "omor_Retur_Pembelian) AND ((@IsNull_Tanggal_Retur_Pembelian = 1 AND [Tanggal Ret"& _ 
+                "ur Pembelian] IS NULL) OR ([Tanggal Retur Pembelian] = @Original_Tanggal_Retur_P"& _ 
+                "embelian)) AND ((@IsNull_Kode_Barang = 1 AND [Kode Barang] IS NULL) OR ([Kode Ba"& _ 
+                "rang] = @Original_Kode_Barang)) AND ((@IsNull_Nama_Barang = 1 AND [Nama Barang] "& _ 
+                "IS NULL) OR ([Nama Barang] = @Original_Nama_Barang)) AND ((@IsNull_Jumlah = 1 AN"& _ 
+                "D [Jumlah] IS NULL) OR ([Jumlah] = @Original_Jumlah)) AND ((@IsNull_Harga = 1 AN"& _ 
+                "D [Harga] IS NULL) OR ([Harga] = @Original_Harga)) AND ((@IsNull_Keterangan = 1 "& _ 
+                "AND [Keterangan] IS NULL) OR ([Keterangan] = @Original_Keterangan)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Retur_Pembelian", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Tanggal_Retur_Pembelian", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Retur Pembelian", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tanggal_Retur_Pembelian", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Retur Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Kode_Barang", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Kode_Barang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nama_Barang", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -9008,13 +9162,15 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Keterangan", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Keterangan", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Tabel Retur Pembelian] ([Nomor Retur Pembelian], [Kode Barang]"& _ 
-                ", [Nama Barang], [Jumlah], [Harga], [Keterangan]) VALUES (@Nomor_Retur_Pembelian"& _ 
-                ", @Kode_Barang, @Nama_Barang, @Jumlah, @Harga, @Keterangan);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Retu"& _ 
-                "r Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harga, Keterangan FROM [Tabe"& _ 
-                "l Retur Pembelian] WHERE ([Nomor Retur Pembelian] = @Nomor_Retur_Pembelian)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Tabel Retur Pembelian] ([Nomor Retur Pembelian], [Tanggal Retur Pemb"& _ 
+                "elian], [Kode Barang], [Nama Barang], [Jumlah], [Harga], [Keterangan]) VALUES (@"& _ 
+                "Nomor_Retur_Pembelian, @Tanggal_Retur_Pembelian, @Kode_Barang, @Nama_Barang, @Ju"& _ 
+                "mlah, @Harga, @Keterangan);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Retur Pembelian], [Tanggal Retur Pemb"& _ 
+                "elian], [Kode Barang], [Nama Barang], Jumlah, Harga, Keterangan FROM [Tabel Retu"& _ 
+                "r Pembelian] WHERE ([Nomor Retur Pembelian] = @Nomor_Retur_Pembelian)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Retur_Pembelian", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Retur_Pembelian", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -9022,26 +9178,32 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keterangan", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Keterangan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Tabel Retur Pembelian] SET [Nomor Retur Pembelian] = @Nomor_Retur_P"& _ 
-                "embelian, [Kode Barang] = @Kode_Barang, [Nama Barang] = @Nama_Barang, [Jumlah] ="& _ 
-                " @Jumlah, [Harga] = @Harga, [Keterangan] = @Keterangan WHERE (([Nomor Retur Pemb"& _ 
-                "elian] = @Original_Nomor_Retur_Pembelian) AND ((@IsNull_Kode_Barang = 1 AND [Kod"& _ 
-                "e Barang] IS NULL) OR ([Kode Barang] = @Original_Kode_Barang)) AND ((@IsNull_Nam"& _ 
-                "a_Barang = 1 AND [Nama Barang] IS NULL) OR ([Nama Barang] = @Original_Nama_Baran"& _ 
-                "g)) AND ((@IsNull_Jumlah = 1 AND [Jumlah] IS NULL) OR ([Jumlah] = @Original_Juml"& _ 
-                "ah)) AND ((@IsNull_Harga = 1 AND [Harga] IS NULL) OR ([Harga] = @Original_Harga)"& _ 
-                ") AND ((@IsNull_Keterangan = 1 AND [Keterangan] IS NULL) OR ([Keterangan] = @Ori"& _ 
-                "ginal_Keterangan)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Retur Pembelian], [Kode Barang], [Nama Baran"& _ 
-                "g], Jumlah, Harga, Keterangan FROM [Tabel Retur Pembelian] WHERE ([Nomor Retur P"& _ 
-                "embelian] = @Nomor_Retur_Pembelian)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Tabel Retur Pembelian] SET [Nomor Retur Pembelian] = @Nomor_Retur_Pembeli"& _ 
+                "an, [Tanggal Retur Pembelian] = @Tanggal_Retur_Pembelian, [Kode Barang] = @Kode_"& _ 
+                "Barang, [Nama Barang] = @Nama_Barang, [Jumlah] = @Jumlah, [Harga] = @Harga, [Ket"& _ 
+                "erangan] = @Keterangan WHERE (([Nomor Retur Pembelian] = @Original_Nomor_Retur_P"& _ 
+                "embelian) AND ((@IsNull_Tanggal_Retur_Pembelian = 1 AND [Tanggal Retur Pembelian"& _ 
+                "] IS NULL) OR ([Tanggal Retur Pembelian] = @Original_Tanggal_Retur_Pembelian)) A"& _ 
+                "ND ((@IsNull_Kode_Barang = 1 AND [Kode Barang] IS NULL) OR ([Kode Barang] = @Ori"& _ 
+                "ginal_Kode_Barang)) AND ((@IsNull_Nama_Barang = 1 AND [Nama Barang] IS NULL) OR "& _ 
+                "([Nama Barang] = @Original_Nama_Barang)) AND ((@IsNull_Jumlah = 1 AND [Jumlah] I"& _ 
+                "S NULL) OR ([Jumlah] = @Original_Jumlah)) AND ((@IsNull_Harga = 1 AND [Harga] IS"& _ 
+                " NULL) OR ([Harga] = @Original_Harga)) AND ((@IsNull_Keterangan = 1 AND [Keteran"& _ 
+                "gan] IS NULL) OR ([Keterangan] = @Original_Keterangan)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Retur P"& _ 
+                "embelian], [Tanggal Retur Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harg"& _ 
+                "a, Keterangan FROM [Tabel Retur Pembelian] WHERE ([Nomor Retur Pembelian] = @Nom"& _ 
+                "or_Retur_Pembelian)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Retur_Pembelian", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Retur_Pembelian", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keterangan", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Keterangan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Retur_Pembelian", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Tanggal_Retur_Pembelian", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Retur Pembelian", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tanggal_Retur_Pembelian", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Retur Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Kode_Barang", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Kode_Barang", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nama_Barang", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -9067,8 +9229,8 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT [Nomor Retur Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harga, Kete"& _ 
-                "rangan FROM dbo.[Tabel Retur Pembelian]"
+            Me._commandCollection(0).CommandText = "SELECT [Nomor Retur Pembelian], [Tanggal Retur Pembelian], [Kode Barang], [Nama B"& _ 
+                "arang], Jumlah, Harga, Keterangan FROM [Tabel Retur Pembelian]"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -9078,30 +9240,35 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Retur_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT        [Nomor Retur Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harg"& _ 
-                "a, Keterangan"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Retur Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Ret"& _ 
-                "ur Pembelian] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Kode Barang] LIKE "& _ 
-                "@Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nama Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
-                "                      (Jumlah LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Har"& _ 
-                "ga LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Keterangan LIKE @Pencarian)"
+            Me._commandCollection(2).CommandText = "SELECT        Harga, Jumlah, Keterangan, [Kode Barang], [Nama Barang], [Nomor Ret"& _ 
+                "ur Pembelian], [Tanggal Retur Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Retur Pembelian"& _ 
+                "]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Retur Pembelian] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
+                "       ([Tanggal Retur Pembelian] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "([Kode Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nama Barang] LIKE"& _ 
+                " @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Jumlah LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                (Harga LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Keterangan"& _ 
+                " LIKE @Pencarian)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pencarian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT        [Nomor Retur Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harg"& _ 
-                "a, Keterangan"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Retur Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Ret"& _ 
+            Me._commandCollection(3).CommandText = "SELECT Harga, Jumlah, Keterangan, [Kode Barang], [Nama Barang], [Nomor Retur Pemb"& _ 
+                "elian], [Tanggal Retur Pembelian] FROM [Tabel Retur Pembelian] WHERE ([Nomor Ret"& _ 
                 "ur Pembelian] = @NomorReturPembelian)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorReturPembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "INSERT INTO [dbo].[Tabel Retur Pembelian] ([Nomor Retur Pembelian], [Kode Barang]"& _ 
-                ", [Nama Barang], [Jumlah], [Harga], [Keterangan]) VALUES (@Nomor_Retur_Pembelian"& _ 
-                ", @Kode_Barang, @Nama_Barang, @Jumlah, @Harga, @Keterangan);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Retu"& _ 
-                "r Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harga, Keterangan FROM [Tabe"& _ 
-                "l Retur Pembelian] WHERE ([Nomor Retur Pembelian] = @Nomor_Retur_Pembelian)"
+            Me._commandCollection(4).CommandText = "INSERT INTO [Tabel Retur Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nomor Retur Pembe"& _ 
+                "lian], [Tanggal Retur Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harga, K"& _ 
+                "eterangan)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@Nomor_Retur_Pembelian,@Tanggal_Retur_Pembelian,@Kode"& _ 
+                "_Barang,@Nama_Barang,@Jumlah,@Harga,@Keterangan); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Retur Pembelia"& _ 
+                "n], [Tanggal Retur Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harga, Kete"& _ 
+                "rangan FROM [Tabel Retur Pembelian] WHERE ([Nomor Retur Pembelian] = @Nomor_Retu"& _ 
+                "r_Pembelian)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Retur_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tanggal_Retur_Pembelian", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "Tanggal Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -9109,20 +9276,11 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keterangan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Keterangan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "UPDATE       [Tabel Retur Pembelian]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                [Nomor Retur Pembelian] "& _ 
-                "= @Nomor_Retur_Pembelian, [Kode Barang] = @Kode_Barang, [Nama Barang] = @Nama_Ba"& _ 
-                "rang, Jumlah = @Jumlah, Harga = @Harga, Keterangan = @Keterangan"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ("& _ 
-                "[Nomor Retur Pembelian] = @Original_Nomor_Retur_Pembelian); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Retu"& _ 
-                "r Pembelian], [Kode Barang], [Nama Barang], Jumlah, Harga, Keterangan FROM [Tabe"& _ 
-                "l Retur Pembelian] WHERE ([Nomor Retur Pembelian] = @Nomor_Retur_Pembelian)"
+            Me._commandCollection(5).CommandText = "UPDATE       [Tabel Barang]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Jumlah = Jumlah - @JumlahReturPem"& _ 
+                "belian"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Kode Barang] = @Original_Kode_Barang)"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Retur_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Barang", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Jumlah", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Harga", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Keterangan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Keterangan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Retur_Pembelian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Retur Pembelian", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@JumlahReturPembelian", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Jumlah", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Kode_Barang", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Kode Barang", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9249,46 +9407,53 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Nomor_Retur_Pembelian As String, ByVal Original_Kode_Barang As String, ByVal Original_Nama_Barang As String, ByVal Original_Jumlah As Global.System.Nullable(Of Integer), ByVal Original_Harga As Global.System.Nullable(Of Integer), ByVal Original_Keterangan As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_Nomor_Retur_Pembelian As String, ByVal Original_Tanggal_Retur_Pembelian As Global.System.Nullable(Of Date), ByVal Original_Kode_Barang As String, ByVal Original_Nama_Barang As String, ByVal Original_Jumlah As Global.System.Nullable(Of Integer), ByVal Original_Harga As Global.System.Nullable(Of Integer), ByVal Original_Keterangan As String) As Integer
             If (Original_Nomor_Retur_Pembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Nomor_Retur_Pembelian")
             Else
                 Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Nomor_Retur_Pembelian,String)
             End If
-            If (Original_Kode_Barang Is Nothing) Then
+            If (Original_Tanggal_Retur_Pembelian.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Tanggal_Retur_Pembelian.Value,Date)
+            Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Kode_Barang,String)
             End If
-            If (Original_Nama_Barang Is Nothing) Then
+            If (Original_Kode_Barang Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Nama_Barang,String)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Kode_Barang,String)
             End If
-            If (Original_Jumlah.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Jumlah.Value,Integer)
-            Else
+            If (Original_Nama_Barang Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Nama_Barang,String)
             End If
-            If (Original_Harga.HasValue = true) Then
+            If (Original_Jumlah.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Harga.Value,Integer)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Jumlah.Value,Integer)
             Else
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            If (Original_Keterangan Is Nothing) Then
+            If (Original_Harga.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Harga.Value,Integer)
+            Else
                 Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Keterangan Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_Keterangan,String)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_Keterangan,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -9309,36 +9474,41 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Nomor_Retur_Pembelian As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Harga As Global.System.Nullable(Of Integer), ByVal Keterangan As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal Nomor_Retur_Pembelian As String, ByVal Tanggal_Retur_Pembelian As Global.System.Nullable(Of Date), ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Harga As Global.System.Nullable(Of Integer), ByVal Keterangan As String) As Integer
             If (Nomor_Retur_Pembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nomor_Retur_Pembelian")
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(Nomor_Retur_Pembelian,String)
             End If
-            If (Kode_Barang Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            If (Tanggal_Retur_Pembelian.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Tanggal_Retur_Pembelian.Value,Date)
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Kode_Barang,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (Nama_Barang Is Nothing) Then
+            If (Kode_Barang Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Nama_Barang,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Kode_Barang,String)
+            End If
+            If (Nama_Barang Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Nama_Barang,String)
             End If
             If (Jumlah.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Jumlah.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            If (Harga.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Harga.Value,Integer)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Jumlah.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (Keterangan Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            If (Harga.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Harga.Value,Integer)
             Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Keterangan,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (Keterangan Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Keterangan,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -9359,76 +9529,88 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Nomor_Retur_Pembelian As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Harga As Global.System.Nullable(Of Integer), ByVal Keterangan As String, ByVal Original_Nomor_Retur_Pembelian As String, ByVal Original_Kode_Barang As String, ByVal Original_Nama_Barang As String, ByVal Original_Jumlah As Global.System.Nullable(Of Integer), ByVal Original_Harga As Global.System.Nullable(Of Integer), ByVal Original_Keterangan As String) As Integer
+        Public Overloads Overridable Function Update(ByVal Nomor_Retur_Pembelian As String, ByVal Tanggal_Retur_Pembelian As Global.System.Nullable(Of Date), ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Harga As Global.System.Nullable(Of Integer), ByVal Keterangan As String, ByVal Original_Nomor_Retur_Pembelian As String, ByVal Original_Tanggal_Retur_Pembelian As Global.System.Nullable(Of Date), ByVal Original_Kode_Barang As String, ByVal Original_Nama_Barang As String, ByVal Original_Jumlah As Global.System.Nullable(Of Integer), ByVal Original_Harga As Global.System.Nullable(Of Integer), ByVal Original_Keterangan As String) As Integer
             If (Nomor_Retur_Pembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nomor_Retur_Pembelian")
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Nomor_Retur_Pembelian,String)
             End If
-            If (Kode_Barang Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            If (Tanggal_Retur_Pembelian.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Tanggal_Retur_Pembelian.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Kode_Barang,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (Nama_Barang Is Nothing) Then
+            If (Kode_Barang Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Nama_Barang,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Kode_Barang,String)
+            End If
+            If (Nama_Barang Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Nama_Barang,String)
             End If
             If (Jumlah.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Jumlah.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            If (Harga.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Harga.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Jumlah.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (Keterangan Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            If (Harga.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Harga.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Keterangan,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (Keterangan Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Keterangan,String)
             End If
             If (Original_Nomor_Retur_Pembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Nomor_Retur_Pembelian")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Nomor_Retur_Pembelian,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Nomor_Retur_Pembelian,String)
+            End If
+            If (Original_Tanggal_Retur_Pembelian.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Tanggal_Retur_Pembelian.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
             If (Original_Kode_Barang Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Kode_Barang,String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Kode_Barang,String)
             End If
             If (Original_Nama_Barang Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Nama_Barang,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Nama_Barang,String)
             End If
             If (Original_Jumlah.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Jumlah.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Jumlah.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
             If (Original_Harga.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Harga.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Harga.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
             If (Original_Keterangan Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Keterangan,String)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Keterangan,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -9449,8 +9631,8 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Harga As Global.System.Nullable(Of Integer), ByVal Keterangan As String, ByVal Original_Nomor_Retur_Pembelian As String, ByVal Original_Kode_Barang As String, ByVal Original_Nama_Barang As String, ByVal Original_Jumlah As Global.System.Nullable(Of Integer), ByVal Original_Harga As Global.System.Nullable(Of Integer), ByVal Original_Keterangan As String) As Integer
-            Return Me.Update(Original_Nomor_Retur_Pembelian, Kode_Barang, Nama_Barang, Jumlah, Harga, Keterangan, Original_Nomor_Retur_Pembelian, Original_Kode_Barang, Original_Nama_Barang, Original_Jumlah, Original_Harga, Original_Keterangan)
+        Public Overloads Overridable Function Update(ByVal Tanggal_Retur_Pembelian As Global.System.Nullable(Of Date), ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Harga As Global.System.Nullable(Of Integer), ByVal Keterangan As String, ByVal Original_Nomor_Retur_Pembelian As String, ByVal Original_Tanggal_Retur_Pembelian As Global.System.Nullable(Of Date), ByVal Original_Kode_Barang As String, ByVal Original_Nama_Barang As String, ByVal Original_Jumlah As Global.System.Nullable(Of Integer), ByVal Original_Harga As Global.System.Nullable(Of Integer), ByVal Original_Keterangan As String) As Integer
+            Return Me.Update(Original_Nomor_Retur_Pembelian, Tanggal_Retur_Pembelian, Kode_Barang, Nama_Barang, Jumlah, Harga, Keterangan, Original_Nomor_Retur_Pembelian, Original_Tanggal_Retur_Pembelian, Original_Kode_Barang, Original_Nama_Barang, Original_Jumlah, Original_Harga, Original_Keterangan)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9484,37 +9666,42 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
-        Public Overloads Overridable Function InsertQueryByNomorReturPembelian(ByVal Nomor_Retur_Pembelian As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Harga As Global.System.Nullable(Of Integer), ByVal Keterangan As String) As Integer
+        Public Overloads Overridable Function InsertQueryByNomorReturPembelian(ByVal Nomor_Retur_Pembelian As String, ByVal Tanggal_Retur_Pembelian As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Harga As Global.System.Nullable(Of Integer), ByVal Keterangan As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (Nomor_Retur_Pembelian Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nomor_Retur_Pembelian")
             Else
                 command.Parameters(0).Value = CType(Nomor_Retur_Pembelian,String)
             End If
-            If (Kode_Barang Is Nothing) Then
+            If (Tanggal_Retur_Pembelian Is Nothing) Then
                 command.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(1).Value = CType(Kode_Barang,String)
+                command.Parameters(1).Value = CType(Tanggal_Retur_Pembelian,String)
             End If
-            If (Nama_Barang Is Nothing) Then
+            If (Kode_Barang Is Nothing) Then
                 command.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                command.Parameters(2).Value = CType(Nama_Barang,String)
+                command.Parameters(2).Value = CType(Kode_Barang,String)
+            End If
+            If (Nama_Barang Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(Nama_Barang,String)
             End If
             If (Jumlah.HasValue = true) Then
-                command.Parameters(3).Value = CType(Jumlah.Value,Integer)
-            Else
-                command.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            If (Harga.HasValue = true) Then
-                command.Parameters(4).Value = CType(Harga.Value,Integer)
+                command.Parameters(4).Value = CType(Jumlah.Value,Integer)
             Else
                 command.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (Keterangan Is Nothing) Then
-                command.Parameters(5).Value = Global.System.DBNull.Value
+            If (Harga.HasValue = true) Then
+                command.Parameters(5).Value = CType(Harga.Value,Integer)
             Else
-                command.Parameters(5).Value = CType(Keterangan,String)
+                command.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (Keterangan Is Nothing) Then
+                command.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(6).Value = CType(Keterangan,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -9536,42 +9723,17 @@ Namespace Database_Boho_OutletDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function UpdateQueryByNomorReturPembelian(ByVal Nomor_Retur_Pembelian As String, ByVal Kode_Barang As String, ByVal Nama_Barang As String, ByVal Jumlah As Global.System.Nullable(Of Integer), ByVal Harga As Global.System.Nullable(Of Integer), ByVal Keterangan As String, ByVal Original_Nomor_Retur_Pembelian As String) As Integer
+        Public Overloads Overridable Function UpdateQueryNomorReturPembelian(ByVal JumlahReturPembelian As Global.System.Nullable(Of Integer), ByVal Original_Kode_Barang As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
-            If (Nomor_Retur_Pembelian Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Nomor_Retur_Pembelian")
+            If (JumlahReturPembelian.HasValue = true) Then
+                command.Parameters(0).Value = CType(JumlahReturPembelian.Value,Integer)
             Else
-                command.Parameters(0).Value = CType(Nomor_Retur_Pembelian,String)
+                command.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (Kode_Barang Is Nothing) Then
-                command.Parameters(1).Value = Global.System.DBNull.Value
+            If (Original_Kode_Barang Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Kode_Barang")
             Else
-                command.Parameters(1).Value = CType(Kode_Barang,String)
-            End If
-            If (Nama_Barang Is Nothing) Then
-                command.Parameters(2).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(2).Value = CType(Nama_Barang,String)
-            End If
-            If (Jumlah.HasValue = true) Then
-                command.Parameters(3).Value = CType(Jumlah.Value,Integer)
-            Else
-                command.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            If (Harga.HasValue = true) Then
-                command.Parameters(4).Value = CType(Harga.Value,Integer)
-            Else
-                command.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (Keterangan Is Nothing) Then
-                command.Parameters(5).Value = Global.System.DBNull.Value
-            Else
-                command.Parameters(5).Value = CType(Keterangan,String)
-            End If
-            If (Original_Nomor_Retur_Pembelian Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Nomor_Retur_Pembelian")
-            Else
-                command.Parameters(6).Value = CType(Original_Nomor_Retur_Pembelian,String)
+                command.Parameters(1).Value = CType(Original_Kode_Barang,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -10474,17 +10636,17 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Tabel Penjualan] WHERE (([Nomor Penjualan] = @Original_Nomor_P"& _ 
-                "enjualan) AND ((@IsNull_Nama_Pelanggan = 1 AND [Nama Pelanggan] IS NULL) OR ([Na"& _ 
-                "ma Pelanggan] = @Original_Nama_Pelanggan)) AND ((@IsNull_Tanggal_Penjualan = 1 A"& _ 
-                "ND [Tanggal Penjualan] IS NULL) OR ([Tanggal Penjualan] = @Original_Tanggal_Penj"& _ 
-                "ualan)) AND ((@IsNull_Kode_Barang = 1 AND [Kode Barang] IS NULL) OR ([Kode Baran"& _ 
-                "g] = @Original_Kode_Barang)) AND ((@IsNull_Nama_Barang = 1 AND [Nama Barang] IS "& _ 
-                "NULL) OR ([Nama Barang] = @Original_Nama_Barang)) AND ((@IsNull_Jumlah = 1 AND ["& _ 
-                "Jumlah] IS NULL) OR ([Jumlah] = @Original_Jumlah)) AND ((@IsNull_Satuan = 1 AND "& _ 
-                "[Satuan] IS NULL) OR ([Satuan] = @Original_Satuan)) AND ((@IsNull_Harga = 1 AND "& _ 
-                "[Harga] IS NULL) OR ([Harga] = @Original_Harga)) AND ((@IsNull_Total = 1 AND [To"& _ 
-                "tal] IS NULL) OR ([Total] = @Original_Total)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Tabel Penjualan] WHERE (([Nomor Penjualan] = @Original_Nomor_Penjual"& _ 
+                "an) AND ((@IsNull_Nama_Pelanggan = 1 AND [Nama Pelanggan] IS NULL) OR ([Nama Pel"& _ 
+                "anggan] = @Original_Nama_Pelanggan)) AND ((@IsNull_Tanggal_Penjualan = 1 AND [Ta"& _ 
+                "nggal Penjualan] IS NULL) OR ([Tanggal Penjualan] = @Original_Tanggal_Penjualan)"& _ 
+                ") AND ((@IsNull_Kode_Barang = 1 AND [Kode Barang] IS NULL) OR ([Kode Barang] = @"& _ 
+                "Original_Kode_Barang)) AND ((@IsNull_Nama_Barang = 1 AND [Nama Barang] IS NULL) "& _ 
+                "OR ([Nama Barang] = @Original_Nama_Barang)) AND ((@IsNull_Jumlah = 1 AND [Jumlah"& _ 
+                "] IS NULL) OR ([Jumlah] = @Original_Jumlah)) AND ((@IsNull_Satuan = 1 AND [Satua"& _ 
+                "n] IS NULL) OR ([Satuan] = @Original_Satuan)) AND ((@IsNull_Harga = 1 AND [Harga"& _ 
+                "] IS NULL) OR ([Harga] = @Original_Harga)) AND ((@IsNull_Total = 1 AND [Total] I"& _ 
+                "S NULL) OR ([Total] = @Original_Total)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Penjualan", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Nama_Pelanggan", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pelanggan", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -10505,13 +10667,12 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Total", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Tabel Penjualan] ([Nomor Penjualan], [Nama Pelanggan], [Tangga"& _ 
-                "l Penjualan], [Kode Barang], [Nama Barang], [Jumlah], [Satuan], [Harga], [Total]"& _ 
-                ") VALUES (@Nomor_Penjualan, @Nama_Pelanggan, @Tanggal_Penjualan, @Kode_Barang, @"& _ 
-                "Nama_Barang, @Jumlah, @Satuan, @Harga, @Total);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Penjualan], [Nama"& _ 
-                " Pelanggan], [Tanggal Penjualan], [Kode Barang], [Nama Barang], Jumlah, Satuan, "& _ 
-                "Harga, Total FROM [Tabel Penjualan] WHERE ([Nomor Penjualan] = @Nomor_Penjualan)"& _ 
-                ""
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Tabel Penjualan] ([Nomor Penjualan], [Nama Pelanggan], [Tanggal Penj"& _ 
+                "ualan], [Kode Barang], [Nama Barang], [Jumlah], [Satuan], [Harga], [Total]) VALU"& _ 
+                "ES (@Nomor_Penjualan, @Nama_Pelanggan, @Tanggal_Penjualan, @Kode_Barang, @Nama_B"& _ 
+                "arang, @Jumlah, @Satuan, @Harga, @Total);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Penjualan], [Nama Pelan"& _ 
+                "ggan], [Tanggal Penjualan], [Kode Barang], [Nama Barang], Jumlah, Satuan, Harga,"& _ 
+                " Total FROM [Tabel Penjualan] WHERE ([Nomor Penjualan] = @Nomor_Penjualan)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Penjualan", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pelanggan", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pelanggan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -10524,23 +10685,23 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Total", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Total", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Tabel Penjualan] SET [Nomor Penjualan] = @Nomor_Penjualan, [Nama Pe"& _ 
-                "langgan] = @Nama_Pelanggan, [Tanggal Penjualan] = @Tanggal_Penjualan, [Kode Bara"& _ 
-                "ng] = @Kode_Barang, [Nama Barang] = @Nama_Barang, [Jumlah] = @Jumlah, [Satuan] ="& _ 
-                " @Satuan, [Harga] = @Harga, [Total] = @Total WHERE (([Nomor Penjualan] = @Origin"& _ 
-                "al_Nomor_Penjualan) AND ((@IsNull_Nama_Pelanggan = 1 AND [Nama Pelanggan] IS NUL"& _ 
-                "L) OR ([Nama Pelanggan] = @Original_Nama_Pelanggan)) AND ((@IsNull_Tanggal_Penju"& _ 
-                "alan = 1 AND [Tanggal Penjualan] IS NULL) OR ([Tanggal Penjualan] = @Original_Ta"& _ 
-                "nggal_Penjualan)) AND ((@IsNull_Kode_Barang = 1 AND [Kode Barang] IS NULL) OR (["& _ 
-                "Kode Barang] = @Original_Kode_Barang)) AND ((@IsNull_Nama_Barang = 1 AND [Nama B"& _ 
-                "arang] IS NULL) OR ([Nama Barang] = @Original_Nama_Barang)) AND ((@IsNull_Jumlah"& _ 
-                " = 1 AND [Jumlah] IS NULL) OR ([Jumlah] = @Original_Jumlah)) AND ((@IsNull_Satua"& _ 
-                "n = 1 AND [Satuan] IS NULL) OR ([Satuan] = @Original_Satuan)) AND ((@IsNull_Harg"& _ 
-                "a = 1 AND [Harga] IS NULL) OR ([Harga] = @Original_Harga)) AND ((@IsNull_Total ="& _ 
-                " 1 AND [Total] IS NULL) OR ([Total] = @Original_Total)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Penjual"& _ 
-                "an], [Nama Pelanggan], [Tanggal Penjualan], [Kode Barang], [Nama Barang], Jumlah"& _ 
-                ", Satuan, Harga, Total FROM [Tabel Penjualan] WHERE ([Nomor Penjualan] = @Nomor_"& _ 
-                "Penjualan)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Tabel Penjualan] SET [Nomor Penjualan] = @Nomor_Penjualan, [Nama Pelangga"& _ 
+                "n] = @Nama_Pelanggan, [Tanggal Penjualan] = @Tanggal_Penjualan, [Kode Barang] = "& _ 
+                "@Kode_Barang, [Nama Barang] = @Nama_Barang, [Jumlah] = @Jumlah, [Satuan] = @Satu"& _ 
+                "an, [Harga] = @Harga, [Total] = @Total WHERE (([Nomor Penjualan] = @Original_Nom"& _ 
+                "or_Penjualan) AND ((@IsNull_Nama_Pelanggan = 1 AND [Nama Pelanggan] IS NULL) OR "& _ 
+                "([Nama Pelanggan] = @Original_Nama_Pelanggan)) AND ((@IsNull_Tanggal_Penjualan ="& _ 
+                " 1 AND [Tanggal Penjualan] IS NULL) OR ([Tanggal Penjualan] = @Original_Tanggal_"& _ 
+                "Penjualan)) AND ((@IsNull_Kode_Barang = 1 AND [Kode Barang] IS NULL) OR ([Kode B"& _ 
+                "arang] = @Original_Kode_Barang)) AND ((@IsNull_Nama_Barang = 1 AND [Nama Barang]"& _ 
+                " IS NULL) OR ([Nama Barang] = @Original_Nama_Barang)) AND ((@IsNull_Jumlah = 1 A"& _ 
+                "ND [Jumlah] IS NULL) OR ([Jumlah] = @Original_Jumlah)) AND ((@IsNull_Satuan = 1 "& _ 
+                "AND [Satuan] IS NULL) OR ([Satuan] = @Original_Satuan)) AND ((@IsNull_Harga = 1 "& _ 
+                "AND [Harga] IS NULL) OR ([Harga] = @Original_Harga)) AND ((@IsNull_Total = 1 AND"& _ 
+                " [Total] IS NULL) OR ([Total] = @Original_Total)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT [Nomor Penjualan], ["& _ 
+                "Nama Pelanggan], [Tanggal Penjualan], [Kode Barang], [Nama Barang], Jumlah, Satu"& _ 
+                "an, Harga, Total FROM [Tabel Penjualan] WHERE ([Nomor Penjualan] = @Nomor_Penjua"& _ 
+                "lan)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nomor_Penjualan", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nama_Pelanggan", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nama Pelanggan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -10584,7 +10745,7 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT [Nomor Penjualan], [Nama Pelanggan], [Tanggal Penjualan], [Kode Barang], ["& _ 
-                "Nama Barang], Jumlah, Satuan, Harga, Total FROM dbo.[Tabel Penjualan]"
+                "Nama Barang], Jumlah, Satuan, Harga, Total FROM [Tabel Penjualan]"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -10594,22 +10755,19 @@ Namespace Database_Boho_OutletDataSetTableAdapters
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nomor_Penjualan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT        [Nomor Penjualan], [Nama Pelanggan], [Tanggal Penjualan], [Kode Bar"& _ 
-                "ang], [Nama Barang], Jumlah, Satuan, Harga, Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Penjua"& _ 
-                "lan]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Penjualan] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
-                "    ([Nama Pelanggan] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Tanggal Pe"& _ 
-                "njualan] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Kode Barang] LIKE @Penc"& _ 
-                "arian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ([Nama Barang] LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
-                "                 (Jumlah LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Satuan L"& _ 
-                "IKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Harga LIKE @Pencarian) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
-                "                  (Total LIKE @Pencarian)"
+            Me._commandCollection(2).CommandText = "SELECT [Nomor Penjualan], [Nama Pelanggan], [Tanggal Penjualan], [Kode Barang], ["& _ 
+                "Nama Barang], Jumlah, Satuan, Harga, Total FROM [Tabel Penjualan] WHERE ([Nomor "& _ 
+                "Penjualan] LIKE @Pencarian) OR ([Nama Pelanggan] LIKE @Pencarian) OR ([Tanggal P"& _ 
+                "enjualan] LIKE @Pencarian) OR ([Kode Barang] LIKE @Pencarian) OR ([Nama Barang] "& _ 
+                "LIKE @Pencarian) OR (Jumlah LIKE @Pencarian) OR (Satuan LIKE @Pencarian) OR (Har"& _ 
+                "ga LIKE @Pencarian) OR (Total LIKE @Pencarian)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pencarian", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT        [Nomor Penjualan], [Nama Pelanggan], [Tanggal Penjualan], [Kode Bar"& _ 
-                "ang], [Nama Barang], Jumlah, Satuan, Harga, Total"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            [Tabel Penjua"& _ 
-                "lan]"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ([Nomor Penjualan] = @NomorPenjualan)"
+            Me._commandCollection(3).CommandText = "SELECT [Nomor Penjualan], [Nama Pelanggan], [Tanggal Penjualan], [Kode Barang], ["& _ 
+                "Nama Barang], Jumlah, Satuan, Harga, Total FROM [Tabel Penjualan] WHERE ([Nomor "& _ 
+                "Penjualan] = @NomorPenjualan)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NomorPenjualan", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nomor Penjualan", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
@@ -11061,31 +11219,6 @@ Namespace Database_Boho_OutletDataSetTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal Nama_Pelanggan As String,  _
-                    ByVal Tanggal_Penjualan As Global.System.Nullable(Of Date),  _
-                    ByVal Kode_Barang As String,  _
-                    ByVal Nama_Barang As String,  _
-                    ByVal Jumlah As Global.System.Nullable(Of Integer),  _
-                    ByVal Satuan As String,  _
-                    ByVal Harga As Global.System.Nullable(Of Integer),  _
-                    ByVal Total As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Nomor_Penjualan As String,  _
-                    ByVal Original_Nama_Pelanggan As String,  _
-                    ByVal Original_Tanggal_Penjualan As Global.System.Nullable(Of Date),  _
-                    ByVal Original_Kode_Barang As String,  _
-                    ByVal Original_Nama_Barang As String,  _
-                    ByVal Original_Jumlah As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Satuan As String,  _
-                    ByVal Original_Harga As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Total As Global.System.Nullable(Of Integer)) As Integer
-            Return Me.Update(Original_Nomor_Penjualan, Nama_Pelanggan, Tanggal_Penjualan, Kode_Barang, Nama_Barang, Jumlah, Satuan, Harga, Total, Original_Nomor_Penjualan, Original_Nama_Pelanggan, Original_Tanggal_Penjualan, Original_Kode_Barang, Original_Nama_Barang, Original_Jumlah, Original_Satuan, Original_Harga, Original_Total)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

@@ -425,6 +425,7 @@ Partial Class FPemasok
         '
         Me.TextboxKodePemasok.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxKodePemasok.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxKodePemasok.Enabled = False
         Me.TextboxKodePemasok.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxKodePemasok.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxKodePemasok.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))

@@ -32,6 +32,14 @@ Partial Class UCPemasok
         Me.ImageButtonEdit = New Bunifu.Framework.UI.BunifuImageButton()
         Me.ImageButtonTambah = New Bunifu.Framework.UI.BunifuImageButton()
         Me.DatagridPemasok = New Bunifu.Framework.UI.BunifuCustomDataGrid()
+        Me.KodePemasokDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NamaPemasokDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TeleponDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AlamatDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.KotaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.KodePosDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GambarDataGridViewImageColumn = New System.Windows.Forms.DataGridViewImageColumn()
         Me.TabelPemasokBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Database_Boho_OutletDataSet = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet()
         Me.TextboxPencarian = New Bunifu.Framework.UI.BunifuMaterialTextbox()
@@ -47,14 +55,6 @@ Partial Class UCPemasok
         Me.PictureboxPemasok = New System.Windows.Forms.PictureBox()
         Me.LabelNamaPemasok = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.Tabel_PemasokTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_PemasokTableAdapter()
-        Me.KodePemasokDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NamaPemasokDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TeleponDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HPDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AlamatDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.KotaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.KodePosDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GambarDataGridViewImageColumn = New System.Windows.Forms.DataGridViewImageColumn()
         Me.BunifuGradientPanel2.SuspendLayout()
         CType(Me.ImageButtonMenyegarkan, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ImageButtonHapus, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -171,9 +171,66 @@ Partial Class UCPemasok
         Me.DatagridPemasok.HeaderForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.DatagridPemasok.Location = New System.Drawing.Point(29, 110)
         Me.DatagridPemasok.Name = "DatagridPemasok"
+        Me.DatagridPemasok.ReadOnly = True
         Me.DatagridPemasok.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DatagridPemasok.Size = New System.Drawing.Size(1053, 329)
         Me.DatagridPemasok.TabIndex = 3
+        '
+        'KodePemasokDataGridViewTextBoxColumn
+        '
+        Me.KodePemasokDataGridViewTextBoxColumn.DataPropertyName = "Kode Pemasok"
+        Me.KodePemasokDataGridViewTextBoxColumn.HeaderText = "Kode Pemasok"
+        Me.KodePemasokDataGridViewTextBoxColumn.Name = "KodePemasokDataGridViewTextBoxColumn"
+        Me.KodePemasokDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'NamaPemasokDataGridViewTextBoxColumn
+        '
+        Me.NamaPemasokDataGridViewTextBoxColumn.DataPropertyName = "Nama Pemasok"
+        Me.NamaPemasokDataGridViewTextBoxColumn.HeaderText = "Nama Pemasok"
+        Me.NamaPemasokDataGridViewTextBoxColumn.Name = "NamaPemasokDataGridViewTextBoxColumn"
+        Me.NamaPemasokDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TeleponDataGridViewTextBoxColumn
+        '
+        Me.TeleponDataGridViewTextBoxColumn.DataPropertyName = "Telepon"
+        Me.TeleponDataGridViewTextBoxColumn.HeaderText = "Telepon"
+        Me.TeleponDataGridViewTextBoxColumn.Name = "TeleponDataGridViewTextBoxColumn"
+        Me.TeleponDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'HPDataGridViewTextBoxColumn
+        '
+        Me.HPDataGridViewTextBoxColumn.DataPropertyName = "HP"
+        Me.HPDataGridViewTextBoxColumn.HeaderText = "HP"
+        Me.HPDataGridViewTextBoxColumn.Name = "HPDataGridViewTextBoxColumn"
+        Me.HPDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'AlamatDataGridViewTextBoxColumn
+        '
+        Me.AlamatDataGridViewTextBoxColumn.DataPropertyName = "Alamat"
+        Me.AlamatDataGridViewTextBoxColumn.HeaderText = "Alamat"
+        Me.AlamatDataGridViewTextBoxColumn.Name = "AlamatDataGridViewTextBoxColumn"
+        Me.AlamatDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'KotaDataGridViewTextBoxColumn
+        '
+        Me.KotaDataGridViewTextBoxColumn.DataPropertyName = "Kota"
+        Me.KotaDataGridViewTextBoxColumn.HeaderText = "Kota"
+        Me.KotaDataGridViewTextBoxColumn.Name = "KotaDataGridViewTextBoxColumn"
+        Me.KotaDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'KodePosDataGridViewTextBoxColumn
+        '
+        Me.KodePosDataGridViewTextBoxColumn.DataPropertyName = "Kode Pos"
+        Me.KodePosDataGridViewTextBoxColumn.HeaderText = "Kode Pos"
+        Me.KodePosDataGridViewTextBoxColumn.Name = "KodePosDataGridViewTextBoxColumn"
+        Me.KodePosDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'GambarDataGridViewImageColumn
+        '
+        Me.GambarDataGridViewImageColumn.DataPropertyName = "Gambar"
+        Me.GambarDataGridViewImageColumn.HeaderText = "Gambar"
+        Me.GambarDataGridViewImageColumn.Name = "GambarDataGridViewImageColumn"
+        Me.GambarDataGridViewImageColumn.ReadOnly = True
         '
         'TabelPemasokBindingSource
         '
@@ -361,54 +418,6 @@ Partial Class UCPemasok
         'Tabel_PemasokTableAdapter
         '
         Me.Tabel_PemasokTableAdapter.ClearBeforeFill = True
-        '
-        'KodePemasokDataGridViewTextBoxColumn
-        '
-        Me.KodePemasokDataGridViewTextBoxColumn.DataPropertyName = "Kode Pemasok"
-        Me.KodePemasokDataGridViewTextBoxColumn.HeaderText = "Kode Pemasok"
-        Me.KodePemasokDataGridViewTextBoxColumn.Name = "KodePemasokDataGridViewTextBoxColumn"
-        '
-        'NamaPemasokDataGridViewTextBoxColumn
-        '
-        Me.NamaPemasokDataGridViewTextBoxColumn.DataPropertyName = "Nama Pemasok"
-        Me.NamaPemasokDataGridViewTextBoxColumn.HeaderText = "Nama Pemasok"
-        Me.NamaPemasokDataGridViewTextBoxColumn.Name = "NamaPemasokDataGridViewTextBoxColumn"
-        '
-        'TeleponDataGridViewTextBoxColumn
-        '
-        Me.TeleponDataGridViewTextBoxColumn.DataPropertyName = "Telepon"
-        Me.TeleponDataGridViewTextBoxColumn.HeaderText = "Telepon"
-        Me.TeleponDataGridViewTextBoxColumn.Name = "TeleponDataGridViewTextBoxColumn"
-        '
-        'HPDataGridViewTextBoxColumn
-        '
-        Me.HPDataGridViewTextBoxColumn.DataPropertyName = "HP"
-        Me.HPDataGridViewTextBoxColumn.HeaderText = "HP"
-        Me.HPDataGridViewTextBoxColumn.Name = "HPDataGridViewTextBoxColumn"
-        '
-        'AlamatDataGridViewTextBoxColumn
-        '
-        Me.AlamatDataGridViewTextBoxColumn.DataPropertyName = "Alamat"
-        Me.AlamatDataGridViewTextBoxColumn.HeaderText = "Alamat"
-        Me.AlamatDataGridViewTextBoxColumn.Name = "AlamatDataGridViewTextBoxColumn"
-        '
-        'KotaDataGridViewTextBoxColumn
-        '
-        Me.KotaDataGridViewTextBoxColumn.DataPropertyName = "Kota"
-        Me.KotaDataGridViewTextBoxColumn.HeaderText = "Kota"
-        Me.KotaDataGridViewTextBoxColumn.Name = "KotaDataGridViewTextBoxColumn"
-        '
-        'KodePosDataGridViewTextBoxColumn
-        '
-        Me.KodePosDataGridViewTextBoxColumn.DataPropertyName = "Kode Pos"
-        Me.KodePosDataGridViewTextBoxColumn.HeaderText = "Kode Pos"
-        Me.KodePosDataGridViewTextBoxColumn.Name = "KodePosDataGridViewTextBoxColumn"
-        '
-        'GambarDataGridViewImageColumn
-        '
-        Me.GambarDataGridViewImageColumn.DataPropertyName = "Gambar"
-        Me.GambarDataGridViewImageColumn.HeaderText = "Gambar"
-        Me.GambarDataGridViewImageColumn.Name = "GambarDataGridViewImageColumn"
         '
         'UCPemasok
         '

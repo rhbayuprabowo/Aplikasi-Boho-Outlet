@@ -88,6 +88,12 @@
     <Compile Include="Barang\FBarang.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Data\FDataBarang.Designer.vb">
+      <DependentUpon>FDataBarang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FDataBarang.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Barang\FPenyesuaian.Designer.vb">
       <DependentUpon>FPenyesuaian.vb</DependentUpon>
     </Compile>
@@ -106,16 +112,16 @@
     <Compile Include="Barang\UCPenyesuaian.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Data\FData.Designer.vb">
-      <DependentUpon>FData.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Data\FData.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Database_Boho_OutletDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Database_Boho_OutletDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FDataPembelian.Designer.vb">
+      <DependentUpon>FDataPembelian.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FDataPembelian.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="FMasuk.vb">
       <SubType>Form</SubType>
@@ -128,6 +134,12 @@
       <DependentUpon>FMenu.vb</DependentUpon>
     </Compile>
     <Compile Include="FMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Data\FDataPemasok.Designer.vb">
+      <DependentUpon>FDataPemasok.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FDataPemasok.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pemasok\FPemasok.Designer.vb">
@@ -210,6 +222,9 @@
     <EmbeddedResource Include="Barang\FBarang.resx">
       <DependentUpon>FBarang.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Data\FDataBarang.resx">
+      <DependentUpon>FDataBarang.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Barang\FPenyesuaian.resx">
       <DependentUpon>FPenyesuaian.vb</DependentUpon>
     </EmbeddedResource>
@@ -219,8 +234,8 @@
     <EmbeddedResource Include="Barang\UCPenyesuaian.resx">
       <DependentUpon>UCPenyesuaian.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Data\FData.resx">
-      <DependentUpon>FData.vb</DependentUpon>
+    <EmbeddedResource Include="Data\FDataPembelian.resx">
+      <DependentUpon>FDataPembelian.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FMasuk.resx">
       <DependentUpon>FMasuk.vb</DependentUpon>
@@ -234,6 +249,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\FDataPemasok.resx">
+      <DependentUpon>FDataPemasok.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pemasok\FPemasok.resx">
       <DependentUpon>FPemasok.vb</DependentUpon>

@@ -2,37 +2,37 @@
 Imports Bunifu.Framework.UI
 Public Class FPembelian
 
-    Private Tambah As Boolean = True
+    'Private Tambah As Boolean = True
     Private fileName As String = ""
 
-    Public Sub EditData(TambahBaru As Boolean, NomorPembelian As String)
+    'Public Sub EditData(TambahBaru As Boolean, NomorPembelian As String)
 
-        Me.Tambah = TambahBaru
+    '    Me.Tambah = TambahBaru
 
-        If (Not TambahBaru) Then
+    '    If (Not TambahBaru) Then
 
-            Dim Data = Tabel_PembelianTableAdapter.GetDataByNomorPembelian(NomorPembelian)
+    '        Dim Data = Tabel_PembelianTableAdapter.GetDataByNomorPembelian(NomorPembelian)
 
-            TextboxNomorPembelian.Text = Data(0).Nomor_Pembelian
-            DatepickerTanggalPembelian.Value = Data(0).Tanggal_Pembelian
-            TextboxKodePemasok.Text = Data(0).Kode_Pemasok
-            TextboxNamaPemasok.Text = Data(0).Nama_Pemasok
-            TextboxKeterangan.Text = Data(0).Keterangan
+    '        TextboxNomorPembelian.Text = Data(0).Nomor_Pembelian
+    '        DatepickerTanggalPembelian.Value = Data(0).Tanggal_Pembelian
+    '        TextboxKodePemasok.Text = Data(0).Kode_Pemasok
+    '        TextboxNamaPemasok.Text = Data(0).Nama_Pemasok
+    '        TextboxKeterangan.Text = Data(0).Keterangan
 
-            For i = 0 To Data.Count - 1
+    '        For i = 0 To Data.Count - 1
 
-                DatagridPembelian.Rows.Add(Data(i).Kode_Barang,
-                                           Data(i).Nama_Barang,
-                                           Data(i).Jumlah,
-                                           Data(i).Satuan,
-                                           Data(i).Harga,
-                                           Data(i).Total)
+    '            DatagridPembelian.Rows.Add(Data(i).Kode_Barang,
+    '                                       Data(i).Nama_Barang,
+    '                                       Data(i).Jumlah,
+    '                                       Data(i).Satuan,
+    '                                       Data(i).Harga,
+    '                                       Data(i).Total)
 
-            Next
+    '        Next
 
-        End If
+    '    End If
 
-    End Sub
+    'End Sub
 
     Private Sub Keluar()
 
@@ -42,9 +42,9 @@ Public Class FPembelian
 
     Private Sub ButtonSimpan_Click(sender As Object, e As EventArgs) Handles ButtonSimpan.Click
 
-        If (Tambah) Then
-            'untuk fungsi data baru
-            With DatagridPembelian
+        'If (Tambah) Then
+        'untuk fungsi data baru
+        With DatagridPembelian
                 .EndEdit()
 
                 For RowIndex = 0 To .Rows.Count - 1
@@ -59,36 +59,9 @@ Public Class FPembelian
                                                .Item(3, RowIndex).Value.ToString, 'Satuan
                                                .Item(4, RowIndex).Value.ToString, 'Harga
                                                .Item(5, RowIndex).Value.ToString) 'Total
-                Next
 
-                TextboxNomorPembelian.Text = ""
-                DatepickerTanggalPembelian.Value = Date.Now
-                TextboxKodePemasok.Text = ""
-                TextboxNamaPemasok.Text = ""
-                TextboxKeterangan.Text = ""
-                .Rows.Clear()
-
-
-            End With
-
-        Else
-            'untuk fungsi edit data
-            With DatagridPembelian
-                .EndEdit()
-                For RowIndex = 0 To .Rows.Count - 1
-
-                    Tabel_PembelianTableAdapter.UpdateQueryByNomorPembelian(TextboxNomorPembelian.Text,
-                                               DatepickerTanggalPembelian.Value.ToShortDateString(),
-                                               TextboxKodePemasok.Text,
-                                               TextboxNamaPemasok.Text,
-                                               TextboxKeterangan.Text,
-                                               .Item(0, RowIndex).Value.ToString, 'Kode Barang
-                                               .Item(1, RowIndex).Value.ToString, 'Nama Barang
-                                               .Item(2, RowIndex).Value.ToString, 'Jumlah
-                                               .Item(3, RowIndex).Value.ToString, 'Satuan
-                                               .Item(4, RowIndex).Value.ToString, 'Harga
-                                               .Item(5, RowIndex).Value.ToString, 'Total
-                                               TextboxNomorPembelian.Text)
+                    Tabel_BarangTableAdapter.UpdateQueryJumlahDiTambah(Convert.ToUInt32(.Item(2, RowIndex).Value.ToString),
+                                                               .Item(0, RowIndex).Value.ToString)
 
                 Next
 
@@ -101,7 +74,37 @@ Public Class FPembelian
 
             End With
 
-        End If
+        'Else
+        '    'untuk fungsi edit data
+        '    With DatagridPembelian
+        '        .EndEdit()
+        '        For RowIndex = 0 To .Rows.Count - 1
+
+        '            Tabel_PembelianTableAdapter.UpdateQueryByNomorPembelian(TextboxNomorPembelian.Text,
+        '                                       DatepickerTanggalPembelian.Value.ToShortDateString(),
+        '                                       TextboxKodePemasok.Text,
+        '                                       TextboxNamaPemasok.Text,
+        '                                       TextboxKeterangan.Text,
+        '                                       .Item(0, RowIndex).Value.ToString, 'Kode Barang
+        '                                       .Item(1, RowIndex).Value.ToString, 'Nama Barang
+        '                                       .Item(2, RowIndex).Value.ToString, 'Jumlah
+        '                                       .Item(3, RowIndex).Value.ToString, 'Satuan
+        '                                       .Item(4, RowIndex).Value.ToString, 'Harga
+        '                                       .Item(5, RowIndex).Value.ToString, 'Total
+        '                                       TextboxNomorPembelian.Text)
+
+        '        Next
+
+        '        TextboxNomorPembelian.Text = ""
+        '        DatepickerTanggalPembelian.Value = Date.Now
+        '        TextboxKodePemasok.Text = ""
+        '        TextboxNamaPemasok.Text = ""
+        '        TextboxKeterangan.Text = ""
+        '        .Rows.Clear()
+
+        'End With
+
+        'End If
 
     End Sub
 
@@ -133,11 +136,18 @@ Public Class FPembelian
 
         DatepickerTanggalPembelian.Value = Date.Now
 
-        Using data_tabel As DataTable = Tabel_PembelianTableAdapter.GetData()
-
+        Using data_tabel = Tabel_PembelianTableAdapter.GetData()
+            If data_tabel.Rows.Count = 0 Then
+                TextboxNomorPembelian.Text = "NPEM-" + 1.ToString("D4")
+            Else
+                Dim NomorArray = data_tabel(data_tabel.Count - 1).Nomor_Pembelian.Split("-"c)
+                Dim NomorPembelian = Convert.ToInt32(NomorArray(1)) + 1
+                TextboxNomorPembelian.Text = "NPEM-" + NomorPembelian.ToString("D4")
+            End If
         End Using
 
     End Sub
+
 
     Private Sub ValidatingTextBoxes(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles TextboxNomorPembelian.Validating,
                                                                                                          TextboxKodePemasok.Validating,
@@ -171,4 +181,34 @@ Public Class FPembelian
         toolTip1.Show(Pesan, TextBoxes, 0, -25, 1000)
     End Sub
 
+    Private Sub ImageButtonKodePemasok_Click(sender As Object, e As EventArgs) Handles ImageButtonKodePemasok.Click
+        Dim FormData = New FDataPemasok
+        FormData.ShowDialog()
+        TextboxKodePemasok.Text = FormData.Kode_Pemasok
+        TextboxNamaPemasok.Text = FormData.Nama_Pemasok
+        FormData.Dispose()
+    End Sub
+
+    Private Sub DatagridPembelian_KeyDown(sender As Object, e As KeyEventArgs) Handles DatagridPembelian.KeyDown
+        If DatagridPembelian.Rows.Count > 0 And e.KeyCode = Keys.F2 Then
+            Dim FormData = New FDataBarang
+            FormData.ShowDialog()
+            DatagridPembelian.Item(0, DatagridPembelian.CurrentCell.RowIndex).Value = FormData.Kode_Barang
+            DatagridPembelian.Item(1, DatagridPembelian.CurrentCell.RowIndex).Value = FormData.Nama_Barang
+            DatagridPembelian.Item(3, DatagridPembelian.CurrentCell.RowIndex).Value = FormData.Satuan
+            DatagridPembelian.Item(4, DatagridPembelian.CurrentCell.RowIndex).Value = FormData.Harga
+            DatagridPembelian.EndEdit()
+            FormData.Dispose()
+        End If
+    End Sub
+
+    Private Sub DatagridPembelian_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DatagridPembelian.CellDoubleClick
+        DatagridPembelian.BeginEdit(True)
+    End Sub
+
+    Private Sub DatagridPembelian_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DatagridPembelian.CellEndEdit
+        If e.ColumnIndex = 2 Then
+            DatagridPembelian.Item(5, e.RowIndex).Value = CInt(DatagridPembelian.Item(2, e.RowIndex).Value) * CInt(DatagridPembelian.Item(4, e.RowIndex).Value)
+        End If
+    End Sub
 End Class

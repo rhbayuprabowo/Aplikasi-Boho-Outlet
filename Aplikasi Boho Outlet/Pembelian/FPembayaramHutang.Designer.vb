@@ -72,6 +72,7 @@ Partial Class FPembayaramHutang
         '
         Me.TextboxNamaPemasok.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxNamaPemasok.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxNamaPemasok.Enabled = False
         Me.TextboxNamaPemasok.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxNamaPemasok.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxNamaPemasok.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -240,6 +241,7 @@ Partial Class FPembayaramHutang
         '
         Me.TextboxNomorPembelian.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxNomorPembelian.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxNomorPembelian.Enabled = False
         Me.TextboxNomorPembelian.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxNomorPembelian.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxNomorPembelian.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -333,6 +335,7 @@ Partial Class FPembayaramHutang
         '
         Me.TextboxKodePemasok.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxKodePemasok.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxKodePemasok.Enabled = False
         Me.TextboxKodePemasok.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxKodePemasok.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxKodePemasok.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -366,6 +369,7 @@ Partial Class FPembayaramHutang
         '
         Me.TextboxNomorPembayaranHutang.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxNomorPembayaranHutang.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxNomorPembayaranHutang.Enabled = False
         Me.TextboxNomorPembayaranHutang.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxNomorPembayaranHutang.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxNomorPembayaranHutang.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -481,9 +485,9 @@ Partial Class FPembayaramHutang
     Friend WithEvents TextboxNomorPembelian As Bunifu.Framework.UI.BunifuMaterialTextbox
     Friend WithEvents DropdownStatus As Bunifu.Framework.UI.BunifuDropdown
     Friend WithEvents BunifuCustomLabel5 As Bunifu.Framework.UI.BunifuCustomLabel
+    Friend WithEvents BunifuImageNomorPembelian As Bunifu.Framework.UI.BunifuImageButton
+    Friend WithEvents ImageButtonKodePemasok As Bunifu.Framework.UI.BunifuImageButton
     Friend WithEvents BindingSourcePembayaranHutang As BindingSource
     Friend WithEvents Database_Boho_OutletDataSet As Database_Boho_OutletDataSet
     Friend WithEvents Tabel_Pembayaran_HutangTableAdapter As Database_Boho_OutletDataSetTableAdapters.Tabel_Pembayaran_HutangTableAdapter
-    Friend WithEvents BunifuImageNomorPembelian As Bunifu.Framework.UI.BunifuImageButton
-    Friend WithEvents ImageButtonKodePemasok As Bunifu.Framework.UI.BunifuImageButton
 End Class

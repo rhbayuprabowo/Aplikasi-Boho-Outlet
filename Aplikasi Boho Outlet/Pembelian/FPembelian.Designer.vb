@@ -30,13 +30,8 @@ Partial Class FPembelian
         Me.Database_Boho_OutletDataSet = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSet()
         Me.Tabel_PembelianTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_PembelianTableAdapter()
         Me.BunifuGradientPanel2 = New Bunifu.Framework.UI.BunifuGradientPanel()
+        Me.BunifuCustomLabel7 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.DatagridPembelian = New Bunifu.Framework.UI.BunifuCustomDataGrid()
-        Me.KodeBarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NamaBarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Jumlah = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Satuan = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.Harga = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LabelCetak = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.CheckboxCetak = New Bunifu.Framework.UI.BunifuCheckbox()
         Me.ButtonTambah = New Bunifu.Framework.UI.BunifuFlatButton()
@@ -58,6 +53,13 @@ Partial Class FPembelian
         Me.TextboxKodePemasok = New Bunifu.Framework.UI.BunifuMaterialTextbox()
         Me.BunifuCustomLabel3 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
+        Me.Tabel_BarangTableAdapter = New Aplikasi_Boho_Outlet.Database_Boho_OutletDataSetTableAdapters.Tabel_BarangTableAdapter()
+        Me.KodeBarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NamaBarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Jumlah = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Satuan = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Harga = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.BindingSourcePembelian, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Database_Boho_OutletDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BunifuGradientPanel2.SuspendLayout()
@@ -85,6 +87,7 @@ Partial Class FPembelian
         '
         Me.BunifuGradientPanel2.BackgroundImage = CType(resources.GetObject("BunifuGradientPanel2.BackgroundImage"), System.Drawing.Image)
         Me.BunifuGradientPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BunifuGradientPanel2.Controls.Add(Me.BunifuCustomLabel7)
         Me.BunifuGradientPanel2.Controls.Add(Me.DatagridPembelian)
         Me.BunifuGradientPanel2.Controls.Add(Me.LabelCetak)
         Me.BunifuGradientPanel2.Controls.Add(Me.CheckboxCetak)
@@ -102,6 +105,19 @@ Partial Class FPembelian
         Me.BunifuGradientPanel2.Quality = 10
         Me.BunifuGradientPanel2.Size = New System.Drawing.Size(1368, 388)
         Me.BunifuGradientPanel2.TabIndex = 6
+        '
+        'BunifuCustomLabel7
+        '
+        Me.BunifuCustomLabel7.AutoSize = True
+        Me.BunifuCustomLabel7.BackColor = System.Drawing.Color.Transparent
+        Me.BunifuCustomLabel7.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.BunifuCustomLabel7.Location = New System.Drawing.Point(31, 3)
+        Me.BunifuCustomLabel7.Name = "BunifuCustomLabel7"
+        Me.BunifuCustomLabel7.Size = New System.Drawing.Size(233, 17)
+        Me.BunifuCustomLabel7.TabIndex = 37
+        Me.BunifuCustomLabel7.Text = "Tekan F2 untuk membuka Data Barang"
+        Me.BunifuCustomLabel7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'DatagridPembelian
         '
@@ -123,6 +139,7 @@ Partial Class FPembelian
         Me.DatagridPembelian.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DatagridPembelian.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.KodeBarang, Me.NamaBarang, Me.Jumlah, Me.Satuan, Me.Harga, Me.Total})
         Me.DatagridPembelian.DoubleBuffered = True
+        Me.DatagridPembelian.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DatagridPembelian.EnableHeadersVisualStyles = False
         Me.DatagridPembelian.GridColor = System.Drawing.Color.FromArgb(CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.DatagridPembelian.HeaderBgColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -132,37 +149,6 @@ Partial Class FPembelian
         Me.DatagridPembelian.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DatagridPembelian.Size = New System.Drawing.Size(1299, 258)
         Me.DatagridPembelian.TabIndex = 47
-        '
-        'KodeBarang
-        '
-        Me.KodeBarang.HeaderText = "Kode Barang"
-        Me.KodeBarang.Name = "KodeBarang"
-        '
-        'NamaBarang
-        '
-        Me.NamaBarang.HeaderText = "Nama Barang"
-        Me.NamaBarang.Name = "NamaBarang"
-        '
-        'Jumlah
-        '
-        Me.Jumlah.HeaderText = "Jumlah"
-        Me.Jumlah.Name = "Jumlah"
-        '
-        'Satuan
-        '
-        Me.Satuan.HeaderText = "Satuan"
-        Me.Satuan.Items.AddRange(New Object() {"PCS"})
-        Me.Satuan.Name = "Satuan"
-        '
-        'Harga
-        '
-        Me.Harga.HeaderText = "Harga"
-        Me.Harga.Name = "Harga"
-        '
-        'Total
-        '
-        Me.Total.HeaderText = "Total"
-        Me.Total.Name = "Total"
         '
         'LabelCetak
         '
@@ -406,6 +392,7 @@ Partial Class FPembelian
         '
         Me.TextboxNamaPemasok.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxNamaPemasok.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxNamaPemasok.Enabled = False
         Me.TextboxNamaPemasok.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxNamaPemasok.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxNamaPemasok.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -478,6 +465,7 @@ Partial Class FPembelian
         '
         Me.TextboxNomorPembelian.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxNomorPembelian.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxNomorPembelian.Enabled = False
         Me.TextboxNomorPembelian.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxNomorPembelian.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxNomorPembelian.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -524,6 +512,7 @@ Partial Class FPembelian
         '
         Me.TextboxKodePemasok.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.TextboxKodePemasok.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TextboxKodePemasok.Enabled = False
         Me.TextboxKodePemasok.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.TextboxKodePemasok.ForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.TextboxKodePemasok.HintForeColor = System.Drawing.Color.FromArgb(CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer), CType(CType(48, Byte), Integer))
@@ -565,6 +554,47 @@ Partial Class FPembelian
         Me.BunifuCustomLabel1.TabIndex = 1
         Me.BunifuCustomLabel1.Text = "Pembelian"
         Me.BunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Tabel_BarangTableAdapter
+        '
+        Me.Tabel_BarangTableAdapter.ClearBeforeFill = True
+        '
+        'KodeBarang
+        '
+        Me.KodeBarang.HeaderText = "Kode Barang"
+        Me.KodeBarang.Name = "KodeBarang"
+        Me.KodeBarang.ReadOnly = True
+        '
+        'NamaBarang
+        '
+        Me.NamaBarang.HeaderText = "Nama Barang"
+        Me.NamaBarang.Name = "NamaBarang"
+        Me.NamaBarang.ReadOnly = True
+        '
+        'Jumlah
+        '
+        Me.Jumlah.HeaderText = "Jumlah"
+        Me.Jumlah.Name = "Jumlah"
+        '
+        'Satuan
+        '
+        Me.Satuan.HeaderText = "Satuan"
+        Me.Satuan.Name = "Satuan"
+        Me.Satuan.ReadOnly = True
+        Me.Satuan.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Satuan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'Harga
+        '
+        Me.Harga.HeaderText = "Harga"
+        Me.Harga.Name = "Harga"
+        Me.Harga.ReadOnly = True
+        '
+        'Total
+        '
+        Me.Total.HeaderText = "Total"
+        Me.Total.Name = "Total"
+        Me.Total.ReadOnly = True
         '
         'FPembelian
         '
@@ -614,11 +644,13 @@ Partial Class FPembelian
     Friend WithEvents BindingSourcePembelian As BindingSource
     Friend WithEvents Database_Boho_OutletDataSet As Database_Boho_OutletDataSet
     Friend WithEvents Tabel_PembelianTableAdapter As Database_Boho_OutletDataSetTableAdapters.Tabel_PembelianTableAdapter
+    Friend WithEvents TextboxKeterangan As Bunifu.Framework.UI.BunifuMaterialTextbox
+    Friend WithEvents Tabel_BarangTableAdapter As Database_Boho_OutletDataSetTableAdapters.Tabel_BarangTableAdapter
+    Friend WithEvents BunifuCustomLabel7 As Bunifu.Framework.UI.BunifuCustomLabel
     Friend WithEvents KodeBarang As DataGridViewTextBoxColumn
     Friend WithEvents NamaBarang As DataGridViewTextBoxColumn
     Friend WithEvents Jumlah As DataGridViewTextBoxColumn
-    Friend WithEvents Satuan As DataGridViewComboBoxColumn
+    Friend WithEvents Satuan As DataGridViewTextBoxColumn
     Friend WithEvents Harga As DataGridViewTextBoxColumn
     Friend WithEvents Total As DataGridViewTextBoxColumn
-    Friend WithEvents TextboxKeterangan As Bunifu.Framework.UI.BunifuMaterialTextbox
 End Class

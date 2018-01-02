@@ -268,6 +268,7 @@ Partial Class UCBarang
         Me.DatagridBarang.HeaderForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(241, Byte), Integer))
         Me.DatagridBarang.Location = New System.Drawing.Point(29, 110)
         Me.DatagridBarang.Name = "DatagridBarang"
+        Me.DatagridBarang.ReadOnly = True
         Me.DatagridBarang.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DatagridBarang.Size = New System.Drawing.Size(1053, 329)
         Me.DatagridBarang.TabIndex = 3
@@ -277,54 +278,63 @@ Partial Class UCBarang
         Me.KodeBarangDataGridViewTextBoxColumn.DataPropertyName = "Kode Barang"
         Me.KodeBarangDataGridViewTextBoxColumn.HeaderText = "Kode Barang"
         Me.KodeBarangDataGridViewTextBoxColumn.Name = "KodeBarangDataGridViewTextBoxColumn"
+        Me.KodeBarangDataGridViewTextBoxColumn.ReadOnly = True
         '
         'NamaBarangDataGridViewTextBoxColumn
         '
         Me.NamaBarangDataGridViewTextBoxColumn.DataPropertyName = "Nama Barang"
         Me.NamaBarangDataGridViewTextBoxColumn.HeaderText = "Nama Barang"
         Me.NamaBarangDataGridViewTextBoxColumn.Name = "NamaBarangDataGridViewTextBoxColumn"
+        Me.NamaBarangDataGridViewTextBoxColumn.ReadOnly = True
         '
         'KategoriBarangDataGridViewTextBoxColumn
         '
         Me.KategoriBarangDataGridViewTextBoxColumn.DataPropertyName = "Kategori Barang"
         Me.KategoriBarangDataGridViewTextBoxColumn.HeaderText = "Kategori Barang"
         Me.KategoriBarangDataGridViewTextBoxColumn.Name = "KategoriBarangDataGridViewTextBoxColumn"
+        Me.KategoriBarangDataGridViewTextBoxColumn.ReadOnly = True
         '
         'MerekBarangDataGridViewTextBoxColumn
         '
         Me.MerekBarangDataGridViewTextBoxColumn.DataPropertyName = "Merek Barang"
         Me.MerekBarangDataGridViewTextBoxColumn.HeaderText = "Merek Barang"
         Me.MerekBarangDataGridViewTextBoxColumn.Name = "MerekBarangDataGridViewTextBoxColumn"
+        Me.MerekBarangDataGridViewTextBoxColumn.ReadOnly = True
         '
         'JumlahDataGridViewTextBoxColumn
         '
         Me.JumlahDataGridViewTextBoxColumn.DataPropertyName = "Jumlah"
         Me.JumlahDataGridViewTextBoxColumn.HeaderText = "Jumlah"
         Me.JumlahDataGridViewTextBoxColumn.Name = "JumlahDataGridViewTextBoxColumn"
+        Me.JumlahDataGridViewTextBoxColumn.ReadOnly = True
         '
         'SatuanDataGridViewTextBoxColumn
         '
         Me.SatuanDataGridViewTextBoxColumn.DataPropertyName = "Satuan"
         Me.SatuanDataGridViewTextBoxColumn.HeaderText = "Satuan"
         Me.SatuanDataGridViewTextBoxColumn.Name = "SatuanDataGridViewTextBoxColumn"
+        Me.SatuanDataGridViewTextBoxColumn.ReadOnly = True
         '
         'HargaBeliDataGridViewTextBoxColumn
         '
         Me.HargaBeliDataGridViewTextBoxColumn.DataPropertyName = "Harga Beli"
         Me.HargaBeliDataGridViewTextBoxColumn.HeaderText = "Harga Beli"
         Me.HargaBeliDataGridViewTextBoxColumn.Name = "HargaBeliDataGridViewTextBoxColumn"
+        Me.HargaBeliDataGridViewTextBoxColumn.ReadOnly = True
         '
         'HargaJualDataGridViewTextBoxColumn
         '
         Me.HargaJualDataGridViewTextBoxColumn.DataPropertyName = "Harga Jual"
         Me.HargaJualDataGridViewTextBoxColumn.HeaderText = "Harga Jual"
         Me.HargaJualDataGridViewTextBoxColumn.Name = "HargaJualDataGridViewTextBoxColumn"
+        Me.HargaJualDataGridViewTextBoxColumn.ReadOnly = True
         '
         'GambarDataGridViewImageColumn
         '
         Me.GambarDataGridViewImageColumn.DataPropertyName = "Gambar"
         Me.GambarDataGridViewImageColumn.HeaderText = "Gambar"
         Me.GambarDataGridViewImageColumn.Name = "GambarDataGridViewImageColumn"
+        Me.GambarDataGridViewImageColumn.ReadOnly = True
         '
         'BindingSourceBarang
         '

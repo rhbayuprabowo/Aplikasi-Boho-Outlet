@@ -159,4 +159,17 @@ Public Class FPemasok
         toolTip1.Show(Pesan, TextBoxes, 0, -25, 1000)
     End Sub
 
+    Private Sub FPemasok_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+        Using data_tabel = Tabel_PemasokTableAdapter.GetData()
+            If data_tabel.Rows.Count = 0 Then
+                TextboxKodePemasok.Text = "KPEM-" + 1.ToString("D4")
+            Else
+                Dim NomorArray = data_tabel(data_tabel.Count - 1).Kode_Pemasok.Split("-"c)
+                Dim KodePemasok = Convert.ToInt32(NomorArray(1)) + 1
+                TextboxKodePemasok.Text = "KPEM-" + KodePemasok.ToString("D4")
+            End If
+        End Using
+
+    End Sub
 End Class

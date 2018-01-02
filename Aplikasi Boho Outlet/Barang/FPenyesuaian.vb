@@ -13,7 +13,7 @@ Public Class FPenyesuaian
                                                                     TextboxKeterangan.Text)
 
         Tabel_PenyesuaianTableAdapter.UpdateQueryByNomorPenyesuaian(TextboxJumlah.Text,
-                                                                         TextboxKodeBarang.Text)
+                                                                    TextboxKodeBarang.Text)
         TextboxNomorPenyesuaian.Text = ""
         TextboxKodeBarang.Text = ""
         TextboxNamaBarang.Text = ""
@@ -72,4 +72,27 @@ Public Class FPenyesuaian
         toolTip1.Show(Pesan, TextBoxes, 0, -25, 1000)
     End Sub
 
+    Private Sub FPenyesuaian_Load(sender As Object, e As EventArgs) Handles Me.Load
+
+        Using data_tabel = Tabel_PenyesuaianTableAdapter.GetData()
+            If data_tabel.Rows.Count = 0 Then
+                TextboxNomorPenyesuaian.Text = "NPENY-" + 1.ToString("D4")
+            Else
+                Dim NomorArray = data_tabel(data_tabel.Count - 1).Nomor_Penyesuaian.Split("-"c)
+                Dim NomorPenyesuaian = Convert.ToInt32(NomorArray(1)) + 1
+                TextboxNomorPenyesuaian.Text = "NPENY-" + NomorPenyesuaian.ToString("D4")
+            End If
+        End Using
+
+    End Sub
+
+    Private Sub ImageButtonKodeBarang_Click(sender As Object, e As EventArgs) Handles ImageButtonKodeBarang.Click
+
+        Dim FormData = New FDataBarang
+        FormData.ShowDialog()
+        TextboxKodeBarang.Text = FormData.Kode_Barang
+        TextboxNamaBarang.Text = FormData.Nama_Barang
+        FormData.Dispose()
+
+    End Sub
 End Class
